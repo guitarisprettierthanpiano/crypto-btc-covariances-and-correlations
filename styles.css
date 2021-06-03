@@ -33,3 +33,7 @@ p, span, button, input, textarea, label, a{
     align-content: start;
     justify-content: start;
 }
+
+tr{
+    margin: 12px;
+}
