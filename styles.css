@@ -15,6 +15,10 @@ p, span, button, input, textarea, label, a{
     font-size: 18px;
     text-align: justify;
     font-weight: 400;
+    color: white;
+}
+body{
+    background-color: black;
 }
 
 /*the container*/
@@ -23,6 +27,7 @@ p, span, button, input, textarea, label, a{
     grid-template-columns: 1fr;
     grid-template-rows: repeat(auto auto);
     max-width: 100vw;
+
 }
  
 /*the data*/
