@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import NumberFormat from 'react-number-format';
 
+import DatePicker from "react-datepicker";
 
 const App = () => {
     const date = new Date();
@@ -66,7 +67,7 @@ const App = () => {
     return (
     <>
 
-    <h1>{date.setDate(date.getDate() - 1)}</h1>
+    <h1></h1>
 
     <div>
         <table className='coin-table'>
