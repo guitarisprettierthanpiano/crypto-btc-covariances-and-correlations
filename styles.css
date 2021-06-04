@@ -3,14 +3,12 @@
     margin: 0;
     padding: 0;
                                              
-    
-    color: rgb(50, 50, 50);
     transition: all .05s ease-in-out; 
 
     align-self: center;
     justify-self: center;
 }
-p, span, button, input, textarea, label, a{
+p, span, button, input, textarea, label, a, td, th{
     line-height: 125%;
     font-size: 18px;
     text-align: justify;
@@ -19,6 +17,9 @@ p, span, button, input, textarea, label, a{
 }
 body{
     background-color: black;
+}
+td{
+    border: 1px solid white;
 }
 
 /*the container*/
@@ -34,9 +35,6 @@ body{
 .the-data{
     display: grid;
     grid-template-columns: 1fr;
-
-    align-content: start;
-    justify-content: start;
 }
 
 tr{
