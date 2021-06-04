@@ -18,8 +18,9 @@ p, span, button, input, textarea, label, a, td, th{
 body{
     background-color: black;
 }
-td{
+td, th{
     border: 1px solid white;
+    text-align: end;
 }
 
 /*the container*/

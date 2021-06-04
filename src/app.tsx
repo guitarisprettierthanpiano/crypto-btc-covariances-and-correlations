@@ -7,10 +7,10 @@ const App = () => {
 
     let data:any = [];
     async function FetchNOW(){
-        let goFetch = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false`)
+        const goFetch = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false`)
         .then(res => res.json())
         .then(result => { 
-            for (let i = 0; i < 9; i++){
+            for (let i = 0; i < 50; i++){
                 data.push(result[i].id);
                 let myTR = document.createElement('tr');
 
@@ -33,42 +33,51 @@ const App = () => {
 
                 document.querySelector('.coin-table').appendChild(myTR);                
                 
-                fetch(`https://api.coingecko.com/api/v3/coins/${result[i].id}/market_chart?vs_currency=usd&days=14&interval=daily`)
+                let btcSigma:number = 0;
+                fetch(`https://api.coingecko.com/api/v3/coins/${result[i].id}/market_chart?vs_currency=usd&days=30&interval=daily`)
                 .then(res => res.json())
                 .then(resulto => {
     
+                    if (result[i].id==='internet-computer'){
+                        return false;
+                    }
+
                     let altData = [];
-                    for(let i = 0; i < 14; i++){
+                    for(let i = 0; i < 30; i++){
                         altData.push(resulto.prices[i][1])
                     }
-    
+
                     //daily realized return
                     let DRR = [];
-                    for (let i = 0; i < 13; i++){
+                    for (let i = 0; i < 29; i++){
                         let newPrice = 0;
                         newPrice =
-                        (altData[i]-altData[i+1])
+                        (altData[i+1]-altData[i])
                         /
-                        (altData[i+1]);
+                        (altData[i]);
                         DRR.push(newPrice);
                     }
-        
-                    console.log(DRR);
 
-                    let averageDailyReturn = 0;
-                    for (let i = 0; i < 13; i++){
-                        averageDailyReturn += DRR[i]*1000;
+                    let averageDailyReturn = 1;
+                    for (let i = 0; i < 29; i++){
+                        averageDailyReturn *= (DRR[i] + 1);
                     }
-                    averageDailyReturn /= 14;
-                    console.log(averageDailyReturn)
-        
+
+                    averageDailyReturn -= 1;
+
+                    
+                    //variance
                     let varSqrPart = 0;
-                    for (let i = 0; i < 13; i++){
+                    for (let i = 0; i < 29; i++){
                         let squareThing = Math.pow((DRR[i] - averageDailyReturn), 2);
                         varSqrPart += squareThing;
+                        
                     }
-                    varSqrPart /= 13;
+                    varSqrPart /= 29;
         
+                    if (result[i]==='bitcoin'){
+                        btcSigma = Math.sqrt(varSqrPart)
+                    }
         
                     let newTD = document.createElement('td')
                     newTD.innerText = averageDailyReturn.toFixed(2).toString() + '%';
@@ -81,8 +90,6 @@ const App = () => {
                     let newestTD = document.createElement('td')
                     newestTD.innerText = Math.sqrt(varSqrPart).toFixed(2).toString()
                     document.querySelector(`.${data[i]}`).appendChild(newestTD);
-        
-        
                 }
             )
 
@@ -91,10 +98,7 @@ const App = () => {
     };   
 
     useEffect(() => {
-
         FetchNOW();
-        
-        console.log(data)
     });
 
 
@@ -107,9 +111,9 @@ const App = () => {
                 <th>Name</th>
                 <th>Price</th>
                 <th>Market Cap</th>
-                <th>Average Daily Return</th>
-                <th>Sample Daily Variance</th>
-                <th>Sample Daily Volatility</th>
+                <th>Average Return</th>
+                <th>Variance</th>
+                <th>Volatility</th>
             </tr>
         </table>
     </div>
