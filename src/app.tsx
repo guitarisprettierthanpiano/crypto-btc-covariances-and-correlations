@@ -1,17 +1,11 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
+
 import NumberFormat from 'react-number-format';
-
 import { format } from 'date-fns';
-
 import { subDays } from 'date-fns';
 
 const App = () => {
-    const date = new Date();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-    const day = date.getDate();
-    const fulldate = day + '-' + month + '-' + year;
 
     //the next part
     //https://api.coingecko.com/api/v3/coins/bitcoin/history?date=30-4-2021&localization=false
@@ -74,7 +68,6 @@ const App = () => {
         console.log(data)
     }, []);
 
-    console.log(data)
 
     return (
     <>
