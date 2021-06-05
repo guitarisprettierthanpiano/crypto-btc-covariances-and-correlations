@@ -4,6 +4,16 @@ import { useState, useEffect, useRef } from 'react';
 const App = () => {
 
     let data = [];
+    let btcVolatility = 0;
+    let btcMean = [];
+    let btcPriceArray = [];
+    let btcReturns = [];
+    let altPriceArray = [];
+    let altReturnsArray = [];
+    let mean = 0;
+    let altMean = [];
+    let covariance = 0;
+    let correlation = 0;
     async function FetchNOW(){
         const goFetch = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false`)
         .then(res => res.json())
@@ -31,8 +41,7 @@ const App = () => {
 
                 document.querySelector('.coin-table').appendChild(myTR);                
                 
-                let btcSigma:number = 0;
-                fetch(`https://api.coingecko.com/api/v3/coins/${result[i].id}/market_chart?vs_currency=usd&days=30&interval=daily`)
+                fetch(`https://api.coingecko.com/api/v3/coins/${result[i].id}/market_chart?vs_currency=usd&days=31&interval=daily`)
                 .then(res => res.json())
                 .then(resulto => {
     
@@ -40,54 +49,80 @@ const App = () => {
                         return false;
                     }
 
-                    let altData = [];
-                    for(let i = 0; i < 30; i++){
-                        altData.push(resulto.prices[i][1])
+                    altPriceArray = [];
+                    altReturnsArray = [];
+                    for(let i = 0; i < 31; i++){
+                        altPriceArray.push(resulto.prices[i][1])
                     }
 
-                    //daily realized return
-                    let DRR = [];
-                    for (let i = 0; i < 29; i++){
-                        let newPrice = 0;
-                        newPrice =
-                        (altData[i+1]-altData[i])
+                    //SECOND TRY
+                    mean = 0;
+                    for (let i = 0; i < 30; i++){
+                        let returns = ((altPriceArray[i+1]-altPriceArray[i])
                         /
-                        (altData[i]);
-                        DRR.push(newPrice);
-                    }
+                        (altPriceArray[i]))*(100/30);
 
-                    let averageDailyReturn = 1;
-                    for (let i = 0; i < 29; i++){
-                        averageDailyReturn *= (DRR[i] + 1);
-                    }
+                        altReturnsArray.push(returns);
+                        mean += returns;
+                    };
 
-                    averageDailyReturn -= 1;
+                    altMean.push(mean);
+                    let stndxsqr = 0;
+                    for (let i = 0; i < 30; i++) {
+                        stndxsqr += Math.pow((((altPriceArray[i + 1] - altPriceArray[i])/(altPriceArray[i])) - mean), 2)*(100/30);
+                    };
 
-                    
-                    //variance
-                    let varSqrPart = 0;
-                    for (let i = 0; i < 29; i++){
-                        let squareThing = Math.pow((DRR[i] - averageDailyReturn), 2);
-                        varSqrPart += squareThing;
-                        
-                    }
-                    varSqrPart /= 29;
-        
-                    if (result[i]==='bitcoin'){
-                        btcSigma = Math.sqrt(varSqrPart)
-                    }
+                    let variance = stndxsqr / 30;
+                    let volatility = Math.sqrt(variance);
         
                     let newTD = document.createElement('td')
-                    newTD.innerText = averageDailyReturn.toFixed(2).toString() + '%';
+                    newTD.innerText = (mean).toFixed(2).toString() + '%';
                     document.querySelector(`.${data[i]}`).appendChild(newTD);
         
                     let newerTD = document.createElement('td')
-                    newerTD.innerText = varSqrPart.toFixed(2).toString()
+                    newerTD.innerText = variance.toFixed(5).toString()
                     document.querySelector(`.${data[i]}`).appendChild(newerTD);
         
                     let newestTD = document.createElement('td')
-                    newestTD.innerText = Math.sqrt(varSqrPart).toFixed(2).toString()
+                    newestTD.innerText = volatility.toFixed(5).toString()
                     document.querySelector(`.${data[i]}`).appendChild(newestTD);
+
+                    if (result[i].id === 'bitcoin') {
+                        btcMean.push(mean);
+                        btcVolatility = Math.sqrt(volatility);
+                        btcReturns.push(altReturnsArray);
+
+                        for (let j = 0; j < 30; j++){
+                            btcPriceArray.push(resulto.prices[j][1])
+                        }
+                    }
+                    else {
+                        covariance = 0;
+                        correlation = 0;
+                        
+                        for (let k = 0; k < 30; k++) {
+                            covariance += 
+                            (altReturnsArray[k]
+                            - altMean[0])
+                            *
+                            (btcReturns[k]
+                            - btcMean[0])
+                        }
+                        console.log(covariance)
+                        covariance /= 29;
+
+                        let anotherTD = document.createElement('td');
+                        anotherTD.innerText = covariance.toString();
+                        document.querySelector(`.${data[i]}`).appendChild(anotherTD);
+
+                        correlation = ((covariance)/(btcVolatility*volatility));
+                        console.log(covariance)
+
+                        let finalTD = document.createElement('td');
+                        finalTD.innerText = correlation.toString();
+                        document.querySelector(`.${data[i]}`).appendChild(finalTD);
+
+                    }
                 }
             )
 
@@ -112,6 +147,8 @@ const App = () => {
                 <th>Average Return</th>
                 <th>Variance</th>
                 <th>Volatility</th>
+                <th>Covariance</th>
+                <th>Correlation</th>
             </tr>
         </table>
     </div>
