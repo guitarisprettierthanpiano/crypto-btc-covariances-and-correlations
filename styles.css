@@ -58,3 +58,6 @@ tr{
     grid-template-rows: repeat(auto, auto);
     grid-gap: 100px;
 }
+#description-container * ul, #description-container * .MathJax{
+    padding-left:30px;
+}

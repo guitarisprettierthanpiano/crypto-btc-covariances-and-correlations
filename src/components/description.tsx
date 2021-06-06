@@ -1,6 +1,7 @@
 import * as React from 'react';
 import MathJax from 'react-mathjax3'
 
+//i'm generating these strings from http://atomurl.net/math/
 const covariance = '$Cov[X,  BTC]=\\sum_{i=1}^{30}\\frac{{(X_i - \\overline{X})} {(BTC_i - \\overline{BTC})}}{30}$';
 const correlation = '$ρ_{X, BTC}=\\frac{Cov[X, BTC]}{{\\sigma_X}⋅{\\sigma_{BTC}}}$';
 const mean = `$\\overline{X}=E[X]=\\frac{100}{30}⋅\\sum_{i=1}^{30}\\frac{{X_{i+1}-{X_i}}}{X_i}$`;
@@ -157,7 +158,7 @@ const Description = () => {
         >
             <MathJax.Html html={ covariance } />
         </MathJax.Context>
-            </div>
+            </div><br/>
             <ul>
                 <li>If the covariance is positive, then the two variables tend to move together. In other
                 words, if one variable increases (or decreases), so does the other variable.</li>
