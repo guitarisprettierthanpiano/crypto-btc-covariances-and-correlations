@@ -2,13 +2,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    line-height: 1.40;
                                              
     transition: all .05s ease-in-out; 
     
     color: white;
 }
 p, span, button, input, textarea, label, a, td, th, li{
-    line-height: 125%;
     font-size: 20px;
     text-align: justify;
     font-weight: 400;
@@ -60,4 +60,15 @@ tr{
 }
 #description-container * ul, #description-container * .MathJax{
     padding-left:30px;
+}
+#description-container * .MathJax span{
+    font-size: 24px;
+}
+
+/* ABOUT */
+#about-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto,auto);
+    grid-gap: 50px;
 }

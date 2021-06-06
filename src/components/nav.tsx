@@ -11,6 +11,9 @@ const Nav = () => {
                 <NavLink activeclassName='active' to='/description'>
                     <li>Description</li>
                 </NavLink>
+                <NavLink activeClassName='active' to='/about'>
+                    <li>About</li>
+                </NavLink>
             </ul>
         </nav>
     )

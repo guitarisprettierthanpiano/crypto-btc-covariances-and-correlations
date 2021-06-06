@@ -140,9 +140,9 @@ const MainPage = () => {
 
 
     return (
-    <>
-    <div>
-        <h1>Bitcoin Correlationsz</h1>
+    <div id='main-container'>
+        <h1>Bitcoin Covariances and Correlations</h1>
+        <h3>Based off of the last thirty daily closes of the market</h3>
         <table className='coin-table'>
             <tr className='tr1'>
                 <th className='rank'>#</th>
@@ -156,8 +156,10 @@ const MainPage = () => {
                 <th className='cor'>Correlation</th>
             </tr>
         </table>
+        <div className='span-container'>
+            <span>*Note that 'Stable Coins' do not have data calculated.</span>
+        </div>
     </div>
-    </>
     )
 }
 
