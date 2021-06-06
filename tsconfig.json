@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "esModuleInterop": true, //added this for react-number-format
         "jsx": "react",
         "watch": true,
         "target": "es5",

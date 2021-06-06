@@ -4,24 +4,23 @@
     padding: 0;
                                              
     transition: all .05s ease-in-out; 
-
-    align-self: center;
-    justify-self: center;
-}
-p, span, button, input, textarea, label, a, td, th{
-    line-height: 125%;
-    font-size: 18px;
-    text-align: justify;
-    font-weight: 400;
+    
     color: white;
 }
+p, span, button, input, textarea, label, a, td, th, li{
+    line-height: 125%;
+    font-size: 20px;
+    text-align: justify;
+    font-weight: 400;
+}
 body{
-    background-color: black;
+    background-color: rgb(15, 15, 15);
 }
 td, th{
     border: 1px solid white;
     text-align: end;
     text-transform: uppercase;
+    padding: 2px;
 }
 
 /*the container*/
@@ -49,4 +48,13 @@ th{
 }
 tr{
     margin: 12px;
+}
+
+
+/* DESCRIPTION */
+#description-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto, auto);
+    grid-gap: 100px;
 }
