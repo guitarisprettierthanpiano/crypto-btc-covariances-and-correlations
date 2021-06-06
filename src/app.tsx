@@ -5,15 +5,17 @@ const App = () => {
 
     let data = [];
     let btcVolatility = 0;
-    let btcMean = [];
+    let btcMean = 0;
     let btcPriceArray = [];
     let btcReturns = [];
     let altPriceArray = [];
     let altReturnsArray = [];
     let mean = 0;
-    let altMean = [];
     let covariance = 0;
     let correlation = 0;
+    let variance = 0;
+    let volatility = 0;
+    let meansqrd = 0;
     async function FetchNOW(){
         const goFetch = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false`)
         .then(res => res.json())
@@ -51,78 +53,78 @@ const App = () => {
 
                     altPriceArray = [];
                     altReturnsArray = [];
-                    for(let i = 0; i < 31; i++){
-                        altPriceArray.push(resulto.prices[i][1])
+                    for(let a = 0; a < 31; a++){
+                        altPriceArray.push(resulto.prices[a][1])
                     }
 
                     //SECOND TRY
                     mean = 0;
-                    for (let i = 0; i < 30; i++){
-                        let returns = ((altPriceArray[i+1]-altPriceArray[i])
+                    for (let b = 0; b < 30; b++){
+                        let returns = (altPriceArray[b+1]-altPriceArray[b])
                         /
-                        (altPriceArray[i]))*(100/30);
+                        (altPriceArray[b]);
 
                         altReturnsArray.push(returns);
                         mean += returns;
                     };
 
-                    altMean.push(mean);
-                    let stndxsqr = 0;
-                    for (let i = 0; i < 30; i++) {
-                        stndxsqr += Math.pow((((altPriceArray[i + 1] - altPriceArray[i])/(altPriceArray[i])) - mean), 2)*(100/30);
-                    };
+                    mean = ((altPriceArray[30]-altPriceArray[0])/altPriceArray[0])
+                    mean *= (10/3);
 
-                    let variance = stndxsqr / 30;
-                    let volatility = Math.sqrt(variance);
+                    meansqrd = 0;
+                    for (let c = 0; c < 30; c++) {
+                        meansqrd += Math.pow((((altPriceArray[c + 1] - altPriceArray[c])/(altPriceArray[c])) - mean), 2);
+                    };
+                    meansqrd *= (1/30);
+
+                    variance = meansqrd - mean*mean;
+                    volatility = Math.sqrt(variance);
         
                     let newTD = document.createElement('td')
                     newTD.innerText = (mean).toFixed(2).toString() + '%';
                     document.querySelector(`.${data[i]}`).appendChild(newTD);
         
                     let newerTD = document.createElement('td')
-                    newerTD.innerText = variance.toFixed(5).toString()
+                    newerTD.innerText = variance.toFixed(2).toString()
                     document.querySelector(`.${data[i]}`).appendChild(newerTD);
         
                     let newestTD = document.createElement('td')
-                    newestTD.innerText = volatility.toFixed(5).toString()
+                    newestTD.innerText = volatility.toFixed(2).toString()
                     document.querySelector(`.${data[i]}`).appendChild(newestTD);
 
                     if (result[i].id === 'bitcoin') {
-                        btcMean.push(mean);
+                        btcMean = mean;
                         btcVolatility = Math.sqrt(volatility);
-                        btcReturns.push(altReturnsArray);
+                        btcReturns = altReturnsArray;
 
-                        for (let j = 0; j < 30; j++){
+                        for (let j = 0; j < 31; j++){
                             btcPriceArray.push(resulto.prices[j][1])
                         }
                     }
-                    else {
-                        covariance = 0;
-                        correlation = 0;
-                        
-                        for (let k = 0; k < 30; k++) {
-                            covariance += 
-                            (altReturnsArray[k]
-                            - altMean[0])
-                            *
-                            (btcReturns[k]
-                            - btcMean[0])
-                        }
-                        console.log(covariance)
-                        covariance /= 29;
-
-                        let anotherTD = document.createElement('td');
-                        anotherTD.innerText = covariance.toString();
-                        document.querySelector(`.${data[i]}`).appendChild(anotherTD);
-
-                        correlation = ((covariance)/(btcVolatility*volatility));
-                        console.log(covariance)
-
-                        let finalTD = document.createElement('td');
-                        finalTD.innerText = correlation.toString();
-                        document.querySelector(`.${data[i]}`).appendChild(finalTD);
-
+                    else{
                     }
+
+                    covariance = 0;
+                    correlation = 0;                    
+                    for (let k = 0; k < 30; k++){
+                        covariance += 
+                        ((altReturnsArray[k]
+                        - mean)
+                        *
+                        (btcReturns[k]
+                        - btcMean))
+                    }
+                    covariance /= 29;
+                    correlation = ((covariance)/(btcVolatility*volatility));
+
+                    let anotherTD = document.createElement('td');
+                    anotherTD.innerText = covariance.toFixed(2).toString();
+                    document.querySelector(`.${data[i]}`).appendChild(anotherTD);
+
+                    let finalTD = document.createElement('td');
+                    finalTD.innerText = correlation.toFixed(2).toString();
+                    document.querySelector(`.${data[i]}`).appendChild(finalTD);
+                   
                 }
             )
 
