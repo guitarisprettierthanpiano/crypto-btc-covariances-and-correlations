@@ -7,7 +7,7 @@ const App = () => {
     let btcVolatility = 0;
     let btcMean = 0;
     let btcPriceArray = [];
-    let btcReturns = [];
+    let btcReturnsArray = [];
     let altPriceArray = [];
     let altReturnsArray = [];
     let mean = 0;
@@ -75,9 +75,19 @@ const App = () => {
                     for (let c = 0; c < 30; c++) {
                         meansqrd += Math.pow((((altPriceArray[c + 1] - altPriceArray[c])/(altPriceArray[c])) - mean), 2);
                     };
-                    meansqrd *= (1/30);
 
+                    meansqrd = (10000*((altPriceArray[30] - altPriceArray[0]))
+                    *
+                    (altPriceArray[30] - altPriceArray[0])) 
+                    / 
+                    (altPriceArray[0] * altPriceArray[0]);
+
+                    meansqrd /= 30;
+
+                    variance = 0;
                     variance = meansqrd - mean*mean;
+
+                    volatility = 0;
                     volatility = Math.sqrt(variance);
         
                     let newTD = document.createElement('td')
@@ -95,7 +105,7 @@ const App = () => {
                     if (result[i].id === 'bitcoin') {
                         btcMean = mean;
                         btcVolatility = Math.sqrt(volatility);
-                        btcReturns = altReturnsArray;
+                        btcReturnsArray = altReturnsArray;
 
                         for (let j = 0; j < 31; j++){
                             btcPriceArray.push(resulto.prices[j][1])
@@ -111,10 +121,10 @@ const App = () => {
                         ((altReturnsArray[k]
                         - mean)
                         *
-                        (btcReturns[k]
-                        - btcMean))
+                        (btcReturnsArray[k]
+                        - btcMean))/29
                     }
-                    covariance /= 29;
+                    
                     correlation = ((covariance)/(btcVolatility*volatility));
 
                     let anotherTD = document.createElement('td');
