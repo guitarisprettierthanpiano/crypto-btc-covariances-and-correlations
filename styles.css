@@ -21,6 +21,7 @@ body{
 td, th{
     border: 1px solid white;
     text-align: end;
+    text-transform: uppercase;
 }
 
 /*the container*/
@@ -37,7 +38,15 @@ td, th{
     display: grid;
     grid-template-columns: 1fr;
 }
-
+table{
+    border-collapse: collapse;
+}
+th{
+    text-align: center;
+}
+.rank{
+    text-align: center;
+}
 tr{
     margin: 12px;
 }
