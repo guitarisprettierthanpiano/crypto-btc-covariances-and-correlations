@@ -5,6 +5,7 @@ const Nav = () => {
     return (
         <nav>
             <ul>
+                <li/>
                 <NavLink exact activeClassname='active' to='/'>
                     <li>Home</li>
                 </NavLink>
@@ -14,6 +15,7 @@ const Nav = () => {
                 <NavLink activeClassName='active' to='/about'>
                     <li>About</li>
                 </NavLink>
+                <li/>
             </ul>
         </nav>
     )

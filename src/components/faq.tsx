@@ -18,7 +18,7 @@ const FAQ = () => {
         </div>
         
         <div className='desc-mean'>
-            <h2>What is the Expected Return?</h2>
+            <h2>What is Expected Return?</h2>
             <p>This represents the expected percent of gain or loss each day. It is the weighted average of recent returns. Also called the mean, it is calculated by summing the realized daily returns and dividing by the number of periods. The returns are the percentage increases in the value of the asset per dollar initially invested. I am multiplying by 100 to get a number that looks like 2.00 rather than 0.02. Then dividing by 30 because I am calculating the mean over 30 days. Note that I'm fetching 31 days of data because the formula uses i+1.</p><br/>
             <MathJax.Context
         input='tex'

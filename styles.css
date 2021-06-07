@@ -38,8 +38,22 @@ td, th{
  
 /* nav */
 nav{
-    height: 10vh;
+    height: 4vh;
     margin: 10px;
+}
+nav ul{
+    display: grid;
+    grid-template-columns: 1fr auto auto auto 1fr;
+    grid-template-rows: 1fr;
+}
+nav ul *{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 500;
+    list-style-type: none;
+}
+nav ul *:hover{
+    color: blue;
 }
 /*the main data page*/
 
@@ -108,8 +122,6 @@ td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(auto,auto);
-
-    grid-gap: 20px;
 }
 #faq-container .faq-h1{
     padding-top: 10px;
@@ -120,7 +132,7 @@ td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child
 }
 .faq-h1 h1{
     letter-spacing: 1px;
-    font-weight: 600;
+    font-weight: 500;
 }
 .desc-mean, .desc-var, .desc-vol, .desc-cov, .desc-cor{
     display: grid;
@@ -130,6 +142,7 @@ td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child
     justify-self: center;
 
     padding: 20px;
+    margin: 10px;
     margin-left: 20px;
     margin-right: 20px;
     max-width: 1200px;
@@ -194,4 +207,15 @@ td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child
 }
 .p-container p{
     margin: 10px;
+}
+
+/* Footer */
+footer{
+    border-top: 1px solid rgb(83, 83, 83);
+    display: grid;
+    justify-items: center;
+    margin-top: 14px;
+}
+footer span{
+    font-size: 14px;
 }
