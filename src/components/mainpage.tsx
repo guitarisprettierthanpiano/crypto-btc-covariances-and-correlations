@@ -34,7 +34,7 @@ const MainPage = () => {
                 myTR.appendChild(myCoin0);
 
                 let myCoin1 = document.createElement('td');
-                myCoin1.innerText = result[i].id+' - '+result[i].symbol;
+                myCoin1.innerText = result[i].symbol;
                 myTR.classList.add(result[i].id);
                 myTR.appendChild(myCoin1);
 
@@ -46,13 +46,26 @@ const MainPage = () => {
                 myCoin3.innerText = result[i].market_cap.toLocaleString();
                 myTR.appendChild(myCoin3);
 
-                document.querySelector('.coin-table').appendChild(myTR);                
+                document.querySelector('tbody').appendChild(myTR);                
                 
                 fetch(`https://api.coingecko.com/api/v3/coins/${result[i].id}/market_chart?vs_currency=usd&days=31&interval=daily`)
                 .then(res => res.json())
                 .then(resulto => {
     
-                    if (result[i].id===('internet-computer'||'usd-coin')){
+                    if (result[i].id==='internet-computer' ||   
+                    result[i].id==='usd-coin' ||
+                    result[i].id==='binance-usd' ||
+                    result[i].id==='dai' ||
+                    result[i].id==='tether'){
+
+                        //fill in blank cells with -
+                        for (let z = 0; z < 5; z++){
+                            
+                            let blankEle = document.createElement('td');
+                            blankEle.innerText = '';
+
+                            document.querySelector(`.${data[i]}`).appendChild(blankEle);
+                        }
                         return false;
                     }
 
@@ -124,7 +137,7 @@ const MainPage = () => {
                     document.querySelector(`.${data[i]}`).appendChild(anotherTD);
 
                     let finalTD = document.createElement('td');
-                    finalTD.innerText = correlation.toFixed(4).toString();
+                    finalTD.innerText = correlation.toFixed(5).toString();
                     document.querySelector(`.${data[i]}`).appendChild(finalTD);
                    
                 }
@@ -142,22 +155,27 @@ const MainPage = () => {
     return (
     <div id='main-container'>
         <h1>Bitcoin Covariances and Correlations</h1>
-        <h3>Based off of the last thirty daily closes of the market</h3>
+        <h4>Based off of the last thirty daily closes of the market</h4>
         <table className='coin-table'>
             <tr className='tr1'>
                 <th className='rank'>#</th>
                 <th className='name'>Name</th>
                 <th className='price'>Price</th>
                 <th className='market-cap'>Market Cap</th>
-                <th className='return'>Expected Return</th>
-                <th className='var'>Variance</th>
-                <th className='sig'>Volatility</th>
-                <th className='covar'>Covariance</th>
-                <th className='cor'>Correlation</th>
+                <th className='return'>E[X]</th>
+                <th className='var'>Var</th>
+                <th className='sig'>Vol</th>
+                <th className='covar'>Covar</th>
+                <th className='cor'>Corr</th>
             </tr>
+            <tbody>
+
+            </tbody>
         </table>
         <div className='span-container'>
-            <span>*Note that 'Stable Coins' do not have data calculated.</span>
+            <span>*Note that 'Stable Coins' do not have data calculated. ICP does not have enough historical data available.</span><br/>
+            <span>*If you see NaN try refreshing the page.</span><br/>
+            <span>*Coins like SHIB have nonzero prices.</span>
         </div>
     </div>
     )

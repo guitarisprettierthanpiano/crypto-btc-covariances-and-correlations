@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 
-import Description from './components/description';
+import About from './components/about';
 import MainPage from './components/mainpage';
 import Nav from './components/nav';
-import About from './components/about'
+import FAQ from './components/faq'
 
 const App = () => {
 
@@ -18,8 +18,8 @@ const App = () => {
             <Route exact path='/'
             component = {MainPage}/>
 
-            <Route path='/description'
-            component = {Description}/>
+            <Route path='/faq'
+            component = {FAQ}/>
 
             <Route path ='/about' 
             component={About}/>

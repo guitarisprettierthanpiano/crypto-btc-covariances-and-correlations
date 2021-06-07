@@ -6,10 +6,10 @@ const Nav = () => {
         <nav>
             <ul>
                 <NavLink exact activeClassname='active' to='/'>
-                    <li>Statistics</li>
+                    <li>Home</li>
                 </NavLink>
-                <NavLink activeclassName='active' to='/description'>
-                    <li>Description</li>
+                <NavLink activeclassName='active' to='/faq'>
+                    <li>FAQ</li>
                 </NavLink>
                 <NavLink activeClassName='active' to='/about'>
                     <li>About</li>

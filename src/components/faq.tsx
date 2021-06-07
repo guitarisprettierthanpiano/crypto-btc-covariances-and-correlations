@@ -10,9 +10,13 @@ const volatility = `$σ_{X} = SD[X] = \\sqrt{Var[X]}$`
 const varianceproof = `$Cov[X, X] = E[(X_{i}-E[X])⋅(X_{i}-E[X])] = E[(X_{i}-E[X])^{2}] = Var[X]$`
 const varianceproof2 = `$ρ_{X, X}=\\frac{Cov[X, X]}{σ_{X} ⋅ σ_{X}} = \\frac{Var[X]}{Var[X]} = 1$`
 
-const Description = () => {
+const FAQ = () => {
     return (
-    <div id='description-container'>
+    <div id='faq-container'>
+        <div className='faq-h1'>
+            <h1>Frequently Asked Questions</h1>
+        </div>
+        
         <div className='desc-mean'>
             <h2>What is the Expected Return?</h2>
             <p>This represents the expected percent of gain or loss each day. It is the weighted average of recent returns. Also called the mean, it is calculated by summing the realized daily returns and dividing by the number of periods. The returns are the percentage increases in the value of the asset per dollar initially invested. I am multiplying by 100 to get a number that looks like 2.00 rather than 0.02. Then dividing by 30 because I am calculating the mean over 30 days. Note that I'm fetching 31 days of data because the formula uses i+1.</p><br/>
@@ -66,7 +70,7 @@ const Description = () => {
             </MathJax.Context>
             </div>                 
             
-            <br/><p>Although not usually used directly to make observations about an asset, it is used within the calculations of volatility, covariance and correlation. I added variance for completeness and to point out that the variance and covariance of BTC are equal to each other. Therefore the correlation will also be 1. That means my calculations on this website are right!</p><br/>
+            <br/><p>Although not usually used directly to make observations about an asset, it is used within the calculations of volatility, covariance and correlation. I added variance for completeness and to point out that the variance and covariance of BTC are equal. Therefore the correlation will also be 1. That means my calculations on this website are right!</p><br/>
             <div>
             <MathJax.Context
             input='tex'
@@ -172,8 +176,8 @@ const Description = () => {
         </MathJax.Context>
             </div><br/>
             <ul>
-                <li>If the covariance is positive, then the two variables tend to move together.</li>
-                <li>If the covariance is negative, then the two variables tend to move in opposite directions.</li>
+                <li>If the covariance is positive, then the two variables tend to move together. High covariance measures high variation from their expected values. </li>
+                <li>If the covariance is negative, then the two variables tend to move in opposite directions. Low covariance measures low variation from their expected values.</li>
                 <li>If the covariance is 0, then there is no linear relationship between the two variables.</li>
             </ul>            
         </div>
@@ -218,4 +222,4 @@ const Description = () => {
     )
 }
 
-export default Description;
+export default FAQ;
