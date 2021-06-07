@@ -6,7 +6,7 @@ const Nav = () => {
         <nav>
             <ul>
                 <li/>
-                <NavLink exact activeClassname='active' to='https://guitarisprettierthanpiano.github.io/crypto-btc-covariances-and-correlations'>
+                <NavLink exact activeClassname='active' to='/'>
                     <li>Home</li>
                 </NavLink>
                 <NavLink activeclassName='active' to='/faq'>

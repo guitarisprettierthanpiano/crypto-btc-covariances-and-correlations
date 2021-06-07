@@ -16,7 +16,7 @@ const App = () => {
 
         <Switch>
 
-            <Route exact path='https://guitarisprettierthanpiano.github.io/crypto-btc-covariances-and-correlations'
+            <Route exact path='/'
             component = {MainPage}/>
 
             <Route path='/faq'
