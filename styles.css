@@ -260,6 +260,7 @@ footer span{
     table{
         margin: 4px;
     }
+<<<<<<< HEAD
 }
 
 /* h1 too long */
@@ -280,5 +281,9 @@ footer span{
     }
     #faq-container * .MathJax span{
         font-size: 14px;
+=======
+    h1, h2, h3, h4, h5{
+        letter-spacing: 1px;
+>>>>>>> 054502fd7cf2dc9a27b03a43026e054d738fa15b
     }
 }
