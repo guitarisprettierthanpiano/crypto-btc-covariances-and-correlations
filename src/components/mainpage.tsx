@@ -156,6 +156,12 @@ const MainPage = () => {
     <div id='main-container'>
         <h1>Bitcoin Covariances and Correlations</h1>
         <h4>Based off of the last thirty daily closes of the market</h4>
+
+        <button 
+        onClick={() => location.reload(false)}
+        title='Reload Data'>
+            ⟳
+        </button>
         <table className='coin-table'>
             <tr className='tr1'>
                 <th className='rank'>#</th>
@@ -174,7 +180,13 @@ const MainPage = () => {
         </table>
         <div className='span-container'>
             <span>*Note that 'Stable Coins' do not have data calculated. ICP does not have enough historical data available.</span><br/>
-            <span>*If you see NaN try refreshing the page.</span><br/>
+            <span>*If you see NaN try&nbsp; 
+                <a
+                onClick={() => location.reload(false)}
+                title='Reload Data'>
+                   refreshing the page. ⟳
+                </a>
+            </span><br/>
             <span>*Coins like SHIB have nonzero prices.</span>
         </div>
     </div>

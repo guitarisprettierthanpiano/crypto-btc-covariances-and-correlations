@@ -73,6 +73,20 @@ nav ul *:hover{
 #main-container h4{
     font-weight: 500;
 }
+button{
+    background-color: rgba(255, 166, 0, 0);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 40px;
+
+    margin-top: 20px;
+
+    border: none;
+
+    cursor: pointer;
+    align-self: center;
+}
 table{
     border-collapse: collapse;
     border: 1px solid rgb(122, 122, 122);
@@ -83,7 +97,7 @@ table{
                 0 2px 4px rgba(0,0,0,0.4);
 
     margin: 10px;
-    margin-top: 20px;
+    margin-top: 4px;
 }
 th{
     text-align: center;
@@ -121,7 +135,10 @@ td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child
     margin-left: 10px;
     margin-bottom: 20px;
 }
-
+a{
+    cursor: pointer;
+    font-weight: 500;
+}
 
 /* faq */
 #faq-container{
@@ -177,6 +194,7 @@ td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child
 #faq-container * .MathJax span{
     font-size: 30px;
     color: rgb(24, 24, 24);
+    font-weight: 600;
 }
 
 /* ABOUT */
