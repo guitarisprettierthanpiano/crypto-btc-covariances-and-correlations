@@ -191,7 +191,7 @@ a{
 #faq-container * p{
     max-width: 1200px;
 }
-#faq-container * .MathJax span{
+.mjs{
     font-size: 30px;
     color: rgb(24, 24, 24);
     font-weight: 600;
@@ -254,8 +254,8 @@ footer span{
 
 /* LAPTOP SIZE */
 @media screen and (max-width: 1440px){
-    #faq-container * .MathJax span{
-        font-size: 24px;
+    .mjs{
+        font-size: 18px;
     }
 }
 
@@ -267,8 +267,8 @@ footer span{
     h1{
         font-size: 30px;
     }
-    #faq-container * .MathJax span{
-        font-size: 18px;
+    .mjs{
+        font-size: 16px;
     }
     th, td{
         padding: 2px;
@@ -296,7 +296,7 @@ footer span{
     p{
         font-size: 14px;
     }
-    #faq-container * .MathJax span{
-        font-size: 14px;
+    .mjs{
+        font-size: 12px;
     }
 }
