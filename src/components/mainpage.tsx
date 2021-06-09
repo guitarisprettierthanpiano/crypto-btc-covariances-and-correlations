@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 
+import { NavLink } from 'react-router-dom'
+
 const MainPage = () => {
 
     //some of these variables I need to keep outside the following function because I recall them consistantly after every fetch. So I declared them all here so I can find them easily.
@@ -157,11 +159,13 @@ const MainPage = () => {
         <h1>Bitcoin Covariances and Correlations</h1>
         <h4>Based off of the last thirty daily closes of the market</h4>
 
-        <button 
-        onClick={() => location.reload(false)}
-        title='Reload Data'>
-            ⟳
-        </button>
+        <NavLink 
+        exact activeClassname='active' to='/'>
+            <button
+            onClick ={() => location.reload()}>
+                ⟳
+            </button>
+        </NavLink>
         <table className='coin-table'>
             <tr className='tr1'>
                 <th className='rank'>#</th>

@@ -55,6 +55,7 @@ nav ul *:hover{
     color: orange;
     text-decoration: underline orange;
 }
+
 /*the main data page*/
 
 #main-container{
@@ -191,10 +192,9 @@ a{
 #faq-container * p{
     max-width: 1200px;
 }
-.mjs{
-    font-size: 30px;
-    color: rgb(24, 24, 24);
-    font-weight: 600;
+.mjs, .mjs *{
+    font-size: 22px!important;
+    color: rgb(24, 24, 24)!important;
 }
 
 /* ABOUT */
@@ -254,8 +254,8 @@ footer span{
 
 /* LAPTOP SIZE */
 @media screen and (max-width: 1440px){
-    .mjs{
-        font-size: 18px;
+    .mjs, .mjs *{
+        font-size: 18px!important;
     }
 }
 
@@ -267,8 +267,8 @@ footer span{
     h1{
         font-size: 30px;
     }
-    .mjs{
-        font-size: 16px;
+    .mjs, .mjs *{
+        font-size: 16px!important;
     }
     th, td{
         padding: 2px;
@@ -296,7 +296,7 @@ footer span{
     p{
         font-size: 14px;
     }
-    .mjs{
-        font-size: 12px;
+    .mjs, .mjs *{
+        font-size: 14px!important;
     }
 }

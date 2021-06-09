@@ -11,13 +11,15 @@ const Nav = () => {
             <ul>
                 <li/>
                 <NavLink 
-                exact activeClassname='active' to='/'>
+                exact activeClassname='active' to='/'
+                onClick={() => setTimeout(() =>   location.reload(), 10)}>
                     <li>Home</li>
                 </NavLink>
                 <NavLink 
                 activeclassName='active' 
                 to='/faq'
-                onClick={() => setTimeout(ReloadAgain, 100)}>
+                onClick={() => setTimeout(() =>   location.reload(), 10)}
+                >
                     <li>FAQ</li>
                 </NavLink>
                 <NavLink 
