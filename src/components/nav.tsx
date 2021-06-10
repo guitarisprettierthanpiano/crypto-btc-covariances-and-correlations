@@ -2,9 +2,6 @@ import * as React from 'react'
 import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
-    function ReloadAgain(){
-        location.reload();
-    }
 
     return (
         <nav>

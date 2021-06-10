@@ -191,7 +191,7 @@ const MainPage = () => {
                    refreshing the page. ⟳
                 </a>
             </span><br/>
-            <span>*Coins like SHIB have nonzero prices.</span>
+            <span>*Assets like SHIB have nonzero prices.</span>
         </div>
     </div>
     )
