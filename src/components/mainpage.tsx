@@ -33,6 +33,7 @@ const MainPage = () => {
 
                 let myCoin0 = document.createElement('td');
                 myCoin0.innerText = result[i].market_cap_rank;
+                myCoin0.classList.add('ranks')
                 myTR.appendChild(myCoin0);
 
                 let myCoin1 = document.createElement('td');
@@ -41,7 +42,7 @@ const MainPage = () => {
                 myTR.appendChild(myCoin1);
 
                 let myCoin2 = document.createElement('td');
-                myCoin2.innerText = result[i].current_price.toFixed(2);
+                myCoin2.innerText = result[i].current_price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 myTR.appendChild(myCoin2);
 
                 let myCoin3 = document.createElement('td');
@@ -183,6 +184,7 @@ const MainPage = () => {
             </tbody>
         </table>
         <div className='span-container'>
+            <span>*Price and Market Cap are in US Dollars.</span><br/>
             <span>*Note that 'Stable Coins' do not have data calculated. ICP does not have enough historical data available.</span><br/>
             <span>*If you see NaN try&nbsp; 
                 <a

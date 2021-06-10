@@ -8,8 +8,7 @@ const Nav = () => {
             <ul>
                 <li/>
                 <NavLink 
-                exact activeClassname='active' to='/'
-                onClick={() => setTimeout(() =>   location.reload(), 10)}>
+                exact activeClassname='active' to='/'>
                     <li>Home</li>
                 </NavLink>
                 <NavLink 

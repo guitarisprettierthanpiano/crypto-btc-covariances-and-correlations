@@ -5,19 +5,19 @@
                                              
     transition: all .05s ease-in-out; 
 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     
     color: rgb(33, 33, 33);
 }
 p, span, button, input, textarea, label, a, td, th, li{
-    font-size: 20px;
+    font-size: 18px;
     text-align: justify;
     text-justify: center;
     
-    line-height: 1.40;
+    line-height: 1.50;
 }
 td, th{
-    text-align: center;
+    text-align: end;
     text-transform: uppercase;
 
     padding: 2px;
@@ -107,8 +107,8 @@ th{
     padding-right: 8px;
     font-weight: 500;
 }
-.rank{
-    text-align: center;
+.rank, .ranks{
+    text-align: center!important;
 }
 .tr1{
     background-color: rgb(20, 20, 20)!important;
@@ -121,9 +121,6 @@ tr:nth-child(2n){
 }
 tr:nth-child(2n+1){
     background-color: rgba(255, 166, 0, 0.4);
-}
-td{
-    font-weight: 500;
 }
 .usd-coin, .binance-usd, .tether, .dai, .internet-computer{
     /*background-color: rgba(255, 166, 0, 0.1)!important;*/
@@ -193,8 +190,8 @@ a{
     max-width: 1200px;
 }
 .mjs, .mjs *{
-    font-size: 22px!important;
-    color: rgb(24, 24, 24)!important;
+    font-size: 28px;
+    color: rgb(24, 24, 24);
 }
 
 /* ABOUT */
@@ -255,7 +252,7 @@ footer span{
 /* LAPTOP SIZE */
 @media screen and (max-width: 1440px){
     .mjs, .mjs *{
-        font-size: 18px!important;
+        font-size: 22px!important;
     }
 }
 
@@ -268,7 +265,7 @@ footer span{
         font-size: 30px;
     }
     .mjs, .mjs *{
-        font-size: 16px!important;
+        font-size: 20px!important;
     }
     th, td{
         padding: 2px;
@@ -297,6 +294,6 @@ footer span{
         font-size: 14px;
     }
     .mjs, .mjs *{
-        font-size: 14px!important;
+        font-size: 16px!important;
     }
 }
