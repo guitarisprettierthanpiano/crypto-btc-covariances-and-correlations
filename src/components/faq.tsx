@@ -133,33 +133,43 @@ const FAQ = () => {
     <div id='faq-container'>
         <div className='sticky-sidebar'>
             <ul>
+                <li 
+                className='li-header'>
+                    Variables
+                </li>
+
                 <li   
                 className= {meanClass}
-                onClick={() => ClickMean()}>
+                onClick={() => ClickMean()}
+                title='Expected Value'>
                     E[X]
                 </li>
 
                 <li 
                 className= {varClass}
-                onClick={() => ClickVar()}>
+                onClick={() => ClickVar()}
+                title='Variance'>
                     Var
                 </li>
 
                 <li 
                 className= {volClass}
-                onClick={() => ClickVol()}>
+                onClick={() => ClickVol()}
+                title='Volatility'>
                     Vol
                 </li>
 
                 <li 
                 className= {covarClass}
-                onClick={() => ClickCovar()}>
+                onClick={() => ClickCovar()}
+                title='Covariance'>
                     Cov
                 </li>
 
                 <li    
                 className= {corrClass}
-                onClick={() => ClickCorr()}>
+                onClick={() => ClickCorr()}
+                title='Correlation Coeffecient'>
                     Corr
                 </li>
             </ul>

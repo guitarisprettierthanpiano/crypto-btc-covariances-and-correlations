@@ -168,17 +168,20 @@ a{
 }
 .sticky-sidebar ul li{
     cursor: pointer;
-    text-align: center;
-    text-justify: center;
-
-    font-size: 24px;
+    text-indent: 30px;
+    font-size: 20px;
+    line-height: 1.4;
 }
-.sticky-sidebar ul li:hover{
+.none:hover{
     background-color: white;
+}
+.li-header{
+    text-indent: 10px!important;
+    text-transform: uppercase;
+    cursor:auto!important;
 }
 .current{
     background-color: gold!important;
-    font-weight: 500!important;
 }
 
 
