@@ -35,132 +35,96 @@ const FAQ = () => {
             </MathJax.Context>
         */
      
-    //these are all useStates to change the style of the nav 
+    //these are all useStates to change the style of the information showing. The stylings are attached to the class named current.
+    const [meanClass, setMeanClass] = useState<string>('current');
+    const [varClass, setVarClass] = useState<string>('none');
+    const [volClass, setVolClass] = useState<string>('none');
+    const [covarClass, setCovarClass] = useState<string>('none');
+    const [corrClass, setCorrClass] = useState<string>('none');
+
     const [meanDisplay, setMeanDisplay] = useState<string>('inline');
     const [varDisplay, setVarDisplay] = useState<string>('none');
     const [volDisplay, setVolDisplay] = useState<string>('none');
     const [covarDisplay, setCovarDisplay] = useState<string>('none');
     const [corrDisplay, setCorrDisplay] = useState<string>('none');
 
-    const [meanFW, setMeanFW] = useState<number>(500);
-    const [varFW, setVarFW] = useState<any>(400);
-    const [volFW, setVolFW] = useState<any>(400);
-    const [covarFW, setCovarFW] = useState<any>(400);
-    const [corrFW, setCorrFW] = useState<any>(400);
-
-    const [meanBG, setMeanBG] = useState<string>('gold!important');
-    const [varBG, setVarBG] = useState<string>('yellowgreen')
-    const [volBG, setVolBG] = useState<string>('yellowgreen')
-    const [covarBG, setCovarBG] = useState<string>('yellowgreen')
-    const [corrBG, setCorrBG] = useState<string>('yellowgreen')
-
     function ClickMean(){
         if (meanDisplay ==='none'){
+            setMeanClass('current')
+            setVarClass('none')
+            setVolClass('none')
+            setCovarClass('none')
+            setCorrClass('none')
+
             setMeanDisplay('inline')
             setVarDisplay('none')
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('none')
-
-            setMeanFW(500)
-            setVarFW(400)
-            setVolFW(400)
-            setCovarFW(400)
-            setCorrFW(400)
-
-            setMeanBG('gold')
-            setVarBG('transparent')
-            setVolBG('transparent')
-            setCovarBG('transparent')
-            setCorrBG('transparent')
         }
     }
 
     function ClickVar(){
         if (varDisplay ==='none'){
+            setMeanClass('none')
+            setVarClass('current')
+            setVolClass('none')
+            setCovarClass('none')
+            setCorrClass('none')
+
             setMeanDisplay('none')
             setVarDisplay('inline')
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('none')
-
-            setMeanFW(400)
-            setVarFW(500)
-            setVolFW(400)
-            setCovarFW(400)
-            setCorrFW(400)
-
-            setMeanBG('transparent')
-            setVarBG('gold')
-            setVolBG('transparent')
-            setCovarBG('transparent')
-            setCorrBG('transparent')
         }
     }
 
     function ClickVol(){
         if (volDisplay ==='none'){
+            setMeanClass('none')
+            setVarClass('none')
+            setVolClass('current')
+            setCovarClass('none')
+            setCorrClass('none')
+
             setMeanDisplay('none')
             setVarDisplay('none')
             setVolDisplay('inline')
             setCovarDisplay('none')
             setCorrDisplay('none')
-
-            setMeanFW(400)
-            setVarFW(400)
-            setVolFW(500)
-            setCovarFW(400)
-            setCorrFW(400)
-
-            setMeanBG('transparent')
-            setVarBG('transparent')
-            setVolBG('gold')
-            setCovarBG('transparent')
-            setCorrBG('transparent')
         }
     }
 
     function ClickCovar(){
         if (covarDisplay ==='none'){
+            setMeanClass('none')
+            setVarClass('none')
+            setVolClass('none')
+            setCovarClass('current')
+            setCorrClass('none')
+
             setMeanDisplay('none')
             setVarDisplay('none')
             setVolDisplay('none')
             setCovarDisplay('inline')
             setCorrDisplay('none')
-
-            setMeanFW(400)
-            setVarFW(400)
-            setVolFW(400)
-            setCovarFW(500)
-            setCorrFW(400)
-
-            setMeanBG('transparent')
-            setVarBG('transparent')
-            setVolBG('transparent')
-            setCovarBG('gold')
-            setCorrBG('transparent')
         }
     }
 
     function ClickCorr(){
         if (corrDisplay ==='none'){
+            setMeanClass('none')
+            setVarClass('none')
+            setVolClass('none')
+            setCovarClass('none')
+            setCorrClass('current')
+
             setMeanDisplay('none')
             setVarDisplay('none')
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('inline')
-
-            setMeanFW(400)
-            setVarFW(400)
-            setVolFW(400)
-            setCovarFW(400)
-            setCorrFW(500)
-
-            setMeanBG('transparent')
-            setVarBG('transparent')
-            setVolBG('transparent')
-            setCovarBG('transparent')
-            setCorrBG('gold')
         }
     }
 
@@ -169,53 +133,32 @@ const FAQ = () => {
     <div id='faq-container'>
         <div className='sticky-sidebar'>
             <ul>
-                <li                
-                style={
-                Object.assign({}, 
-                {'fontWeight':meanFW},
-                {'backgroundColor':`${meanBG}`}
-                )}
+                <li   
+                className= {meanClass}
                 onClick={() => ClickMean()}>
                     E[X]
                 </li>
 
                 <li 
-                style={
-                Object.assign({}, 
-                {'fontWeight':varFW},
-                {'backgroundColor':`${varBG}`}
-                )}
+                className= {varClass}
                 onClick={() => ClickVar()}>
                     Var
                 </li>
 
                 <li 
-                style={
-                Object.assign({}, 
-                {'fontWeight':volFW},
-                {'backgroundColor':`${volBG}`}
-                )}
+                className= {volClass}
                 onClick={() => ClickVol()}>
                     Vol
                 </li>
 
                 <li 
-                style={
-                    Object.assign({}, 
-                    {'fontWeight':covarFW},
-                    {'backgroundColor':`${covarBG}`}
-                    )}
-
+                className= {covarClass}
                 onClick={() => ClickCovar()}>
                     Cov
                 </li>
 
-                <li                 
-                style={
-                Object.assign({}, 
-                {'fontWeight':corrFW},
-                {'backgroundColor':`${corrBG}`}
-                )}
+                <li    
+                className= {corrClass}
                 onClick={() => ClickCorr()}>
                     Corr
                 </li>
