@@ -38,6 +38,7 @@ const MainPage = () => {
 
                 let myCoin1 = document.createElement('td');
                 myCoin1.innerText = result[i].symbol;
+                myCoin1.classList.add('symbols')
                 myTR.classList.add(result[i].id);
                 myTR.appendChild(myCoin1);
 
@@ -163,7 +164,8 @@ const MainPage = () => {
         <NavLink 
         exact activeClassname='active' to='/'>
             <button
-            onClick ={() => location.reload()}>
+            onClick ={() => location.reload()}
+            title='Reload Page'>
                 ⟳
             </button>
         </NavLink>

@@ -35,12 +35,24 @@ const FAQ = () => {
             </MathJax.Context>
         */
      
-    
+    //these are all useStates to change the style of the nav 
     const [meanDisplay, setMeanDisplay] = useState<string>('inline');
     const [varDisplay, setVarDisplay] = useState<string>('none');
     const [volDisplay, setVolDisplay] = useState<string>('none');
     const [covarDisplay, setCovarDisplay] = useState<string>('none');
     const [corrDisplay, setCorrDisplay] = useState<string>('none');
+
+    const [meanFW, setMeanFW] = useState<number>(500);
+    const [varFW, setVarFW] = useState<any>(400);
+    const [volFW, setVolFW] = useState<any>(400);
+    const [covarFW, setCovarFW] = useState<any>(400);
+    const [corrFW, setCorrFW] = useState<any>(400);
+
+    const [meanBG, setMeanBG] = useState<string>('gold!important');
+    const [varBG, setVarBG] = useState<string>('yellowgreen')
+    const [volBG, setVolBG] = useState<string>('yellowgreen')
+    const [covarBG, setCovarBG] = useState<string>('yellowgreen')
+    const [corrBG, setCorrBG] = useState<string>('yellowgreen')
 
     function ClickMean(){
         if (meanDisplay ==='none'){
@@ -49,7 +61,18 @@ const FAQ = () => {
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('none')
-            console.log('w3eriowe')
+
+            setMeanFW(500)
+            setVarFW(400)
+            setVolFW(400)
+            setCovarFW(400)
+            setCorrFW(400)
+
+            setMeanBG('gold')
+            setVarBG('transparent')
+            setVolBG('transparent')
+            setCovarBG('transparent')
+            setCorrBG('transparent')
         }
     }
 
@@ -60,6 +83,18 @@ const FAQ = () => {
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('none')
+
+            setMeanFW(400)
+            setVarFW(500)
+            setVolFW(400)
+            setCovarFW(400)
+            setCorrFW(400)
+
+            setMeanBG('transparent')
+            setVarBG('gold')
+            setVolBG('transparent')
+            setCovarBG('transparent')
+            setCorrBG('transparent')
         }
     }
 
@@ -70,6 +105,18 @@ const FAQ = () => {
             setVolDisplay('inline')
             setCovarDisplay('none')
             setCorrDisplay('none')
+
+            setMeanFW(400)
+            setVarFW(400)
+            setVolFW(500)
+            setCovarFW(400)
+            setCorrFW(400)
+
+            setMeanBG('transparent')
+            setVarBG('transparent')
+            setVolBG('gold')
+            setCovarBG('transparent')
+            setCorrBG('transparent')
         }
     }
 
@@ -80,6 +127,18 @@ const FAQ = () => {
             setVolDisplay('none')
             setCovarDisplay('inline')
             setCorrDisplay('none')
+
+            setMeanFW(400)
+            setVarFW(400)
+            setVolFW(400)
+            setCovarFW(500)
+            setCorrFW(400)
+
+            setMeanBG('transparent')
+            setVarBG('transparent')
+            setVolBG('transparent')
+            setCovarBG('gold')
+            setCorrBG('transparent')
         }
     }
 
@@ -90,33 +149,74 @@ const FAQ = () => {
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('inline')
+
+            setMeanFW(400)
+            setVarFW(400)
+            setVolFW(400)
+            setCovarFW(400)
+            setCorrFW(500)
+
+            setMeanBG('transparent')
+            setVarBG('transparent')
+            setVolBG('transparent')
+            setCovarBG('transparent')
+            setCorrBG('gold')
         }
     }
-
-
 
 
     return (
     <div id='faq-container'>
         <div className='sticky-sidebar'>
             <ul>
-                <li onClick={() => ClickMean()}>
+                <li                
+                style={
+                Object.assign({}, 
+                {'fontWeight':meanFW},
+                {'backgroundColor':`${meanBG}`}
+                )}
+                onClick={() => ClickMean()}>
                     E[X]
                 </li>
 
-                <li onClick={() => ClickVar()}>
+                <li 
+                style={
+                Object.assign({}, 
+                {'fontWeight':varFW},
+                {'backgroundColor':`${varBG}`}
+                )}
+                onClick={() => ClickVar()}>
                     Var
                 </li>
 
-                <li onClick={() => ClickVol()}>
+                <li 
+                style={
+                Object.assign({}, 
+                {'fontWeight':volFW},
+                {'backgroundColor':`${volBG}`}
+                )}
+                onClick={() => ClickVol()}>
                     Vol
                 </li>
 
-                <li onClick={() => ClickCovar()}>
+                <li 
+                style={
+                    Object.assign({}, 
+                    {'fontWeight':covarFW},
+                    {'backgroundColor':`${covarBG}`}
+                    )}
+
+                onClick={() => ClickCovar()}>
                     Cov
                 </li>
 
-                <li onClick={() => ClickCorr()}>
+                <li                 
+                style={
+                Object.assign({}, 
+                {'fontWeight':corrFW},
+                {'backgroundColor':`${corrBG}`}
+                )}
+                onClick={() => ClickCorr()}>
                     Corr
                 </li>
             </ul>
