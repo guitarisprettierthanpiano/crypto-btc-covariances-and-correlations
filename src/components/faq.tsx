@@ -6,13 +6,19 @@ const FAQ = () => {
 
     
     //i'm generating these strings from http://atomurl.net/math/ 
-    const covariance = '$Cov[X,  BTC]=\\sum_{i=1}^{30}\\frac{{(X_i - E[X])} ⋅{(BTC_i - E[BTC])}}{30}$';
-    const correlation = '$ρ_{X, BTC}=\\frac{Cov[X, BTC]}{{\\sigma_X}⋅{\\sigma_{BTC}}}$';
-    const mean = `$E[X]=\\frac{100}{30}⋅\\sum_{i=1}^{30}\\frac{{X_{i+1}-{X_i}}}{X_i}$`;
-    const variance = `$Var[X] = E[X^{2}] - E[X]^{2}$`
-    const volatility = `$σ_{X} = SD[X] = \\sqrt{Var[X]}$`
-    const varianceproof = `$Cov[X, X] = E[(X_{i}-E[X])⋅(X_{i}-E[X])] = E[(X_{i}-E[X])^{2}] = Var[X]$`
-    const varianceproof2 = `$ρ_{X, X}=\\frac{Cov[X, X]}{σ_{X} ⋅ σ_{X}} = \\frac{Var[X]}{Var[X]} = 1$`
+    const covariance = '$Cov[X,  BTC]=\\sum_{i=1}^{30}\\frac{{(X_i - E[X])}{(BTC_i - E[BTC])}}{30}$';
+    const correlation = '$ρ_{X, BTC}=Corr[X, BTC]=\\frac{Cov[X, BTC]}{{\\sigma_X}{\\sigma_{BTC}}}$';
+    const mean = `$E[X]=Mean[X]=\\frac{100}{30}⋅ \\sum_{i=1}^{30}\\frac{{X_{i+1}-{X_i}}}{X_i}$`;
+    const variance = `$Var[X] = E[(X_{i}-E[X])^{2}]= E[X^{2}] - E[X]^{2}$`
+    const volatility = `$σ_{X} = Vol[X] = \\sqrt{Var[X]}$`
+    const varianceproof = `$Cov[X, X] = E[(X_{i}-E[X])(X_{i}-E[X])] = E[(X_{i}-E[X])^{2}] = Var[X]$`
+    const varianceproof2 = `$ρ_{X, X}=Corr[X, X]=\\frac{Cov[X, X]}{σ_{X} σ_{X}} = \\frac{Var[X]}{Var[X]} = 1$`
+
+    const meanV = `$Mean[X]$`
+    const varV = `$Var[X]$`
+    const volV = `$Vol[X]$`
+    const covV = `$Cov[X, BTC]$`
+    const corrV = `$Corr[X, BTC]$`
 
     /*
     <MathJax.Context
@@ -35,19 +41,21 @@ const FAQ = () => {
             </MathJax.Context>
         */
      
-    //these are all useStates to change the style of the information showing. The stylings are attached to the class named current.
+    //these are useStates to change the classNames of the li's below. changing the active div will trigger which li is highlighted. it is styled as '.current' in the css file.
     const [meanClass, setMeanClass] = useState<string>('current');
     const [varClass, setVarClass] = useState<string>('none');
     const [volClass, setVolClass] = useState<string>('none');
     const [covarClass, setCovarClass] = useState<string>('none');
     const [corrClass, setCorrClass] = useState<string>('none');
 
+    //when a nav li is clicked on, it will display that div and hide the others.
     const [meanDisplay, setMeanDisplay] = useState<string>('inline');
     const [varDisplay, setVarDisplay] = useState<string>('none');
     const [volDisplay, setVolDisplay] = useState<string>('none');
     const [covarDisplay, setCovarDisplay] = useState<string>('none');
     const [corrDisplay, setCorrDisplay] = useState<string>('none');
 
+    //these are called by the onClick attributes in the sidebar.
     function ClickMean(){
         if (meanDisplay ==='none'){
             setMeanClass('current')
@@ -63,7 +71,6 @@ const FAQ = () => {
             setCorrDisplay('none')
         }
     }
-
     function ClickVar(){
         if (varDisplay ==='none'){
             setMeanClass('none')
@@ -79,7 +86,6 @@ const FAQ = () => {
             setCorrDisplay('none')
         }
     }
-
     function ClickVol(){
         if (volDisplay ==='none'){
             setMeanClass('none')
@@ -95,7 +101,6 @@ const FAQ = () => {
             setCorrDisplay('none')
         }
     }
-
     function ClickCovar(){
         if (covarDisplay ==='none'){
             setMeanClass('none')
@@ -111,7 +116,6 @@ const FAQ = () => {
             setCorrDisplay('none')
         }
     }
-
     function ClickCorr(){
         if (corrDisplay ==='none'){
             setMeanClass('none')
@@ -133,57 +137,62 @@ const FAQ = () => {
     <div id='faq-container'>
         <div className='sticky-sidebar'>
             <ul>
-                <li 
-                className='li-header'>
+                <li className='li-header'>
                     Variables
                 </li>
 
-                <li   
-                className= {meanClass}
+                <li className= {meanClass}
                 onClick={() => ClickMean()}
                 title='Expected Value'>
-                    E[X]
+                    {meanV}
                 </li>
 
-                <li 
-                className= {varClass}
+                <li className= {varClass}
                 onClick={() => ClickVar()}
                 title='Variance'>
-                    Var
+                    {varV}
                 </li>
 
-                <li 
-                className= {volClass}
+                <li className= {volClass}
                 onClick={() => ClickVol()}
                 title='Volatility'>
-                    Vol
+                    {volV}
                 </li>
 
-                <li 
-                className= {covarClass}
+                <li className= {covarClass}
                 onClick={() => ClickCovar()}
                 title='Covariance'>
-                    Cov
+                    {covV}
                 </li>
 
-                <li    
-                className= {corrClass}
+                <li className= {corrClass}
                 onClick={() => ClickCorr()}
                 title='Correlation Coeffecient'>
-                    Corr
+                    {corrV}
                 </li>
+            
+                <li className='li-header'>
+                    Application
+                </li>
+
+                <li className='none'>
+                    Using Data
+                </li>
+                <li className='none'>
+                    An Example
+                </li>     
             </ul>
         </div>
 
         <div className='faq-h1'>
                 <h1>Frequently Asked Questions</h1>
-            </div>
+        </div>
         
         <div className='faq-subcontainer'>
             
             <div className='desc-mean'
             style={{'display':`${meanDisplay}`}}>
-                <h2>What is Expected Return?</h2>
+                <h2>What is Mean?</h2>
                 <p>This represents the expected percent of gain or loss each day. It is the weighted average of recent returns. Also called the mean, it is calculated by summing the realized daily returns and dividing by the number of periods. The returns are the percentage increases in the value of the asset per dollar initially invested. I am multiplying by 100 to get a number that looks like 2.00 rather than 0.02. Then dividing by 30 because I am calculating the mean over 30 days. Note that I'm fetching 31 days of data because the formula uses i+1.</p><br/>
 
                 <div className='mjs'>

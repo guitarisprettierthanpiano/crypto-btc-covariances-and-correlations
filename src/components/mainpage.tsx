@@ -56,13 +56,13 @@ const MainPage = () => {
                 .then(res => res.json())
                 .then(resulto => {
     
-                    if (result[i].id==='internet-computer' ||   
+                    if (   
                     result[i].id==='usd-coin' ||
                     result[i].id==='binance-usd' ||
                     result[i].id==='dai' ||
                     result[i].id==='tether'){
 
-                        //fill in blank cells with -
+                        //fill in with blank cells with 
                         for (let z = 0; z < 5; z++){
                             
                             let blankEle = document.createElement('td');
@@ -175,10 +175,10 @@ const MainPage = () => {
                 <th className='name'>Name</th>
                 <th className='price'>Price</th>
                 <th className='market-cap'>Market Cap</th>
-                <th className='return'>E[X]</th>
+                <th className='return'>Mean</th>
                 <th className='var'>Var</th>
                 <th className='sig'>Vol</th>
-                <th className='covar'>Covar</th>
+                <th className='covar'>Cov</th>
                 <th className='cor'>Corr</th>
             </tr>
             <tbody>
@@ -187,13 +187,15 @@ const MainPage = () => {
         </table>
         <div className='span-container'>
             <span>*Price and Market Cap are in US Dollars.</span><br/>
-            <span>*Note that 'Stable Coins' do not have data calculated. ICP does not have enough historical data available.</span><br/>
+            <span>*Note that 'Stable Coins' do not have data calculated.</span><br/>
             <span>*If you see NaN try&nbsp; 
-                <a
-                onClick={() => location.reload(false)}
-                title='Reload Data'>
+                <NavLink
+                exact activeClassname='active' to='/'
+                onClick={() => location.reload()}
+                title='Reload Data'
+                >
                    refreshing the page. ⟳
-                </a>
+                </NavLink>
             </span><br/>
             <span>*Assets like SHIB have nonzero prices.</span>
         </div>
