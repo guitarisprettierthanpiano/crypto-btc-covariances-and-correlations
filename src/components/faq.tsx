@@ -19,6 +19,8 @@ const FAQ = () => {
     const volV = `$Vol[X]$`
     const covV = `$Cov[X, BTC]$`
     const corrV = `$Corr[X, BTC]$`
+    const usingData = `$Using Data$`
+    const anExample = `$An Example$`
 
     /*
     <MathJax.Context
@@ -47,6 +49,8 @@ const FAQ = () => {
     const [volClass, setVolClass] = useState<string>('none');
     const [covarClass, setCovarClass] = useState<string>('none');
     const [corrClass, setCorrClass] = useState<string>('none');
+    const [dataClass, setDataClass] = useState<string>('none');
+    const [exClass, setExClass] = useState<string>('none');
 
     //when a nav li is clicked on, it will display that div and hide the others.
     const [meanDisplay, setMeanDisplay] = useState<string>('inline');
@@ -54,6 +58,8 @@ const FAQ = () => {
     const [volDisplay, setVolDisplay] = useState<string>('none');
     const [covarDisplay, setCovarDisplay] = useState<string>('none');
     const [corrDisplay, setCorrDisplay] = useState<string>('none');
+    const [dataDisplay, setDataDisplay] = useState<string>('none');
+    const [exDisplay, setExDisplay] = useState<string>('none');
 
     //these are called by the onClick attributes in the sidebar.
     function ClickMean(){
@@ -63,12 +69,16 @@ const FAQ = () => {
             setVolClass('none')
             setCovarClass('none')
             setCorrClass('none')
+            setDataClass('none')
+            setExClass('none')
 
             setMeanDisplay('inline')
             setVarDisplay('none')
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('none')
+            setDataDisplay('none')
+            setExDisplay('none')
         }
     }
     function ClickVar(){
@@ -78,12 +88,16 @@ const FAQ = () => {
             setVolClass('none')
             setCovarClass('none')
             setCorrClass('none')
+            setDataClass('none')
+            setExClass('none')
 
             setMeanDisplay('none')
             setVarDisplay('inline')
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('none')
+            setDataDisplay('none')
+            setExDisplay('none')
         }
     }
     function ClickVol(){
@@ -93,12 +107,16 @@ const FAQ = () => {
             setVolClass('current')
             setCovarClass('none')
             setCorrClass('none')
+            setDataClass('none')
+            setExClass('none')
 
             setMeanDisplay('none')
             setVarDisplay('none')
             setVolDisplay('inline')
             setCovarDisplay('none')
             setCorrDisplay('none')
+            setDataDisplay('none')
+            setExDisplay('none')
         }
     }
     function ClickCovar(){
@@ -108,12 +126,16 @@ const FAQ = () => {
             setVolClass('none')
             setCovarClass('current')
             setCorrClass('none')
+            setDataClass('none')
+            setExClass('none')
 
             setMeanDisplay('none')
             setVarDisplay('none')
             setVolDisplay('none')
             setCovarDisplay('inline')
             setCorrDisplay('none')
+            setDataDisplay('none')
+            setExDisplay('none')
         }
     }
     function ClickCorr(){
@@ -123,12 +145,54 @@ const FAQ = () => {
             setVolClass('none')
             setCovarClass('none')
             setCorrClass('current')
+            setDataClass('none')
+            setExClass('none')
 
             setMeanDisplay('none')
             setVarDisplay('none')
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('inline')
+            setDataDisplay('none')
+            setExDisplay('none')
+        }
+    }
+    function ClickData(){
+        if (dataDisplay ==='none'){
+            setMeanClass('none')
+            setVarClass('none')
+            setVolClass('none')
+            setCovarClass('none')
+            setCorrClass('none')
+            setDataClass('current')
+            setExClass('none')
+
+            setMeanDisplay('none')
+            setVarDisplay('none')
+            setVolDisplay('none')
+            setCovarDisplay('none')
+            setCorrDisplay('none')
+            setDataDisplay('inline')
+            setExDisplay('none')
+        }
+    }
+    function ClickEx(){
+        if (exDisplay ==='none'){
+            setMeanClass('none')
+            setVarClass('none')
+            setVolClass('none')
+            setCovarClass('none')
+            setCorrClass('none')
+            setDataClass('none')
+            setExClass('current')
+
+            setMeanDisplay('none')
+            setVarDisplay('none')
+            setVolDisplay('none')
+            setCovarDisplay('none')
+            setCorrDisplay('none')
+            setDataDisplay('none')
+            setExDisplay('inline')
         }
     }
 
@@ -144,41 +208,45 @@ const FAQ = () => {
                 <li className= {meanClass}
                 onClick={() => ClickMean()}
                 title='Expected Value'>
-                    {meanV}
+                    Mean
                 </li>
 
                 <li className= {varClass}
                 onClick={() => ClickVar()}
                 title='Variance'>
-                    {varV}
+                   Var
                 </li>
 
                 <li className= {volClass}
                 onClick={() => ClickVol()}
                 title='Volatility'>
-                    {volV}
+                    Vol
                 </li>
 
                 <li className= {covarClass}
                 onClick={() => ClickCovar()}
                 title='Covariance'>
-                    {covV}
+                    Cov
                 </li>
 
                 <li className= {corrClass}
                 onClick={() => ClickCorr()}
                 title='Correlation Coeffecient'>
-                    {corrV}
+                    Corr
                 </li>
             
                 <li className='li-header'>
                     Application
                 </li>
 
-                <li className='none'>
+                <li className= {dataClass}
+                onClick={() => ClickData()}
+                title='Correlation Coeffecient'>
                     Using Data
                 </li>
-                <li className='none'>
+                <li className= {exClass}
+                onClick={() => ClickEx()}
+                title='Correlation Coeffecient'>
                     An Example
                 </li>     
             </ul>
@@ -277,6 +345,18 @@ const FAQ = () => {
                     <li>A correlation of 0 indicates no linear relationship between two variables. Movement
                     of one variable provides no prediction regarding the movement of the other variable.</li>
                 </ul>
+            </div>
+
+            <div className='desc-data'
+            style={{'display':`${dataDisplay}`}}>
+                <h2>How To Use This Data</h2>
+                <p></p>
+            </div>
+
+            <div className='desc-ex'
+            style={{'display':`${exDisplay}`}}>
+                <h2>An Example</h2>
+                <p></p>
             </div>
         </div>    
     </div>

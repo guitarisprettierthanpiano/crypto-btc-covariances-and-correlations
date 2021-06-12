@@ -173,8 +173,6 @@ a{
 
     width: 100%;
     text-indent: 30px;
-
-    height: 36px!important;
 }
 .none:hover{
     background-color: white;
@@ -211,7 +209,7 @@ a{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 }
-.desc-mean, .desc-var, .desc-vol, .desc-cov, .desc-cor{
+.desc-mean, .desc-var, .desc-vol, .desc-cov, .desc-cor, .desc-data, .desc-ex{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(auto, auto);
@@ -222,6 +220,7 @@ a{
     margin: 10px;
     margin-left: 10px;
     margin-right: 10px;
+
     max-width: 1000px;
     border-radius: 2px;
 
