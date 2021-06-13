@@ -34,19 +34,23 @@ const MainPage = () => {
                 let myCoin0 = document.createElement('td');
                 myCoin0.innerText = result[i].market_cap_rank;
                 myCoin0.classList.add('ranks')
+                myCoin0.classList.add('a')
                 myTR.appendChild(myCoin0);
 
                 let myCoin1 = document.createElement('td');
                 myCoin1.innerText = result[i].symbol;
                 myCoin1.classList.add('symbols')
-                myTR.classList.add(result[i].id);
+                myCoin1.classList.add('b');
+                myTR.classList.add(result[i].id)
                 myTR.appendChild(myCoin1);
 
                 let myCoin2 = document.createElement('td');
                 myCoin2.innerText = result[i].current_price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                myCoin2.classList.add('c');
                 myTR.appendChild(myCoin2);
 
                 let myCoin3 = document.createElement('td');
+                myCoin3.classList.add('d');
                 myCoin3.innerText = result[i].market_cap.toLocaleString();
                 myTR.appendChild(myCoin3);
 
@@ -105,14 +109,17 @@ const MainPage = () => {
         
                     let newTD = document.createElement('td')
                     newTD.innerText = (mean).toFixed(2).toString() + '%';
+                    newTD.classList.add('e');
                     document.querySelector(`.${data[i]}`).appendChild(newTD);
         
                     let newerTD = document.createElement('td')
                     newerTD.innerText = variance.toFixed(2).toString()
+                    newerTD.classList.add('f');
                     document.querySelector(`.${data[i]}`).appendChild(newerTD);
         
                     let newestTD = document.createElement('td')
                     newestTD.innerText = volatility.toFixed(2).toString() + '%'
+                    newestTD.classList.add('g');
                     document.querySelector(`.${data[i]}`).appendChild(newestTD);
 
                     if (result[i].id === 'bitcoin') {
@@ -138,10 +145,12 @@ const MainPage = () => {
 
                     let anotherTD = document.createElement('td');
                     anotherTD.innerText = covariance.toFixed(2).toString();
+                    anotherTD.classList.add('h');
                     document.querySelector(`.${data[i]}`).appendChild(anotherTD);
 
                     let finalTD = document.createElement('td');
                     finalTD.innerText = correlation.toFixed(5).toString();
+                    finalTD.classList.add('i');
                     document.querySelector(`.${data[i]}`).appendChild(finalTD);
                    
                 }
@@ -170,17 +179,19 @@ const MainPage = () => {
             </button>
         </NavLink>
         <table className='coin-table'>
-            <tr className='tr1'>
-                <th className='rank'>#</th>
-                <th className='name'>Name</th>
-                <th className='price'>Price</th>
-                <th className='market-cap'>Market Cap</th>
-                <th className='return'>Mean</th>
-                <th className='var'>Var</th>
-                <th className='sig'>Vol</th>
-                <th className='covar'>Cov</th>
-                <th className='cor'>Corr</th>
-            </tr>
+            <thead>
+                <tr className='tr1'>
+                    <th className='rank'>#</th>
+                    <th className='name'>Name</th>
+                    <th className='price'>Price</th>
+                    <th className='market-cap'>Market Cap</th>
+                    <th className='return'>Mean</th>
+                    <th className='var'>Var</th>
+                    <th className='sig'>Vol</th>
+                    <th className='covar'>Cov</th>
+                    <th className='cor'>Corr</th>
+                </tr>
+            </thead>
             <tbody>
 
             </tbody>
