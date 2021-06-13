@@ -5,7 +5,7 @@
                                              
     transition: all .05s ease-in-out; 
 
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     
     color: rgb(33, 33, 33);
 }
@@ -116,12 +116,17 @@ th{
 .tr1 *{
     color: rgb(255, 248, 234);
 }
+
+
 tr:nth-child(2n){
-    background-color: rgba(255, 166, 0, 0.6);
+    background-color: rgb(255, 255, 255, 0);
+    z-index: -2;
 }
 tr:nth-child(2n+1){
-    background-color: rgba(255, 166, 0, 0.4);
-}
+    background-color: rgba(196, 196, 196, 0);
+    z-index: -2;
+} 
+
 .usd-coin, .binance-usd, .tether, .dai, .internet-computer{
     /*background-color: rgba(255, 166, 0, 0.1)!important;*/
     text-transform: uppercase;
@@ -151,30 +156,29 @@ table {
 table tbody td, table thead th {
     position: relative;
 }
-table tbody td:hover::before {
-    background-color: gold;
+td:hover::before {
+    background-color: rgb(230, 230, 230);
     content:'';
     height: 100%;
     left: -5000px;
     position: absolute;
     top: 0;
     width: 10000px;
-    z-index: -1;
-    
+    z-index: -1; 
 }
-table tbody td:hover::after {
-    background-color: gold;
+td:hover::after {
+    background-color: rgb(230, 230, 230);
     content:'';
+    color: black;
     height: 10000px;
     left: 0;
     position: absolute;
-    top: -5000px;
+    top: -5000px; 
     width: 100%;
     z-index: -1;
 }
 td:hover{
-    background-color: rgb(255, 166, 0);
-    text-shadow: 1px 1px 1px rgba(20, 20, 20, 0.2);
+    background-color: rgb(210, 210, 210);
 }
 
 
