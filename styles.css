@@ -32,7 +32,7 @@ td, th{
     grid-template-rows: repeat(auto auto);
     max-width: 100vw;
 
-    background-color: rgba(255, 166, 0, 0.1);
+    background-color: white;
 }
  
 /* nav */
@@ -74,6 +74,7 @@ nav ul *:hover{
 #main-container h4{
     font-weight: 500;
 }
+
 button{
     background-color: rgba(255, 166, 0, 0);
     width: 50px;
@@ -88,6 +89,28 @@ button{
     cursor: pointer;
     align-self: center;
 }
+
+
+/*this is from https://codepen.io/teerapuch/pen/vLJXeR */
+button:hover{
+    animation-name: spin;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+    /* transform: rotate(3deg); */
+     /* transform: rotate(0.3rad);/ */
+     /* transform: rotate(3grad); */ 
+     /* transform: rotate(.03turn);  */
+  }
+  @keyframes spin {
+      from {
+          transform:rotate(0deg);
+      }
+      to {
+          transform:rotate(360deg);
+    }
+}
+
 table{
     border-collapse: collapse;
     border: 1px solid rgb(122, 122, 122);
@@ -157,7 +180,7 @@ table tbody td, table thead th {
     position: relative;
 }
 td:hover::before {
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(235, 235, 235);
     content:'';
     height: 100%;
     left: -5000px;
@@ -167,7 +190,7 @@ td:hover::before {
     z-index: -1; 
 }
 td:hover::after {
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(235, 235, 235);
     content:'';
     color: black;
     height: 10000px;
@@ -176,9 +199,10 @@ td:hover::after {
     top: -5000px; 
     width: 100%;
     z-index: -1;
+
 }
 td:hover{
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(215, 215, 215);
 }
 
 
@@ -200,7 +224,7 @@ td:hover{
     position: fixed;
 
     z-index: 1;
-    background-color:yellowgreen;
+    background-color:rgb(215, 215, 215);
 
     display: grid;
     align-content: center;
@@ -219,7 +243,7 @@ td:hover{
     text-indent: 30px;
 }
 .none:hover{
-    background-color: #ffa32b;
+    background-color: rgb(235, 235, 235);
 }
 .li-header{
     text-indent: 10px!important;
@@ -228,7 +252,7 @@ td:hover{
     margin-top: 10px;
 }
 .current{
-    background-color: gold!important;
+    background-color: rgb(255, 255, 255)!important;
 }
 
 
@@ -245,6 +269,7 @@ td:hover{
     letter-spacing: 1px;
     font-weight: 500;
     max-width: 1000px;
+    margin-bottom: 20px;
 }
 .faq-subcontainer{
     grid-row: 2;
@@ -261,18 +286,11 @@ td:hover{
     justify-self: center;
 
     padding: 20px;
-    margin: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
 
     max-width: 1000px;
     border-radius: 2px;
 
-    background-color: rgba(255, 166, 0, 0.2);
-
-    border: 1px solid rgb(218, 218, 218);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1),
-                0 2px 4px rgba(0,0,0,0.2);
+    border-top: 1px solid rgb(197, 197, 197);
 }
 .faq-subcontainer * .MathJax{
     padding-left:30px;
@@ -307,6 +325,7 @@ td:hover{
 #about-container .about-h1{
     margin-top: 20px;
     margin-left: 10px;
+    margin-bottom: 20px;
 
     max-width: 1200px;
     justify-self: center;
@@ -323,17 +342,12 @@ td:hover{
     justify-self: center;
 
     padding: 20px;
-    margin: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
     max-width: 1200px;
     border-radius: 2px;
 
-    border: 1px solid rgb(218, 218, 218);
-    background-color: rgba(255, 166, 0, 0.2);
+    border-top: 1px solid rgb(218, 218, 218);
+    background-color: white;
     
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1),
-                0 2px 4px rgba(0,0,0,0.2);
 }
 .p-container p{
     margin: 10px;

@@ -173,7 +173,8 @@ const MainPage = () => {
         <NavLink 
         exact activeClassname='active' to='/'>
             <button
-            onClick ={() => location.reload()}
+            onClick={() => 
+                setTimeout(function(){ location.reload(); }, 0)}
             title='Reload Page'>
                 ⟳
             </button>
