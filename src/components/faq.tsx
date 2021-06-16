@@ -22,6 +22,10 @@ const FAQ = () => {
     const usingData = `$Using Data$`
     const anExample = `$An Example$`
 
+
+    const FC1 = `$E[X]$`
+    const FCarrowD = `$$`
+
     /*
     <MathJax.Context
             input='tex'
@@ -268,8 +272,8 @@ const FAQ = () => {
                 </div><br/>
 
                 <ul>
-                    <li>Expected return can be positive or negative. </li>
-                    <li>A positive number likely indicates an uptrend while a negative number likely indicates a downtrend.</li>
+                    <li>A positive number likely indicates an uptrend</li>
+                    <li>A negative number likely indicates a downtrend.</li>
                 </ul>
             </div>
 
@@ -306,7 +310,7 @@ const FAQ = () => {
 
                 <br/><ul>
                     <li>Volatility cannot be negative as it is the result of a square root.</li>
-                    <li>High volatility indicates a large price range while low volatility indicaes a small price range.</li>
+                    <li>High volatility indicates a large price range while low volatility indicates a small price range.</li>
                 </ul>           
             </div>
 
@@ -350,6 +354,19 @@ const FAQ = () => {
             <div className='desc-data'
             style={{'display':`${dataDisplay}`}}>
                 <h2>How To Use This Data</h2>
+                <p>The most useful variable to calculate is the BTC correlation pair and the route to arrive at it is shown below:</p>
+                <div className='flow-chart'>
+                    <div className='a11'><span>Mean</span></div>
+                    <div className='a21'><span>🠗</span></div>
+                    <div className='a22'><span>🠗</span></div>
+                    <div className='a31'><span>Var</span></div>
+                    <div className='a41'><span>🠗</span></div>
+                    <div className='a42'><span>Covar</span></div>
+                    <div className='a51'><span>Vol</span></div>
+                    <div className='a52'><p>🠗</p></div>
+                    <div className='a61'><span>🠗</span></div>
+                    <div className='a71'><span>Corr</span></div>
+                </div>
                 <p></p>
             </div>
 
