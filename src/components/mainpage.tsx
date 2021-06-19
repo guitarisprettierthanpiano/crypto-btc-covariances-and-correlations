@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-
 import { NavLink } from 'react-router-dom'
 
 const MainPage = () => {
@@ -29,38 +28,36 @@ const MainPage = () => {
         .then(result => { 
             for (let i = 0; i < 50; i++){
                 data.push(result[i].id);
-                let myTR = document.createElement('tr');
+                let tableRow = document.createElement('tr');
 
-                let myCoin0 = document.createElement('td');
-                myCoin0.innerText = result[i].market_cap_rank;
-                myCoin0.classList.add('ranks')
-                myCoin0.classList.add('a')
-                myTR.appendChild(myCoin0);
+                let rankTD = document.createElement('td');
+                rankTD.innerText = result[i].market_cap_rank;
+                rankTD.classList.add('ranks')
+                tableRow.appendChild(rankTD);
 
-                let myCoin1 = document.createElement('td');
-                myCoin1.innerText = result[i].symbol;
-                myCoin1.classList.add('symbols')
-                myCoin1.classList.add('b');
-                myTR.classList.add(result[i].id)
-                myTR.appendChild(myCoin1);
+                let nameTD = document.createElement('td');
+                nameTD.innerText = result[i].symbol;
+                nameTD.classList.add('symbols')
+                nameTD.setAttribute('title', `${result[i].name}`)
+                tableRow.classList.add(result[i].id)
+                tableRow.appendChild(nameTD);
 
-                let myCoin2 = document.createElement('td');
-                myCoin2.innerText = result[i].current_price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                myCoin2.classList.add('c');
-                myTR.appendChild(myCoin2);
+                let priceTD = document.createElement('td');
+                priceTD.innerText = result[i].current_price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                tableRow.appendChild(priceTD);
 
-                let myCoin3 = document.createElement('td');
-                myCoin3.classList.add('d');
-                myCoin3.innerText = result[i].market_cap.toLocaleString();
-                myTR.appendChild(myCoin3);
+                let mcapTD = document.createElement('td');
+                mcapTD.innerText = result[i].market_cap.toLocaleString();
+                tableRow.appendChild(mcapTD);
 
-                document.querySelector('tbody').appendChild(myTR);                
+                document.querySelector('tbody').appendChild(tableRow);                
                 
                 fetch(`https://api.coingecko.com/api/v3/coins/${result[i].id}/market_chart?vs_currency=usd&days=31&interval=daily`)
                 .then(res => res.json())
                 .then(resulto => {
     
                     if (   
+                    result[i].id==='compound-usd-coin' ||
                     result[i].id==='usd-coin' ||
                     result[i].id==='binance-usd' ||
                     result[i].id==='dai' ||
@@ -107,20 +104,17 @@ const MainPage = () => {
                     variance = meanOfTheSquare - Math.pow(mean, 2);
                     volatility = Math.sqrt(variance);
         
-                    let newTD = document.createElement('td')
-                    newTD.innerText = (mean).toFixed(2).toString() + '%';
-                    newTD.classList.add('e');
-                    document.querySelector(`.${data[i]}`).appendChild(newTD);
+                    let meanTD = document.createElement('td')
+                    meanTD.innerText = (mean).toFixed(2).toString() + '%';
+                    document.querySelector(`.${data[i]}`).appendChild(meanTD);
         
-                    let newerTD = document.createElement('td')
-                    newerTD.innerText = variance.toFixed(2).toString()
-                    newerTD.classList.add('f');
-                    document.querySelector(`.${data[i]}`).appendChild(newerTD);
+                    let varTD = document.createElement('td')
+                    varTD.innerText = variance.toFixed(2).toString()
+                    document.querySelector(`.${data[i]}`).appendChild(varTD);
         
-                    let newestTD = document.createElement('td')
-                    newestTD.innerText = volatility.toFixed(2).toString() + '%'
-                    newestTD.classList.add('g');
-                    document.querySelector(`.${data[i]}`).appendChild(newestTD);
+                    let volTD = document.createElement('td')
+                    volTD.innerText = volatility.toFixed(2).toString() + '%'
+                    document.querySelector(`.${data[i]}`).appendChild(volTD);
 
                     if (result[i].id === 'bitcoin') {
                         btcMean = mean;
@@ -143,15 +137,13 @@ const MainPage = () => {
 
                     correlation = covariance/(btcVolatility*volatility);
 
-                    let anotherTD = document.createElement('td');
-                    anotherTD.innerText = covariance.toFixed(2).toString();
-                    anotherTD.classList.add('h');
-                    document.querySelector(`.${data[i]}`).appendChild(anotherTD);
+                    let covarTD = document.createElement('td');
+                    covarTD.innerText = covariance.toFixed(2).toString();
+                    document.querySelector(`.${data[i]}`).appendChild(covarTD);
 
-                    let finalTD = document.createElement('td');
-                    finalTD.innerText = correlation.toFixed(5).toString();
-                    finalTD.classList.add('i');
-                    document.querySelector(`.${data[i]}`).appendChild(finalTD);
+                    let corrTD = document.createElement('td');
+                    corrTD.innerText = correlation.toFixed(5).toString();
+                    document.querySelector(`.${data[i]}`).appendChild(corrTD);
                    
                 }
             )
@@ -199,7 +191,7 @@ const MainPage = () => {
         </table>
         <div className='span-container'>
             <span>*Price and Market Cap are in US Dollars.</span><br/>
-            <span>*Note that 'Stable Coins' do not have data calculated.</span><br/>
+            <span>*'Stable Coins' do not have data calculated.</span><br/>
             <span>*If you see NaN try&nbsp; 
                 <NavLink
                 exact activeClassname='active' to='/'

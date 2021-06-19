@@ -11,6 +11,7 @@ const Nav = () => {
                 exact activeClassname='active' to='/'>
                     <li>Home</li>
                 </NavLink>
+                
                 <NavLink 
                 activeclassName='active' 
                 to='/faq'
@@ -18,12 +19,6 @@ const Nav = () => {
                 >
                     <li>FAQ</li>
                 </NavLink>
-                <NavLink 
-                activeClassName='active' 
-                to='/about'>
-                    <li>About</li>
-                </NavLink>
-                <li/>
             </ul>
         </nav>
     )

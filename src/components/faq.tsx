@@ -14,18 +14,7 @@ const FAQ = () => {
     const varianceproof = `$Cov[X, X] = E[(X_{i}-E[X])(X_{i}-E[X])] = E[(X_{i}-E[X])^{2}] = Var[X]$`
     const varianceproof2 = `$ρ_{X, X}=Corr[X, X]=\\frac{Cov[X, X]}{σ_{X} σ_{X}} = \\frac{Var[X]}{Var[X]} = 1$`
 
-    const meanV = `$Mean[X]$`
-    const varV = `$Var[X]$`
-    const volV = `$Vol[X]$`
-    const covV = `$Cov[X, BTC]$`
-    const corrV = `$Corr[X, BTC]$`
-    const usingData = `$Using Data$`
-    const anExample = `$An Example$`
     const i1 = `$i+1$`
-
-
-    const FC1 = `$E[X]$`
-    const FCarrowD = `$$`
 
     /*
     <MathJax.Context
@@ -248,17 +237,12 @@ const FAQ = () => {
                 onClick={() => ClickData()}
                 title='Correlation Coeffecient'>
                     Using Data
-                </li>
-                <li className= {exClass}
-                onClick={() => ClickEx()}
-                title='Correlation Coeffecient'>
-                    An Example
-                </li>     
+                </li>  
             </ul>
         </div>
 
         <div className='faq-h1'>
-                <h1>Frequently Asked Questions</h1>
+            <h1>Frequently Asked Questions</h1>
         </div>
         
         <div className='faq-subcontainer'>
@@ -273,7 +257,7 @@ const FAQ = () => {
                 </div><br/>
 
                 <ul>
-                    <li>A positive number likely indicates an uptrend</li>
+                    <li>A positive number likely indicates an uptrend.</li>
                     <li>A negative number likely indicates a downtrend.</li>
                 </ul>
             </div>
@@ -285,7 +269,7 @@ const FAQ = () => {
                 <div className='mjs'>{variance}
                 </div>                 
                 
-                <br/><p>Although not used directly to make observations about an asset, it is used within the calculations of volatility, covariance and correlation. I showed the variance for completeness and to point out that the variance and covariance of BTC are equal. Therefore the correlation will be 1. That means my calculations on this website are right!</p><br/>
+                <br/><p>Although not commonly used directly to make observations about an asset, it is used within the calculations of volatility, covariance and correlation. I show variances for completeness and to point out that the variance and covariance of BTC are equal. Therefore the correlation will be 1. That means my calculations are right!</p><br/>
                 <div className='mjs'>
                     {varianceproof}
                 </div><br/>
@@ -295,15 +279,15 @@ const FAQ = () => {
                 </div>
 
                 <br/><ul>
-                    <li>Variance cannot be negative and will usually look large.</li>
-                    <li>There are multiple ways to calculate variance.</li>
+                    <li>Variance cannot be negative.</li>
+                    <li>Variance is an uncommon variable to measure the dispersion of returns.</li>
                 </ul> 
             </div>
 
             <div className='desc-vol'
             style={{'display':`${volDisplay}`}}>
                 <h2>What is Volatility?</h2>
-                <p>Volatility, or standard deviation, is a measure of the dispersion of returns for an asset. It is the backbone of popular volatility market incidators such as bollinger bands and confidence intervals. It is calculated simply via the square root of the already calculated variance.</p><br/>
+                <p>Volatility, or standard deviation, is a measure of the dispersion of returns for an asset. It is the backbone of popular volatility market incidators such as bollinger bands and confidence intervals. It is calculated simply via the square root of the variance.</p><br/>
 
                 <div className='mjs'>
                     {volatility}
@@ -334,27 +318,27 @@ const FAQ = () => {
                 <h2>What is Correlation?</h2>
                 <p>Correlation, specifically the correlation coeffecient,
                 is a unitless measure of the strength and direction of the linear relationship between two
-                variables. It is more useful than covariance because it is dimensionless and normalized between -1 and 1. It is calculated by dividing the covariance of two variables by the product of their
-                volatilities.</p><br/>
+                assets. It is more useful than covariance because it is dimensionless and normalized between -1 and 1. It is calculated by dividing the covariance of two assets by the product of their
+                standard deviations.</p><br/>
                 <div className='mjs'>
                     {correlation}
                 </div><br/>
                 <ul>
-                    <li>A correlation of 1 indicates perfect positive correlation between two assets. A correlation -1 of indicates perfect negative correlation between two assets. A correlation of 0 indicates no linear relationship between two assets.</li>
-                    <li>The closer the number to a pole is, the more the assets' price action tend to move in the same direction.</li>
+                    <li>A correlation of 1 indicates perfect positive correlation between two assets. A correlation of -1 indicates perfect negative correlation between two assets. A correlation of 0 indicates no linear relationship.</li>
+                    <li>The closer the number to -1 or 1 is, the more effect Bitcoin appears to have on an asset's price action.</li>
                 </ul>
             </div>
 
             <div className='desc-data'
             style={{'display':`${dataDisplay}`}}>
-                <h2>How To Use This Data</h2>
-                <p>I am surprised that there is not a simple webpage out there that shows correlations of large cap cryptoassets against Bitcoin. It is undeniable that it feels like there are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? You can find charts out there, for example ETHBTC or Bitcoin Dominance, but that is just one dimension of this analysis. I am presenting one more way to view those relationships.</p><br/>
+                <h2>How To Use This Data?</h2>
+                <p>I am surprised that there is not a simple webpage out there that shows correlations of large cap cryptoassets against Bitcoin. It feels like there are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? You can find charts out there, for example ETHBTC or Bitcoin Dominance, but those are only one part of the total analysis. I am presenting one more way to view those relationships.</p><br/>
 
                 <p>
                 Although one might find the variances and covariances useful, I am far more interested means, volatilities and correlation coeffecients. They are calculated on the way to the correlations so I figured I would present them for anyone interested.</p><br/>
                 
                 <p>
-                Assets with smaller market caps tend to overreact to the market. If I thought Bitcoin was going to make a move but wanted to take on additional risk without using leverage, I might look at something with high volatility and correlation to diversify into. Of course these would just be two more weapons to use alongside standard technical analysis.</p>
+                Assets with smaller market caps tend to overreact to the market. If I thought Bitcoin was going to make a move but wanted to take on additional risk without using leverage, I might look at something with high volatility and correlation coeffecient to diversify into. Two useful variables to aid technical analysis in making a trade.</p>
             </div>
 
             <div className='desc-ex'
@@ -364,7 +348,7 @@ const FAQ = () => {
             </div>
         </div>    
     </div>
-    )
-}
+    );
+};
 
 export default FAQ;
