@@ -5,7 +5,6 @@ import About from './components/about';
 import MainPage from './components/mainpage';
 import Nav from './components/nav';
 import FAQ from './components/faq'
-import Footer from './components/footer'
 
 const App = () => {
 

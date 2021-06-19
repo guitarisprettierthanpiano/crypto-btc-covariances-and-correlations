@@ -21,6 +21,7 @@ const FAQ = () => {
     const corrV = `$Corr[X, BTC]$`
     const usingData = `$Using Data$`
     const anExample = `$An Example$`
+    const i1 = `$i+1$`
 
 
     const FC1 = `$E[X]$`
@@ -265,7 +266,7 @@ const FAQ = () => {
             <div className='desc-mean'
             style={{'display':`${meanDisplay}`}}>
                 <h2>What is Mean?</h2>
-                <p>This represents the expected percent of gain or loss each day. It is the weighted average of recent returns. Also called the mean, it is calculated by summing the realized daily returns and dividing by the number of periods. The returns are the percentage increases in the value of the asset per dollar initially invested. I am multiplying by 100 to get a number that looks like 2.00 rather than 0.02. Then dividing by 30 because I am calculating the mean over 30 days. Note that I'm fetching 31 days of data because the formula uses i+1.</p><br/>
+                <p>This represents the expected percent of gain or loss each day. It is the weighted average of recent returns. The mean it is calculated by summing the realized daily returns and dividing by the number of days. The returns are the percentage changes in the value of the asset per dollar initially invested. I am multiplying by 100 to get a number that looks like 2.00 rather than 0.02. Then dividing by 30 because I am calculating the mean over 30 days. Note that I'm fetching 31 days of data because the formula uses {i1}.</p><br/>
 
                 <div className='mjs'>
                     {mean}
@@ -280,11 +281,11 @@ const FAQ = () => {
             <div className='desc-var'
             style={{'display':`${varDisplay}`}}>
                 <h2>What is Variance?</h2>
-                <p>Variance is the expected squared deviation from the mean. It is a  measure of the dispersion of returns. The method I've used to calculate the variance of an asset is the mean of the square minus the square of the mean.</p><br/>
+                <p>Variance is the expected squared deviation from the mean. It is a measure of the dispersion of returns. The method I've used to calculate the variance of an asset is the mean of the square minus the square of the mean.</p><br/>
                 <div className='mjs'>{variance}
                 </div>                 
                 
-                <br/><p>Although not usually used directly to make observations about an asset, it is used within the calculations of volatility, covariance and correlation. I added variance for completeness and to point out that the variance and covariance of BTC are equal. Therefore the correlation will also be 1. That means my calculations on this website are right!</p><br/>
+                <br/><p>Although not used directly to make observations about an asset, it is used within the calculations of volatility, covariance and correlation. I showed the variance for completeness and to point out that the variance and covariance of BTC are equal. Therefore the correlation will be 1. That means my calculations on this website are right!</p><br/>
                 <div className='mjs'>
                     {varianceproof}
                 </div><br/>
@@ -294,7 +295,7 @@ const FAQ = () => {
                 </div>
 
                 <br/><ul>
-                    <li>Variance cannot be negative and will usually be large.</li>
+                    <li>Variance cannot be negative and will usually look large.</li>
                     <li>There are multiple ways to calculate variance.</li>
                 </ul> 
             </div>
@@ -302,15 +303,15 @@ const FAQ = () => {
             <div className='desc-vol'
             style={{'display':`${volDisplay}`}}>
                 <h2>What is Volatility?</h2>
-                <p>Volatility, or standard deviation in non-finance terms, is a measure of the dispersion of returns for an asset. It is the backbone of popular market incidators such as bollinger bands and other confidence intervals. It is calculated simply via the square root of the variance.</p><br/>
+                <p>Volatility, or standard deviation, is a measure of the dispersion of returns for an asset. It is the backbone of popular volatility market incidators such as bollinger bands and confidence intervals. It is calculated simply via the square root of the already calculated variance.</p><br/>
 
                 <div className='mjs'>
                     {volatility}
                 </div>
 
                 <br/><ul>
-                    <li>Volatility cannot be negative as it is the result of a square root.</li>
-                    <li>High volatility indicates a large price range while low volatility indicates a small price range.</li>
+                    <li>High volatility indicates a wide price range while low volatility indicates a narrow price range.</li>
+                    <li>Volatility cannot be negative as it is the result of a square root calculation.</li>
                 </ul>           
             </div>
 
@@ -323,8 +324,7 @@ const FAQ = () => {
                     {covariance}
                 </div><br/>
                 <ul>
-                    <li>If the covariance is positive, then the two variables tend to move together. High covariance measures high variation from their expected values. </li>
-                    <li>If the covariance is negative, then the two variables tend to move in opposite directions. Low covariance measures low variation from their expected values.</li>
+                    <li>If the covariance is positive, then the two variables tend to move together. If the covariance is negative, then the two variables tend to move in opposite directions.</li>
                     <li>If the covariance is 0, then there is no linear relationship between the two variables.</li>
                 </ul>            
             </div>
@@ -332,42 +332,29 @@ const FAQ = () => {
             <div className='desc-cor'
             style={{'display':`${corrDisplay}`}}>
                 <h2>What is Correlation?</h2>
-                <p>Correlation, specifically the correlation coeffecient here,
+                <p>Correlation, specifically the correlation coeffecient,
                 is a unitless measure of the strength and direction of the linear relationship between two
-                variables. It is more useful than covariance because it is dimensionless and normalized between -1 and 1. It is obtained by dividing the covariance of two variables by the product of their
-                standard deviations:</p><br/>
+                variables. It is more useful than covariance because it is dimensionless and normalized between -1 and 1. It is calculated by dividing the covariance of two variables by the product of their
+                volatilities.</p><br/>
                 <div className='mjs'>
                     {correlation}
                 </div><br/>
                 <ul>
-                    <li>A correlation of 1 indicates perfect positive correlation between two variables. The
-                    closer the correlation is to 1, the more the variables tend to move together in the
-                    same direction</li>
-                    <li>A correlation -1 of indicates perfect negative correlation between two variables. The
-                    closer the correlation is to -1, the more the variables tend to move in opposite
-                    directions.</li>
-                    <li>A correlation of 0 indicates no linear relationship between two variables. Movement
-                    of one variable provides no prediction regarding the movement of the other variable.</li>
+                    <li>A correlation of 1 indicates perfect positive correlation between two assets. A correlation -1 of indicates perfect negative correlation between two assets. A correlation of 0 indicates no linear relationship between two assets.</li>
+                    <li>The closer the number to a pole is, the more the assets' price action tend to move in the same direction.</li>
                 </ul>
             </div>
 
             <div className='desc-data'
             style={{'display':`${dataDisplay}`}}>
                 <h2>How To Use This Data</h2>
-                <p>The most useful variable to calculate is the BTC correlation pair and the route to arrive at it is shown below:</p>
-                <div className='flow-chart'>
-                    <div className='a11'><span>Mean</span></div>
-                    <div className='a21'><span>🠗</span></div>
-                    <div className='a22'><span>🠗</span></div>
-                    <div className='a31'><span>Var</span></div>
-                    <div className='a41'><span>🠗</span></div>
-                    <div className='a42'><span>Covar</span></div>
-                    <div className='a51'><span>Vol</span></div>
-                    <div className='a52'><p>🠗</p></div>
-                    <div className='a61'><span>🠗</span></div>
-                    <div className='a71'><span>Corr</span></div>
-                </div>
-                <p></p>
+                <p>I am surprised that there is not a simple webpage out there that shows correlations of large cap cryptoassets against Bitcoin. It is undeniable that it feels like there are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? You can find charts out there, for example ETHBTC or Bitcoin Dominance, but that is just one dimension of this analysis. I am presenting one more way to view those relationships.</p><br/>
+
+                <p>
+                Although one might find the variances and covariances useful, I am far more interested means, volatilities and correlation coeffecients. They are calculated on the way to the correlations so I figured I would present them for anyone interested.</p><br/>
+                
+                <p>
+                Assets with smaller market caps tend to overreact to the market. If I thought Bitcoin was going to make a move but wanted to take on additional risk without using leverage, I might look at something with high volatility and correlation to diversify into. Of course these would just be two more weapons to use alongside standard technical analysis.</p>
             </div>
 
             <div className='desc-ex'
