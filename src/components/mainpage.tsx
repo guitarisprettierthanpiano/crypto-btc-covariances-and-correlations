@@ -28,7 +28,9 @@ const MainPage = () => {
         .then(result => { 
             for (let i = 0; i < 50; i++){
                 data.push(result[i].id);
+                
                 let tableRow = document.createElement('tr');
+                tableRow.setAttribute('title', `${result[i].name}`)
 
                 let rankTD = document.createElement('td');
                 rankTD.innerText = result[i].market_cap_rank;
@@ -38,7 +40,6 @@ const MainPage = () => {
                 let nameTD = document.createElement('td');
                 nameTD.innerText = result[i].symbol;
                 nameTD.classList.add('symbols')
-                nameTD.setAttribute('title', `${result[i].name}`)
                 tableRow.classList.add(result[i].id)
                 tableRow.appendChild(nameTD);
 
