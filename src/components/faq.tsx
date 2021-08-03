@@ -14,7 +14,7 @@ const FAQ = () => {
     const varianceproof = `$Cov[X, X] = E[(X_{i}-E[X])(X_{i}-E[X])] = E[(X_{i}-E[X])^{2}] = Var[X]$`
     const varianceproof2 = `$ρ_{X, X}=Corr[X, X]=\\frac{Cov[X, X]}{σ_{X} σ_{X}} = \\frac{Var[X]}{Var[X]} = 1$`
 
-    const i1 = `$i+1$`
+    const i1 = `$i +1$`
 
     /*
     <MathJax.Context
@@ -250,7 +250,7 @@ const FAQ = () => {
             <div className='desc-mean'
             style={{'display':`${meanDisplay}`}}>
                 <h2>What is Mean?</h2>
-                <p>This represents the expected percent of gain or loss each day. It is the weighted average of recent returns. The mean it is calculated by summing the realized daily returns and dividing by the number of days. The returns are the percentage changes in the value of the asset per dollar initially invested. I am multiplying by 100 to get a number that looks like 2.00 rather than 0.02. Then dividing by 30 because I am calculating the mean over 30 days. Note that I'm fetching 31 days of data because the formula uses {i1}.</p><br/>
+                <p>This represents the expected percent of gain or loss each day. It is the weighted average of recent returns. The mean it is calculated by summing the realized daily returns and dividing by the number of days. The returns are the percentage changes in the value of the asset per dollar initially invested. I am multiplying by 100 to get a number that looks like 2.00 rather than 0.02. Then dividing by 30 because I am calculating the mean over 30 days. Note that I'm fetching 31 days of data because the formula uses  {i1}.</p><br/>
 
                 <div className='mjs'>
                     {mean}
@@ -332,13 +332,13 @@ const FAQ = () => {
             <div className='desc-data'
             style={{'display':`${dataDisplay}`}}>
                 <h2>How To Use This Data?</h2>
-                <p>I am surprised that there is not a simple webpage out there that shows correlations of large cap cryptoassets against Bitcoin. It feels like there are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? You can find charts out there, for example ETHBTC or Bitcoin Dominance, but those are only one part of the total analysis. I am presenting one more way to view those relationships.</p><br/>
+                <p>I am surprised that there is not a simple webpage out there that shows correlations of large cap crypto assets against Bitcoin. It seems there are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? You can find charts out there, for example ETHBTC or Bitcoin Dominance, but those are only one part of the total analysis. I am presenting one more way to view those relationships.</p><br/>
 
                 <p>
                 Although one might find the variances and covariances useful, I am far more interested means, volatilities and correlation coeffecients. They are calculated on the way to the correlations so I figured I would present them for anyone interested.</p><br/>
                 
                 <p>
-                Assets with smaller market caps tend to overreact to the market. If I thought Bitcoin was going to make a move but wanted to take on additional risk without using leverage, I might look at something with high volatility and correlation coeffecient to diversify into. Two useful variables to aid technical analysis in making a trade.</p>
+                Assets with smaller market caps tend to overreact to trending market moves. If I thought Bitcoin was going to make a move but wanted to take on additional risk without using leverage, I might look at something with high volatility and correlation coeffecient to diversify into. Two useful variables to aid technical analysis in making a trade.</p>
             </div>
 
             <div className='desc-ex'
