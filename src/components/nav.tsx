@@ -9,7 +9,7 @@ const Nav = () => {
                 <li/>
                 <NavLink 
                 exact activeClassname='active' to='/'>
-                    <li>Home</li>
+                    <li>HOME</li>
                 </NavLink>
                 
                 <NavLink 

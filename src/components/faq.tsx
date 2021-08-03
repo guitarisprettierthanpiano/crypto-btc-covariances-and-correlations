@@ -332,7 +332,7 @@ const FAQ = () => {
             <div className='desc-data'
             style={{'display':`${dataDisplay}`}}>
                 <h2>How To Use This Data?</h2>
-                <p>I am surprised that there is not a simple webpage out there that shows correlations of large cap crypto assets against Bitcoin. It seems there are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? You can find charts out there, for example ETHBTC or Bitcoin Dominance, but those are only one part of the total analysis. I am presenting one more way to view those relationships.</p><br/>
+                <p>I am surprised that there is not a simple webpage out there that shows correlations of large cap crypto assets against Bitcoin. It seems there are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? You can find charts out there, for example ETHBTC or BTC.D, but those are only one part of the total analysis. I am presenting one more way to view those relationships.</p><br/>
 
                 <p>
                 Although one might find the variances and covariances useful, I am far more interested means, volatilities and correlation coeffecients. They are calculated on the way to the correlations so I figured I would present them for anyone interested.</p><br/>
