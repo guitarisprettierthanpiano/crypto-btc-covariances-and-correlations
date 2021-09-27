@@ -161,7 +161,7 @@ const MainPage = () => {
     return (
     <div id='main-container'>
         <h1>Bitcoin Covariances and Correlations</h1>
-        <h4>Based off of the last thirty daily closes of the market</h4>
+        <h4>Calculated off of the last thirty daily closures</h4>
 
         <NavLink 
         exact activeClassname='active' to='/'>

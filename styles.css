@@ -91,10 +91,10 @@ nav ul a li:hover{
 
 button{
     background-color: rgba(255, 166, 0, 0);
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     text-align: center;
-    font-size: 40px;
+    font-size: 24px;
 
 
     border: none;
@@ -107,7 +107,7 @@ button{
 /*this is from https://codepen.io/teerapuch/pen/vLJXeR */
 button:hover{
     animation-name: spin;
-    animation-duration: 1500ms;
+    animation-duration: 1000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear; 
     /* transform: rotate(3deg); */
@@ -212,7 +212,6 @@ td:hover::after {
     top: -5000px; 
     width: 100%;
     z-index: -1;
-
 }
 td:hover{
     background-color: rgb(215, 215, 215);
