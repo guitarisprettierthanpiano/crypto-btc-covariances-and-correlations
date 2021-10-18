@@ -41,11 +41,13 @@ td, th{
 /* nav */
 nav{
     height: 4vh;
+    background-color:rgb(20, 20, 20)
 }
 nav ul{
     display: grid;
     grid-template-columns: 1fr auto auto auto 1fr;
     grid-template-rows: 1fr;
+    background-color:rgb(20, 20, 20)
 }
 nav ul a{
     text-decoration: underline rgba(255, 166, 0, 0);
@@ -331,7 +333,7 @@ td:hover{
 }
 .faq-subcontainer * p *{
     margin: 0px!important;
-    padding: 00px!important;
+    padding: 0px!important;
 }
 .faq-subcontainer * .mjs, .faq-subcontainer * .mjs *{
     font-size: 28px;
@@ -404,6 +406,9 @@ td:hover{
     table{
         margin: 4px;
     }
+    .faq-h1{
+        padding-left: 50px;
+    }
 }
 
 /* h1 too long */
@@ -424,5 +429,49 @@ td:hover{
     }
     .mjs, .mjs *{
         font-size: 16px!important;
+    }
+    .sticky-sidebar{
+        width: 35vw;
+    }
+
+    .faq-h1{
+        grid-row: 1;
+        grid-column: 1 / span 2;
+        margin-top: 20px;
+        margin-left: 2px;
+    
+
+        width: 60vw;
+        justify-self: center;
+    }
+    .faq-h1 h1{
+        letter-spacing: 1px;
+        font-weight: 500;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .faq-subcontainer{
+        width: 65vw;
+    }
+    .desc-mean, .desc-var, .desc-vol, .desc-cov, .desc-cor, .desc-data, .desc-ex{
+        padding: 2px;
+        max-width: 60vw;
+        overflow-wrap: break-word;
+    }
+
+    .faq-subcontainer * .MathJax{
+        margin-left: 2px;
+        margin-right: 2px;
+        max-width: 60vw;
+        overflow-wrap: break-word;
+        display: none;
+    }
+    .faq-subcontainer * ul{
+        margin-left: 2px;
+        margin-right: 2px;
+        max-width: 60vw;
+    }
+    .faq-subcontainer * p{
+        max-width: 60vw;
     }
 }
