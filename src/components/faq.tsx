@@ -337,7 +337,7 @@ const FAQ = () => {
                 <p>
                 Although one might find the variances and covariances useful, I am far more interested means, volatilities and correlation coeffecients. They are calculated on the way to the correlations so I figured I would present them for anyone interested.</p><br/>
                 
-                <p>
+                <p id='hideonsmall'>
                 Assets with smaller market caps tend to overreact to trending market moves. If I thought Bitcoin was going to make a move but wanted to take on additional risk without using leverage, I might look at something with high volatility and correlation coeffecient to diversify into. Two useful variables to aid technical analysis in making a trade.</p>
             </div>
 

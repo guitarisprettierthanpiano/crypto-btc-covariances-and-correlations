@@ -531,5 +531,8 @@ td:hover{
     .li-header{
         text-indent: 2px!important;
     }
+    #hideonsmall{
+        display:none
+    }
     
 }
