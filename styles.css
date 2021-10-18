@@ -477,4 +477,8 @@ td:hover{
     .faq-subcontainer * p{
         max-width: 60vw;
     }
+
+    .td:hover, .td:hover::before, .td:hover::after{
+        z-index: -5;
+    }
 }
