@@ -198,7 +198,7 @@ table tbody td, table thead th {
     position: relative;
 }
 td:hover::before {
-    background-color: rgb(20, 20, 20, 0.1);
+    background-color: rgb(20, 20, 20, 0.05);
     content:'';
     height: 100%;
     left: -5000px;
@@ -208,7 +208,7 @@ td:hover::before {
     z-index: -1; 
 }
 td:hover::after {
-    background-color: rgba(20, 20, 20, 0.1);
+    background-color: rgba(20, 20, 20, 0.05);
     content:'';
     color: black;
     height: 10000px;
@@ -219,8 +219,7 @@ td:hover::after {
     z-index: -1;
 }
 td:hover{
-    background-color: rgb(20, 20, 20, 0.9);
-    color: white;
+    background-color: rgb(20, 20, 20, 0.1);
 }
 
 
