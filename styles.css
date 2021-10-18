@@ -43,7 +43,7 @@ body, html{
  
 /* nav */
 nav{
-    height: 4vh;
+    height: 30px;
     background-color:rgb(20, 20, 20)
 }
 nav ul{
@@ -229,7 +229,7 @@ td:hover{
     grid-template-columns: 200px auto;
     grid-template-rows: auto 1fr;
 
-    height: 96vh;
+    height: calc(100vh - 30px);
     background-color: white;
 }
 .sticky-sidebar{
@@ -425,43 +425,42 @@ td:hover{
         font-size: 20px;
     }
     h4, h2{
-        font-size: 14px;
+        font-size: 12px;
     }
-    p{
-        font-size: 14px;
+    p, .faq-subcontainer * li{
+        font-size: 12px;
     }
     .mjs, .mjs *{
         font-size: 16px!important;
-    }
-    .sticky-sidebar{
-        width: 35vw;
     }
 
     .faq-h1{
         grid-row: 1;
         grid-column: 1 / span 2;
-        margin-top: 20px;
-        margin-left: 2px;
-    
+        text-align: center;
+        text-justify: center;
 
-        width: 60vw;
+        width: 70vw;
         justify-self: center;
     }
     .faq-h1 h1{
-        letter-spacing: 1px;
+        letter-spacing: 2px;
         font-weight: 500;
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-    .faq-subcontainer{
-        width: 65vw;
+        margin-bottom: 4px;
+        margin-left: 12px;
+        align-self: center;
+        justify-self: center;
     }
     .desc-mean, .desc-var, .desc-vol, .desc-cov, .desc-cor, .desc-data, .desc-ex{
         padding: 2px;
-        max-width: 60vw;
+        width: 100%;
         overflow-wrap: break-word;
     }
 
+    #faq-container{
+        grid-template-columns: auto auto;
+        grid-template-rows: auto 1fr;
+    }
     .faq-subcontainer * .MathJax{
         margin-left: 2px;
         margin-right: 2px;
@@ -472,13 +471,58 @@ td:hover{
     .faq-subcontainer * ul{
         margin-left: 2px;
         margin-right: 2px;
-        max-width: 60vw;
     }
     .faq-subcontainer * p{
         max-width: 60vw;
     }
 
-    .td:hover, .td:hover::before, .td:hover::after{
-        z-index: -5;
+    table tbody td, table thead th {
+        position: relative;
     }
+    td:hover::before {
+        background-color: rgba(235, 235, 235, 0);
+        content:'';
+        height: 0%;
+        left: 0px;
+        position: absolute;
+        top: 0;
+        width: 0px;
+        z-index: -1; 
+    }
+    td:hover::after {
+        background-color: rgba(235, 235, 235, 0);
+        content:'';
+        color: rgba(0, 0, 0, 0);
+        height: 10000px;
+        left: 0;
+        position: absolute;
+        top: 0px; 
+        width: 0%;
+        z-index: -1;
+    }
+    td:hover{
+        background-color: rgba(215, 215, 215, 0);
+    }
+
+
+    .sticky-sidebar{
+        grid-row: 1 / span 2;
+        grid-column: 1;
+        height: 100%;
+    
+        width: 30vw;
+    }
+    .sticky-sidebar ul{
+        width: 30vw;
+    }
+    .sticky-sidebar ul li{
+        font-size: 12px;
+        line-height: 1.4;
+    
+        text-indent: 16px;
+    }
+    .li-header{
+        text-indent: 2px!important;
+    }
+    
 }
