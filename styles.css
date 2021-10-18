@@ -455,6 +455,7 @@ td:hover{
         padding: 2px;
         width: 100%;
         overflow-wrap: break-word;
+        justify-self: center;
     }
 
     #faq-container{
@@ -471,9 +472,12 @@ td:hover{
     .faq-subcontainer * ul{
         margin-left: 2px;
         margin-right: 2px;
+        max-width: 50vw;
+        display: none;
     }
     .faq-subcontainer * p{
         max-width: 60vw;
+        padding-left: 4px;
     }
 
     table tbody td, table thead th {
@@ -488,6 +492,7 @@ td:hover{
         top: 0;
         width: 0px;
         z-index: -1; 
+        display: none;
     }
     td:hover::after {
         background-color: rgba(235, 235, 235, 0);
@@ -499,9 +504,11 @@ td:hover{
         top: 0px; 
         width: 0%;
         z-index: -1;
+        display: none;
     }
     td:hover{
         background-color: rgba(215, 215, 215, 0);
+        display: none;
     }
 
 
