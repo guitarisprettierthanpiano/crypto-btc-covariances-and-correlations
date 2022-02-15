@@ -175,15 +175,15 @@ const MainPage = () => {
         <table className='coin-table'>
             <thead>
                 <tr className='tr1'>
-                    <th className='rank'>#</th>
-                    <th className='name'>Name</th>
-                    <th className='price'>Price</th>
-                    <th className='market-cap'>Market Cap</th>
-                    <th className='return'>Mean</th>
-                    <th className='var'>Var</th>
-                    <th className='sig'>Vol</th>
-                    <th className='covar'>Cov</th>
-                    <th className='cor'>Corr</th>
+                    <th className='rank' title="Market Cap Rank">#</th>
+                    <th className='name' title="Ticker">Name</th>
+                    <th className='price' title='USD Price'>Price</th>
+                    <th className='market-cap' title='Market Capitalization'>Market Cap</th>
+                    <th className='return' title='Expected Value'>Mean</th>
+                    <th className='var' title='Variance'>Var</th>
+                    <th className='sig' title='Volatility'>Vol</th>
+                    <th className='covar' title='Covariance'>Cov</th>
+                    <th className='cor' title='Correlation Coefffecient'>Corr</th>
                 </tr>
             </thead>
             <tbody>
