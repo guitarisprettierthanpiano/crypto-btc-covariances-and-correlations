@@ -265,11 +265,10 @@ const FAQ = () => {
             <div className='desc-var'
             style={{'display':`${varDisplay}`}}>
                 <h2>What is Variance?</h2>
-                <p>Variance is the expected squared deviation from the mean. It is a measure of the dispersion of returns. The method I've calculated it is the mean of the square minus the square of the mean.</p><br/>
+                <p>Variance is the expected squared deviation from the mean. It is a measure of the dispersion of returns. Although not used directly to make observations, it is used within the calculations of volatility, covariance and correlation. The variance and covariance of BTC are equal. Therefore the correlation will be 1, as expected.</p><br/>
                 <div className='mjs'>{variance}
                 </div>                 
-                
-                <br/><p>Although not commonly used directly to make observations about an asset, it is used within the calculations of volatility, covariance and correlation. I show variances for completeness and to point out that the variance and covariance of BTC are equal. Therefore the correlation will be 1.</p><br/>
+                <br/>
                 <div className='mjs'>
                     {varianceproof}
                 </div><br/>
@@ -278,10 +277,6 @@ const FAQ = () => {
                     {varianceproof2}
                 </div>
 
-                <br/><ul>
-                    <li>Variance cannot be negative.</li>
-                    <li>Variance is an uncommon variable to measure the dispersion of returns.</li>
-                </ul> 
             </div>
 
             <div className='desc-vol'

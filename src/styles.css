@@ -83,9 +83,14 @@ nav ul a li{
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 600;
+
+    color: white;
+    text-shadow: 1px 1px rgb(53, 21, 0), 
+    2px 2px rgb(206, 117, 0);
 }
 #main-container h4{
     font-weight: 500;
+    color: rgb(34, 34, 34);
 }
 
 button{
