@@ -12,3 +12,6 @@ Tools used: useEffect, fetch, async and await, HashRouter, Switch, Router, NavLi
 Dependencies: react-mathjax3
 
 This website isn't optimized for phones because it is impossible to view the whole table on a screen of that size. So use a tablet or anything larger than that.
+
+theme:
+https://colorhunt.co/palette/f9e4d4d67d3e9c0f48470d21
