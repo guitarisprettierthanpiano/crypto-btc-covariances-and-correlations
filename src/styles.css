@@ -78,7 +78,7 @@ nav ul a li{
 #main-container h1{
     margin-top: 20px;
     letter-spacing: 2px;
-    text-transform: uppercase;
+    text-transform: uppercase; 
     font-weight: 600;
 
     color: rgb(71, 13, 33);

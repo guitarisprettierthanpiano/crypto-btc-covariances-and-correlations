@@ -61,6 +61,7 @@ const MainPage = () => {
                     result[i].id==='compound-usd-coin' ||
                     result[i].id==='usd-coin' ||
                     result[i].id==='binance-usd' ||
+                    result[i].id==='terrausd' ||
                     result[i].id==='dai' ||
                     result[i].id==='tether'){
 
