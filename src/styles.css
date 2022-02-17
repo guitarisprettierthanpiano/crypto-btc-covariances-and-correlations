@@ -74,6 +74,16 @@ nav ul a li{
     justify-items: center;
 
     background-color: #d08c5c;
+    min-height: 100vh;
+
+    background:
+radial-gradient(circle farthest-side at 0% 50%,#d08c5c 23.5%,rgba(240,166,17,0) 0)21px 30px,
+radial-gradient(circle farthest-side at 0% 50%,#d09c77 24%,rgba(240,166,17,0) 0)19px 30px,
+linear-gradient(#d08c5c 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#d08c5c 0)0 0,
+linear-gradient(150deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
+linear-gradient(30deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
+linear-gradient(90deg,#d09c77 2%,#d08c5c 0,#d08c5c 98%,#d09c77 0%)0 0 #d08c5c;
+background-size: 40px 60px;
 }
 #main-container h1{
     margin-top: 20px;
@@ -140,6 +150,7 @@ table{
     background-color: rgb(103, 46, 70);
 }
 th{
+    text-justify: start;
     text-align: center;
     padding: 2px;
     padding-left: 8px;
@@ -230,6 +241,15 @@ td:hover{
     height: calc(100vh - 30px);
     overflow: hidden;
     background-color: #d08c5c;
+
+    background:
+radial-gradient(circle farthest-side at 0% 50%,#d08c5c 23.5%,rgba(240,166,17,0) 0)21px 30px,
+radial-gradient(circle farthest-side at 0% 50%,#d09c77 24%,rgba(240,166,17,0) 0)19px 30px,
+linear-gradient(#d08c5c 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#d08c5c 0)0 0,
+linear-gradient(150deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
+linear-gradient(30deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
+linear-gradient(90deg,#d09c77 2%,#d08c5c 0,#d08c5c 98%,#d09c77 0%)0 0 #d08c5c;
+background-size: 40px 60px;
 }
 .sticky-sidebar{
     grid-row: 1 / span 2;
@@ -264,6 +284,15 @@ td:hover{
 }
 .none:hover{
     background-color: #d08c5c;
+
+    background:
+radial-gradient(circle farthest-side at 0% 50%,#d08c5c 23.5%,rgba(240,166,17,0) 0)21px 30px,
+radial-gradient(circle farthest-side at 0% 50%,#d09c77 24%,rgba(240,166,17,0) 0)19px 30px,
+linear-gradient(#d08c5c 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#d08c5c 0)0 0,
+linear-gradient(150deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
+linear-gradient(30deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
+linear-gradient(90deg,#d09c77 2%,#d08c5c 0,#d08c5c 98%,#d09c77 0%)0 0 #d08c5c;
+background-size: 40px 60px;
     color: rgb(71, 13, 33);
 }
 .li-header{
@@ -276,7 +305,16 @@ td:hover{
 .current{
     cursor:default!important;
     color: rgb(71, 13, 33)!important;
-    background-color: #d08c5c!important;
+    background-color: #d08c5c;
+
+    background:
+radial-gradient(circle farthest-side at 0% 50%,#d08c5c 23.5%,rgba(240,166,17,0) 0)21px 30px,
+radial-gradient(circle farthest-side at 0% 50%,#d09c77 24%,rgba(240,166,17,0) 0)19px 30px,
+linear-gradient(#d08c5c 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#d08c5c 0)0 0,
+linear-gradient(150deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
+linear-gradient(30deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
+linear-gradient(90deg,#d09c77 2%,#d08c5c 0,#d08c5c 98%,#d09c77 0%)0 0 #d08c5c;
+background-size: 40px 60px;
 }
 
 
