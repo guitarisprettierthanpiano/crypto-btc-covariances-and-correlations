@@ -1,6 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { useState } from 'react'
 
+import faqBG from '../images/faqbg1.webp'
 
 const FAQ = () => {
 
@@ -192,7 +193,7 @@ const FAQ = () => {
 
 
     return (
-    <div id='faq-container'>
+    <div id='faq-container' style={{backgroundImage:`url(${faqBG})`}}>
         <div className='sticky-sidebar'>
             <ul>
                 <li className='li-header'>

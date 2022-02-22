@@ -1,5 +1,7 @@
 body{
     overflow-y: scroll!important;
+    min-height: 100vh;
+    background-color:rgba(0, 3, 41, 1);
 }
 *{
     box-sizing: border-box;
@@ -10,14 +12,14 @@ body{
 
     font-family: 'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
     
-    color: rgb(71, 13, 33);
+    color: rgb(188, 188, 228);
 }
 p, span, button, input, textarea, label, a, td, th, li{
     font-size: 18px;
     text-align: justify;
     text-justify: center;
     
-    line-height: 1.50;
+    line-height: 1.5;
 }
 td, th{
     text-align: end;
@@ -35,7 +37,7 @@ td, th{
     grid-template-rows: repeat(auto auto);
     max-width: 100vw;
 
-    background-color:rgb(20, 20, 20)
+    background-color:rgba(0, 3, 41, 1);
 }
 body, html{
     background-color:rgb(20, 20, 20)
@@ -44,13 +46,13 @@ body, html{
 /* nav */
 nav{
     height: 30px;
-    background-color:rgb(71, 13, 33);
+    background-color:rgba(0, 1, 20, 1);
 }
 nav ul{
     display: grid;
     grid-template-columns: 1fr auto auto auto 1fr;
     grid-template-rows: 1fr;
-    background-color:rgb(71, 13, 33);
+    background-color:rgba(0, 1, 20, 1);
 }
 nav ul a li{
     margin-left: 10px;
@@ -58,10 +60,12 @@ nav ul a li{
     font-weight: 500;
     font-size: 20px;
     list-style-type: none;
-    text-decoration: underline rgba(255, 166, 0, 0);
-    color: rgb(249, 228, 212, 0.85);
+    color: rgb(236, 236, 255);
     border: 0px;
     line-height: 1.4;
+}
+a{
+    text-decoration: none;
 }
 
 /*the main data page*/
@@ -73,30 +77,20 @@ nav ul a li{
 
     justify-items: center;
 
-    background-color: #d08c5c;
-    min-height: 100vh;
-
-    background:
-radial-gradient(circle farthest-side at 0% 50%,#d08c5c 23.5%,rgba(240,166,17,0) 0)21px 30px,
-radial-gradient(circle farthest-side at 0% 50%,#d09c77 24%,rgba(240,166,17,0) 0)19px 30px,
-linear-gradient(#d08c5c 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#d08c5c 0)0 0,
-linear-gradient(150deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
-linear-gradient(30deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
-linear-gradient(90deg,#d09c77 2%,#d08c5c 0,#d08c5c 98%,#d09c77 0%)0 0 #d08c5c;
-background-size: 40px 60px;
+    background: radial-gradient(87.73% 117.5% at 71.52% 13.75%, #093169 0%,  #000329 100%);
 }
 #main-container h1{
     margin-top: 20px;
     letter-spacing: 2px;
     text-transform: uppercase; 
     font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
 
-    color: rgb(71, 13, 33);
-    text-shadow: 1px 1px rgba(103, 46, 70, 0.5);
+    color: rgb(242, 240, 255);
+    text-shadow: 1px 1px rgba(53, 46, 103, 0.5);
 }
 #main-container h4{
     font-weight: 500;
-    color: rgb(103, 46, 70);
 }
 
 button{
@@ -125,7 +119,7 @@ button:hover{
      /* transform: rotate(3grad); */ 
      /* transform: rotate(.03turn);  */
   }
-  @keyframes spin {
+@keyframes spin {
       from {
           transform:rotate(0deg);
       }
@@ -136,18 +130,20 @@ button:hover{
 
 table{
     border-collapse: collapse;
-    border: 4px groove rgb(71, 13, 33);
+    border: 2px groove rgba(15, 13, 71, 0.551);
+    border-radius: 4px;
     border-top: none;
 
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(71, 13, 33, 0.3),
-                0 1px 1px rgba(71, 13, 33, 0.6);
+    box-shadow: 0 1px 1px rgba(20, 13, 71, 0.3),
+                0 1px 1px rgba(18, 13, 71, 0.6);
 
     margin: 10px;
     margin-top: 4px;
     margin-bottom: 0px;
 
-    background-color: rgb(103, 46, 70);
+    /* filter: brightness(50%); */
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 th{
     text-justify: start;
@@ -161,10 +157,10 @@ th{
     text-align: center!important;
 }
 .tr1{
-    background-color: rgb(71, 13, 33)!important;
+    background-color:rgba(0, 1, 20, 1)!important;
 }
 .tr1 *{
-    color: rgb(249, 228, 212);
+    color: rgb(243, 243, 255);
 }
 
 
@@ -198,7 +194,9 @@ a{
 https://jsfiddle.net/zinoui/FSpds/ */
 td{
     cursor: crosshair;
-    color: rgb(249, 228, 212, 0.85);
+    color: rgb(246, 244, 255);
+
+    background-color: rgba(0, 0, 0, 0.6);
 }
 table{
     overflow: hidden;
@@ -208,7 +206,7 @@ table tbody td, table thead th {
     position: relative;
 }
 td:hover::before {
-    background-color: rgba(71, 13, 33, 0.6);
+    background-color:rgba(0, 2, 21, 0.6);
     content:'';
     height: 100%;
     left: -5000px;
@@ -218,7 +216,7 @@ td:hover::before {
     z-index: -1; 
 }
 td:hover::after {
-    background-color: rgba(71, 13, 33, 0.6);
+    background-color:rgba(0, 2, 21, 0.6);
     content:'';
     color: black;
     height: 10000px;
@@ -229,7 +227,7 @@ td:hover::after {
     z-index: -1;
 }
 td:hover{
-    background-color: rgb(20, 20, 20, 0.1);
+    background-color: rgb(20, 20, 20, 0.0);
 }
 
 /* faq */
@@ -240,16 +238,12 @@ td:hover{
 
     height: calc(100vh - 30px);
     overflow: hidden;
-    background-color: #d08c5c;
 
-    background:
-radial-gradient(circle farthest-side at 0% 50%,#d08c5c 23.5%,rgba(240,166,17,0) 0)21px 30px,
-radial-gradient(circle farthest-side at 0% 50%,#d09c77 24%,rgba(240,166,17,0) 0)19px 30px,
-linear-gradient(#d08c5c 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#d08c5c 0)0 0,
-linear-gradient(150deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
-linear-gradient(30deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
-linear-gradient(90deg,#d09c77 2%,#d08c5c 0,#d08c5c 98%,#d09c77 0%)0 0 #d08c5c;
-background-size: 40px 60px;
+    background: url('./images/faqbg1.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    background-color: rgba(0, 1, 20, 1);
 }
 .sticky-sidebar{
     grid-row: 1 / span 2;
@@ -261,7 +255,7 @@ background-size: 40px 60px;
     position: fixed;
 
     z-index: 1;
-    background-color:rgb(71, 13, 33);
+    background: radial-gradient(87.73% 117.5% at 71.52% 13.75%, #090e6980 0%,  #00032976 100%);
 
     display: grid;
     align-content: center;
@@ -278,60 +272,46 @@ background-size: 40px 60px;
 
     width: 100%;
     text-indent: 30px;
-    color: rgb(249, 228, 212);
+    color: rgb(243, 243, 255);
 
     text-transform: uppercase;
 }
 .none:hover{
-    background-color: #d08c5c;
-
-    background:
-radial-gradient(circle farthest-side at 0% 50%,#d08c5c 23.5%,rgba(240,166,17,0) 0)21px 30px,
-radial-gradient(circle farthest-side at 0% 50%,#d09c77 24%,rgba(240,166,17,0) 0)19px 30px,
-linear-gradient(#d08c5c 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#d08c5c 0)0 0,
-linear-gradient(150deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
-linear-gradient(30deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
-linear-gradient(90deg,#d09c77 2%,#d08c5c 0,#d08c5c 98%,#d09c77 0%)0 0 #d08c5c;
-background-size: 40px 60px;
-    color: rgb(71, 13, 33);
+    color: rgba(0, 1, 20, 1)!important;
+    background-color: rgb(202, 202, 228);
 }
 .li-header{
     text-indent: 10px!important;
     text-transform: uppercase;
     cursor:auto!important;
     margin-top: 10px;
-    text-decoration: underline #d08c5c;
+    text-decoration: underline #090e69;
 }
 .current{
     cursor:default!important;
-    color: rgb(71, 13, 33)!important;
-    background-color: #d08c5c;
-
-    background:
-radial-gradient(circle farthest-side at 0% 50%,#d08c5c 23.5%,rgba(240,166,17,0) 0)21px 30px,
-radial-gradient(circle farthest-side at 0% 50%,#d09c77 24%,rgba(240,166,17,0) 0)19px 30px,
-linear-gradient(#d08c5c 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#d08c5c 0)0 0,
-linear-gradient(150deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
-linear-gradient(30deg,#d08c5c 24%,#d09c77 0,#d09c77 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#d09c77 0,#d09c77 76%,#d08c5c 0)0 0,
-linear-gradient(90deg,#d09c77 2%,#d08c5c 0,#d08c5c 98%,#d09c77 0%)0 0 #d08c5c;
-background-size: 40px 60px;
+    color: rgba(0, 1, 20, 1)!important;
+    background-color: rgb(202, 202, 228);
 }
 
 
 .faq-h1{
     grid-row: 1;
-    grid-column: 1 / span 2;
-    margin-top: 20px;
-    margin-left: 10px;
+    grid-column:  1/ span 2;
+    padding-top: 20px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 
-    max-width: 1000px;
     justify-self: center;
+
+    background-color: rgba(0, 0, 0, 0.6);
 }
 .faq-h1 h1{
+    font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 1px;
     font-weight: 500;
-    max-width: 1000px;
     margin-bottom: 20px;
+    color: rgb(233, 233, 255);
 }
 .faq-subcontainer{
     grid-row: 2;
@@ -339,6 +319,10 @@ background-size: 40px 60px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.faq-subcontainer *{
+    color: rgb(233, 233, 255);
 }
 .desc-mean, .desc-var, .desc-vol, .desc-cov, .desc-cor, .desc-data, .desc-ex{
     display: grid;
@@ -375,7 +359,7 @@ background-size: 40px 60px;
 }
 .faq-subcontainer * .mjs, .faq-subcontainer * .mjs *{
     font-size: 28px;
-    color: rgb(71, 13, 33);
+    color: rgb(243, 243, 255);
 }
 
 /* ABOUT */
@@ -450,7 +434,7 @@ background-size: 40px 60px;
 }
 
 /* h1 too long */
-@media screen and (max-width: 711px){
+@media screen and (max-width: 780px){
     table{
         
     overflow-x: scroll;

@@ -15,3 +15,10 @@ This website isn't optimized for phones because it is impossible to view the who
 
 theme:
 https://colorhunt.co/palette/f9e4d4d67d3e9c0f48470d21
+
+my table bg images are from:
+https://www.figma.com/community/file/1066067487616114998
+
+
+NOTE:
+i dont have a .gitignore for node modules because this code uses some now outdated code, such as react router.

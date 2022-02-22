@@ -1,6 +1,30 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 132:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "faqbg1.webp");
+
+/***/ }),
+
+/***/ 4:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "table.webp");
+
+/***/ }),
+
 /***/ 679:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -3532,28 +3556,13 @@ exports.default = App;
 
 "use strict";
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __importStar(__webpack_require__(294));
-const react_1 = __webpack_require__(294);
+const react_1 = __importDefault(__webpack_require__(294));
+const react_2 = __webpack_require__(294);
+const faqbg1_webp_1 = __importDefault(__webpack_require__(132));
 const FAQ = () => {
     //i'm generating these strings from http://atomurl.net/math/ 
     const covariance = '$Cov[X,  BTC]=\\sum_{i=1}^{30}\\frac{{(X_i - E[X])}{(BTC_i - E[BTC])}}{30}$';
@@ -3585,21 +3594,21 @@ const FAQ = () => {
             </MathJax.Context>
         */
     //these are useStates to change the classNames of the li's below. changing the active div will trigger which li is highlighted. it is styled as '.current' in the css file.
-    const [meanClass, setMeanClass] = react_1.useState('current');
-    const [varClass, setVarClass] = react_1.useState('none');
-    const [volClass, setVolClass] = react_1.useState('none');
-    const [covarClass, setCovarClass] = react_1.useState('none');
-    const [corrClass, setCorrClass] = react_1.useState('none');
-    const [dataClass, setDataClass] = react_1.useState('none');
-    const [exClass, setExClass] = react_1.useState('none');
+    const [meanClass, setMeanClass] = react_2.useState('current');
+    const [varClass, setVarClass] = react_2.useState('none');
+    const [volClass, setVolClass] = react_2.useState('none');
+    const [covarClass, setCovarClass] = react_2.useState('none');
+    const [corrClass, setCorrClass] = react_2.useState('none');
+    const [dataClass, setDataClass] = react_2.useState('none');
+    const [exClass, setExClass] = react_2.useState('none');
     //when a nav li is clicked on, it will display that div and hide the others.
-    const [meanDisplay, setMeanDisplay] = react_1.useState('inline');
-    const [varDisplay, setVarDisplay] = react_1.useState('none');
-    const [volDisplay, setVolDisplay] = react_1.useState('none');
-    const [covarDisplay, setCovarDisplay] = react_1.useState('none');
-    const [corrDisplay, setCorrDisplay] = react_1.useState('none');
-    const [dataDisplay, setDataDisplay] = react_1.useState('none');
-    const [exDisplay, setExDisplay] = react_1.useState('none');
+    const [meanDisplay, setMeanDisplay] = react_2.useState('inline');
+    const [varDisplay, setVarDisplay] = react_2.useState('none');
+    const [volDisplay, setVolDisplay] = react_2.useState('none');
+    const [covarDisplay, setCovarDisplay] = react_2.useState('none');
+    const [corrDisplay, setCorrDisplay] = react_2.useState('none');
+    const [dataDisplay, setDataDisplay] = react_2.useState('none');
+    const [exDisplay, setExDisplay] = react_2.useState('none');
     //these are called by the onClick attributes in the sidebar.
     function ClickMean() {
         if (meanDisplay === 'none') {
@@ -3727,78 +3736,78 @@ const FAQ = () => {
             setExDisplay('inline');
         }
     }
-    return (React.createElement("div", { id: 'faq-container' },
-        React.createElement("div", { className: 'sticky-sidebar' },
-            React.createElement("ul", null,
-                React.createElement("li", { className: 'li-header' }, "Variables"),
-                React.createElement("li", { className: meanClass, onClick: () => ClickMean(), title: 'Expected Value' }, "Mean"),
-                React.createElement("li", { className: varClass, onClick: () => ClickVar(), title: 'Variance' }, "Var"),
-                React.createElement("li", { className: volClass, onClick: () => ClickVol(), title: 'Volatility' }, "Vol"),
-                React.createElement("li", { className: covarClass, onClick: () => ClickCovar(), title: 'Covariance' }, "Cov"),
-                React.createElement("li", { className: corrClass, onClick: () => ClickCorr(), title: 'Correlation Coeffecient' }, "Corr"),
-                React.createElement("li", { className: 'li-header' }, "Application"),
-                React.createElement("li", { className: dataClass, onClick: () => ClickData(), title: 'Correlation Coeffecient' }, "Using Data"))),
-        React.createElement("div", { className: 'faq-h1' },
-            React.createElement("h1", null, "Frequently Asked Questions")),
-        React.createElement("div", { className: 'faq-subcontainer' },
-            React.createElement("div", { className: 'desc-mean', style: { 'display': `${meanDisplay}` } },
-                React.createElement("h2", null, "What is Mean?"),
-                React.createElement("p", null,
+    return (react_1.default.createElement("div", { id: 'faq-container', style: { backgroundImage: `url(${faqbg1_webp_1.default})` } },
+        react_1.default.createElement("div", { className: 'sticky-sidebar' },
+            react_1.default.createElement("ul", null,
+                react_1.default.createElement("li", { className: 'li-header' }, "Variables"),
+                react_1.default.createElement("li", { className: meanClass, onClick: () => ClickMean(), title: 'Expected Value' }, "Mean"),
+                react_1.default.createElement("li", { className: varClass, onClick: () => ClickVar(), title: 'Variance' }, "Var"),
+                react_1.default.createElement("li", { className: volClass, onClick: () => ClickVol(), title: 'Volatility' }, "Vol"),
+                react_1.default.createElement("li", { className: covarClass, onClick: () => ClickCovar(), title: 'Covariance' }, "Cov"),
+                react_1.default.createElement("li", { className: corrClass, onClick: () => ClickCorr(), title: 'Correlation Coeffecient' }, "Corr"),
+                react_1.default.createElement("li", { className: 'li-header' }, "Application"),
+                react_1.default.createElement("li", { className: dataClass, onClick: () => ClickData(), title: 'Correlation Coeffecient' }, "Using Data"))),
+        react_1.default.createElement("div", { className: 'faq-h1' },
+            react_1.default.createElement("h1", null, "Frequently Asked Questions")),
+        react_1.default.createElement("div", { className: 'faq-subcontainer' },
+            react_1.default.createElement("div", { className: 'desc-mean', style: { 'display': `${meanDisplay}` } },
+                react_1.default.createElement("h2", null, "What is Mean?"),
+                react_1.default.createElement("p", null,
                     "This represents the expected percent of gain or loss each day. It is the weighted average of recent returns. The mean it is calculated by summing the realized daily returns and dividing by the number of days. The returns are the percentage changes in the value of the asset per dollar initially invested. I am multiplying by 100 to get a number that looks like 2.00 rather than 0.02. Then dividing by 30 because I am calculating the mean over 30 days. I'm fetching 31 days of data because the formula uses  ",
                     i1,
                     "."),
-                React.createElement("br", null),
-                React.createElement("div", { className: 'mjs' }, mean),
-                React.createElement("br", null),
-                React.createElement("ul", null,
-                    React.createElement("li", null, "A positive number likely indicates an uptrend."),
-                    React.createElement("li", null, "A negative number likely indicates a downtrend."))),
-            React.createElement("div", { className: 'desc-var', style: { 'display': `${varDisplay}` } },
-                React.createElement("h2", null, "What is Variance?"),
-                React.createElement("p", null, "Variance is the expected squared deviation from the mean. It is a measure of the dispersion of returns. Although not used directly to make observations, it is used within the calculations of volatility, covariance and correlation. The variance and covariance of BTC are equal. Therefore the correlation will be 1, as expected."),
-                React.createElement("br", null),
-                React.createElement("div", { className: 'mjs' }, variance),
-                React.createElement("br", null),
-                React.createElement("div", { className: 'mjs' }, varianceproof),
-                React.createElement("br", null),
-                React.createElement("div", { className: 'mjs' }, varianceproof2)),
-            React.createElement("div", { className: 'desc-vol', style: { 'display': `${volDisplay}` } },
-                React.createElement("h2", null, "What is Volatility?"),
-                React.createElement("p", null, "Volatility, or standard deviation, is a measure of the dispersion of returns for an asset. It is the backbone of popular volatility market incidators such as bollinger bands and confidence intervals. It is calculated simply via the square root of the variance."),
-                React.createElement("br", null),
-                React.createElement("div", { className: 'mjs' }, volatility),
-                React.createElement("br", null),
-                React.createElement("ul", null,
-                    React.createElement("li", null, "High volatility indicates a wide price range while low volatility indicates a narrow price range."),
-                    React.createElement("li", null, "Volatility cannot be negative as it is the result of a square root calculation."))),
-            React.createElement("div", { className: 'desc-cov', style: { 'display': `${covarDisplay}` } },
-                React.createElement("h2", null, "What is Covariance?"),
-                React.createElement("p", null, "Covariance measures the extent or magnitude to which two variables fluctuate or move together. It is not normalized so it could be hard to use the variable as it is."),
-                React.createElement("br", null),
-                React.createElement("div", { className: 'mjs' }, covariance),
-                React.createElement("br", null),
-                React.createElement("ul", null,
-                    React.createElement("li", null, "If the covariance is positive, then the two variables tend to move together. If the covariance is negative, then the two variables tend to move in opposite directions."),
-                    React.createElement("li", null, "If the covariance is 0, then there is no linear relationship between the two variables."))),
-            React.createElement("div", { className: 'desc-cor', style: { 'display': `${corrDisplay}` } },
-                React.createElement("h2", null, "What is Correlation?"),
-                React.createElement("p", null, "Correlation, specifically the correlation coeffecient, is a unitless measure of the strength and direction of the linear relationship between two assets. It is dimensionless and normalized between -1 and 1. It is calculated by dividing the covariance of two assets by the product of their standard deviations."),
-                React.createElement("br", null),
-                React.createElement("div", { className: 'mjs' }, correlation),
-                React.createElement("br", null),
-                React.createElement("ul", null,
-                    React.createElement("li", null, "A correlation of 1 indicates perfect positive correlation between two assets. A correlation of -1 indicates perfect negative correlation. A correlation of 0 indicates no linear relationship."),
-                    React.createElement("li", null, "The closer to -1 or 1 it is, the more effect Bitcoin has on an asset's price action."))),
-            React.createElement("div", { className: 'desc-data', style: { 'display': `${dataDisplay}` } },
-                React.createElement("h2", null, "How To Use This Data?"),
-                React.createElement("p", null, "I am surprised that there is not a simple webpage out there that shows correlations of large cap crypto assets against Bitcoin. There are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? I am presenting one way to view those relationships."),
-                React.createElement("br", null),
-                React.createElement("p", null, "Although one might find the variances and covariances useful, I am more interested means, volatilities and correlations. They are calculated on the way to the correlations so I figured I would present them for anyone interested."),
-                React.createElement("br", null),
-                React.createElement("p", { id: 'hideonsmall' }, "Assets with smaller market caps often overreact to trending market moves. If I thought Bitcoin was going to make a move but wanted to take on additional risk without using leverage, I might look at something with higher volatility with high correlation coeffecient to diversify into.")),
-            React.createElement("div", { className: 'desc-ex', style: { 'display': `${exDisplay}` } },
-                React.createElement("h2", null, "An Example"),
-                React.createElement("p", null)))));
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("div", { className: 'mjs' }, mean),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("ul", null,
+                    react_1.default.createElement("li", null, "A positive number likely indicates an uptrend."),
+                    react_1.default.createElement("li", null, "A negative number likely indicates a downtrend."))),
+            react_1.default.createElement("div", { className: 'desc-var', style: { 'display': `${varDisplay}` } },
+                react_1.default.createElement("h2", null, "What is Variance?"),
+                react_1.default.createElement("p", null, "Variance is the expected squared deviation from the mean. It is a measure of the dispersion of returns. Although not used directly to make observations, it is used within the calculations of volatility, covariance and correlation. The variance and covariance of BTC are equal. Therefore the correlation will be 1, as expected."),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("div", { className: 'mjs' }, variance),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("div", { className: 'mjs' }, varianceproof),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("div", { className: 'mjs' }, varianceproof2)),
+            react_1.default.createElement("div", { className: 'desc-vol', style: { 'display': `${volDisplay}` } },
+                react_1.default.createElement("h2", null, "What is Volatility?"),
+                react_1.default.createElement("p", null, "Volatility, or standard deviation, is a measure of the dispersion of returns for an asset. It is the backbone of popular volatility market incidators such as bollinger bands and confidence intervals. It is calculated simply via the square root of the variance."),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("div", { className: 'mjs' }, volatility),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("ul", null,
+                    react_1.default.createElement("li", null, "High volatility indicates a wide price range while low volatility indicates a narrow price range."),
+                    react_1.default.createElement("li", null, "Volatility cannot be negative as it is the result of a square root calculation."))),
+            react_1.default.createElement("div", { className: 'desc-cov', style: { 'display': `${covarDisplay}` } },
+                react_1.default.createElement("h2", null, "What is Covariance?"),
+                react_1.default.createElement("p", null, "Covariance measures the extent or magnitude to which two variables fluctuate or move together. It is not normalized so it could be hard to use the variable as it is."),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("div", { className: 'mjs' }, covariance),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("ul", null,
+                    react_1.default.createElement("li", null, "If the covariance is positive, then the two variables tend to move together. If the covariance is negative, then the two variables tend to move in opposite directions."),
+                    react_1.default.createElement("li", null, "If the covariance is 0, then there is no linear relationship between the two variables."))),
+            react_1.default.createElement("div", { className: 'desc-cor', style: { 'display': `${corrDisplay}` } },
+                react_1.default.createElement("h2", null, "What is Correlation?"),
+                react_1.default.createElement("p", null, "Correlation, specifically the correlation coeffecient, is a unitless measure of the strength and direction of the linear relationship between two assets. It is dimensionless and normalized between -1 and 1. It is calculated by dividing the covariance of two assets by the product of their standard deviations."),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("div", { className: 'mjs' }, correlation),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("ul", null,
+                    react_1.default.createElement("li", null, "A correlation of 1 indicates perfect positive correlation between two assets. A correlation of -1 indicates perfect negative correlation. A correlation of 0 indicates no linear relationship."),
+                    react_1.default.createElement("li", null, "The closer to -1 or 1 it is, the more effect Bitcoin has on an asset's price action."))),
+            react_1.default.createElement("div", { className: 'desc-data', style: { 'display': `${dataDisplay}` } },
+                react_1.default.createElement("h2", null, "How To Use This Data?"),
+                react_1.default.createElement("p", null, "I am surprised that there is not a simple webpage out there that shows correlations of large cap crypto assets against Bitcoin. There are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? I am presenting one way to view those relationships."),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("p", null, "Although one might find the variances and covariances useful, I am more interested means, volatilities and correlations. They are calculated on the way to the correlations so I figured I would present them for anyone interested."),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("p", { id: 'hideonsmall' }, "Assets with smaller market caps often overreact to trending market moves. If I thought Bitcoin was going to make a move but wanted to take on additional risk without using leverage, I might look at something with higher volatility with high correlation coeffecient to diversify into.")),
+            react_1.default.createElement("div", { className: 'desc-ex', style: { 'display': `${exDisplay}` } },
+                react_1.default.createElement("h2", null, "An Example"),
+                react_1.default.createElement("p", null)))));
 };
 exports.default = FAQ;
 
@@ -3810,29 +3819,14 @@ exports.default = FAQ;
 
 "use strict";
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __importStar(__webpack_require__(294));
-const react_1 = __webpack_require__(294);
+const react_1 = __importDefault(__webpack_require__(294));
+const react_2 = __webpack_require__(294);
 const react_router_dom_1 = __webpack_require__(427);
+const table_webp_1 = __importDefault(__webpack_require__(4));
 const MainPage = () => {
     //some of these variables I need to keep outside the following function because I recall them consistantly after every fetch. So I declared them all here so I can find them easily.
     let data = [];
@@ -3952,37 +3946,37 @@ const MainPage = () => {
         });
     }
     ;
-    react_1.useEffect(() => {
+    react_2.useEffect(() => {
         FetchNOW();
     }, []);
-    return (React.createElement("div", { id: 'main-container' },
-        React.createElement("h1", null, "Bitcoin Covariances and Correlations"),
-        React.createElement("h4", null, "Calculated off of the last thirty daily closures"),
-        React.createElement(react_router_dom_1.NavLink, { exact: true, activeClassname: 'active', to: '/' },
-            React.createElement("button", { onClick: () => setTimeout(function () { location.reload(); }, 0), title: 'Reload Page' }, "\u27F3")),
-        React.createElement("table", { className: 'coin-table' },
-            React.createElement("thead", null,
-                React.createElement("tr", { className: 'tr1' },
-                    React.createElement("th", { className: 'rank', title: "Market Cap Rank" }, "#"),
-                    React.createElement("th", { className: 'name', title: "Ticker" }, "Name"),
-                    React.createElement("th", { className: 'price', title: 'USD Price' }, "Price"),
-                    React.createElement("th", { className: 'market-cap', title: 'Market Capitalization' }, "Market Cap"),
-                    React.createElement("th", { className: 'return', title: 'Expected Value' }, "Mean"),
-                    React.createElement("th", { className: 'var', title: 'Variance' }, "Var"),
-                    React.createElement("th", { className: 'sig', title: 'Volatility' }, "Vol"),
-                    React.createElement("th", { className: 'covar', title: 'Covariance' }, "Cov"),
-                    React.createElement("th", { className: 'cor', title: 'Correlation Coefffecient' }, "Corr"))),
-            React.createElement("tbody", null)),
-        React.createElement("div", { className: 'span-container' },
-            React.createElement("span", null, "*Price and Market Cap are in US Dollars."),
-            React.createElement("br", null),
-            React.createElement("span", null, "*'Stable Coins' do not have data calculated."),
-            React.createElement("br", null),
-            React.createElement("span", null,
+    return (react_1.default.createElement("div", { id: 'main-container' },
+        react_1.default.createElement("h1", null, "Bitcoin Covariances and Correlations"),
+        react_1.default.createElement("h4", null, "Calculated off of the last thirty daily closures"),
+        react_1.default.createElement(react_router_dom_1.NavLink, { exact: true, activeClassname: 'active', to: '/' },
+            react_1.default.createElement("button", { onClick: () => setTimeout(function () { location.reload(); }, 0), title: 'Reload Page' }, "\u27F3")),
+        react_1.default.createElement("table", { className: 'coin-table', style: { backgroundImage: `url(${table_webp_1.default})` } },
+            react_1.default.createElement("thead", null,
+                react_1.default.createElement("tr", { className: 'tr1' },
+                    react_1.default.createElement("th", { className: 'rank', title: "Market Cap Rank" }, "#"),
+                    react_1.default.createElement("th", { className: 'name', title: "Ticker" }, "Name"),
+                    react_1.default.createElement("th", { className: 'price', title: 'USD Price' }, "Price"),
+                    react_1.default.createElement("th", { className: 'market-cap', title: 'Market Capitalization' }, "Market Cap"),
+                    react_1.default.createElement("th", { className: 'return', title: 'Expected Value' }, "Mean"),
+                    react_1.default.createElement("th", { className: 'var', title: 'Variance' }, "Var"),
+                    react_1.default.createElement("th", { className: 'sig', title: 'Volatility' }, "Vol"),
+                    react_1.default.createElement("th", { className: 'covar', title: 'Covariance' }, "Cov"),
+                    react_1.default.createElement("th", { className: 'cor', title: 'Correlation Coefffecient' }, "Corr"))),
+            react_1.default.createElement("tbody", null)),
+        react_1.default.createElement("div", { className: 'span-container' },
+            react_1.default.createElement("span", null, "*Price and Market Cap are in US Dollars."),
+            react_1.default.createElement("br", null),
+            react_1.default.createElement("span", null, "*'Stable Coins' do not have data calculated."),
+            react_1.default.createElement("br", null),
+            react_1.default.createElement("span", null,
                 "*If you see NaN try\u00A0",
-                React.createElement(react_router_dom_1.NavLink, { exact: true, activeClassname: 'active', to: '/', onClick: () => location.reload(), title: 'Reload Data' }, "refreshing the page. \u27F3")),
-            React.createElement("br", null),
-            React.createElement("span", null, "*Assets like SHIB have nonzero prices."))));
+                react_1.default.createElement(react_router_dom_1.NavLink, { exact: true, activeClassname: 'active', to: '/', onClick: () => location.reload(), title: 'Reload Data' }, "refreshing the page. \u27F3")),
+            react_1.default.createElement("br", null),
+            react_1.default.createElement("span", null, "*Assets like SHIB have nonzero prices."))));
 };
 exports.default = MainPage;
 
@@ -3994,36 +3988,20 @@ exports.default = MainPage;
 
 "use strict";
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __importStar(__webpack_require__(294));
+const react_1 = __importDefault(__webpack_require__(294));
 const react_router_dom_1 = __webpack_require__(427);
 const Nav = () => {
-    return (React.createElement("nav", null,
-        React.createElement("ul", null,
-            React.createElement("li", null),
-            React.createElement(react_router_dom_1.NavLink, { exact: true, activeClassname: 'active', to: '/' },
-                React.createElement("li", null, "HOME")),
-            React.createElement(react_router_dom_1.NavLink, { activeclassName: 'active', to: '/faq', onClick: () => setTimeout(() => location.reload(), 10) },
-                React.createElement("li", null, "FAQ")))));
+    return (react_1.default.createElement("nav", null,
+        react_1.default.createElement("ul", null,
+            react_1.default.createElement("li", null),
+            react_1.default.createElement(react_router_dom_1.NavLink, { exact: true, activeClassname: 'active', to: '/' },
+                react_1.default.createElement("li", null, "HOME")),
+            react_1.default.createElement(react_router_dom_1.NavLink, { activeclassName: 'active', to: '/faq', onClick: () => setTimeout(() => location.reload(), 10) },
+                react_1.default.createElement("li", null, "FAQ")))));
 };
 exports.default = Nav;
 
@@ -4144,6 +4122,26 @@ ReactDOM.render(React.createElement(app_1.default, null), document.querySelector
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/

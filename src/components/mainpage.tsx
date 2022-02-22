@@ -1,8 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 
-const MainPage = () => {
+import tableBG from '../images/table.webp'
+
+const MainPage = () => { 
 
     //some of these variables I need to keep outside the following function because I recall them consistantly after every fetch. So I declared them all here so I can find them easily.
     let data:any[] = [];
@@ -173,7 +175,7 @@ const MainPage = () => {
                 ⟳
             </button>
         </NavLink>
-        <table className='coin-table'>
+        <table className='coin-table' style={{backgroundImage:`url(${tableBG})`}}>
             <thead>
                 <tr className='tr1'>
                     <th className='rank' title="Market Cap Rank">#</th>
