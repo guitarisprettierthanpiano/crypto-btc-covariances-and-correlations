@@ -5,7 +5,7 @@ import MainPage from './components/mainpage';
 import Nav from './components/nav';
 import FAQ from './components/faq'
 
-const App = () => {
+const App: React.FC = () => {
 
     return(
     <HashRouter>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import faqBG from '../images/faqbg1.webp'
 
-const FAQ = () => {
+const FAQ: React.FC  = () => {
 
     
     //i'm generating these strings from http://atomurl.net/math/ 

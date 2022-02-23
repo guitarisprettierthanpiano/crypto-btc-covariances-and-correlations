@@ -3511,6 +3511,32 @@ if (true) {
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importDefault(__webpack_require__(294));
+const react_router_dom_1 = __webpack_require__(427);
+const mainpage_1 = __importDefault(__webpack_require__(475));
+const nav_1 = __importDefault(__webpack_require__(682));
+const faq_1 = __importDefault(__webpack_require__(976));
+const App = () => {
+    return (react_1.default.createElement(react_router_dom_1.HashRouter, null,
+        react_1.default.createElement(nav_1.default, null),
+        react_1.default.createElement(react_router_dom_1.Switch, null,
+            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: mainpage_1.default }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: '/faq', component: faq_1.default }))));
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ 976:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -3534,34 +3560,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __importStar(__webpack_require__(294));
-const react_router_dom_1 = __webpack_require__(427);
-const mainpage_1 = __importDefault(__webpack_require__(475));
-const nav_1 = __importDefault(__webpack_require__(682));
-const faq_1 = __importDefault(__webpack_require__(976));
-const App = () => {
-    return (React.createElement(react_router_dom_1.HashRouter, null,
-        React.createElement(nav_1.default, null),
-        React.createElement(react_router_dom_1.Switch, null,
-            React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: mainpage_1.default }),
-            React.createElement(react_router_dom_1.Route, { path: '/faq', component: faq_1.default }))));
-};
-exports.default = App;
-
-
-/***/ }),
-
-/***/ 976:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importDefault(__webpack_require__(294));
-const react_2 = __webpack_require__(294);
+const react_1 = __importStar(__webpack_require__(294));
 const faqbg1_webp_1 = __importDefault(__webpack_require__(132));
 const FAQ = () => {
     //i'm generating these strings from http://atomurl.net/math/ 
@@ -3594,21 +3593,21 @@ const FAQ = () => {
             </MathJax.Context>
         */
     //these are useStates to change the classNames of the li's below. changing the active div will trigger which li is highlighted. it is styled as '.current' in the css file.
-    const [meanClass, setMeanClass] = react_2.useState('current');
-    const [varClass, setVarClass] = react_2.useState('none');
-    const [volClass, setVolClass] = react_2.useState('none');
-    const [covarClass, setCovarClass] = react_2.useState('none');
-    const [corrClass, setCorrClass] = react_2.useState('none');
-    const [dataClass, setDataClass] = react_2.useState('none');
-    const [exClass, setExClass] = react_2.useState('none');
+    const [meanClass, setMeanClass] = react_1.useState('current');
+    const [varClass, setVarClass] = react_1.useState('none');
+    const [volClass, setVolClass] = react_1.useState('none');
+    const [covarClass, setCovarClass] = react_1.useState('none');
+    const [corrClass, setCorrClass] = react_1.useState('none');
+    const [dataClass, setDataClass] = react_1.useState('none');
+    const [exClass, setExClass] = react_1.useState('none');
     //when a nav li is clicked on, it will display that div and hide the others.
-    const [meanDisplay, setMeanDisplay] = react_2.useState('inline');
-    const [varDisplay, setVarDisplay] = react_2.useState('none');
-    const [volDisplay, setVolDisplay] = react_2.useState('none');
-    const [covarDisplay, setCovarDisplay] = react_2.useState('none');
-    const [corrDisplay, setCorrDisplay] = react_2.useState('none');
-    const [dataDisplay, setDataDisplay] = react_2.useState('none');
-    const [exDisplay, setExDisplay] = react_2.useState('none');
+    const [meanDisplay, setMeanDisplay] = react_1.useState('inline');
+    const [varDisplay, setVarDisplay] = react_1.useState('none');
+    const [volDisplay, setVolDisplay] = react_1.useState('none');
+    const [covarDisplay, setCovarDisplay] = react_1.useState('none');
+    const [corrDisplay, setCorrDisplay] = react_1.useState('none');
+    const [dataDisplay, setDataDisplay] = react_1.useState('none');
+    const [exDisplay, setExDisplay] = react_1.useState('none');
     //these are called by the onClick attributes in the sidebar.
     function ClickMean() {
         if (meanDisplay === 'none') {
@@ -3819,12 +3818,30 @@ exports.default = FAQ;
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importDefault(__webpack_require__(294));
-const react_2 = __webpack_require__(294);
+const react_1 = __importStar(__webpack_require__(294));
 const react_router_dom_1 = __webpack_require__(427);
 const table_webp_1 = __importDefault(__webpack_require__(4));
 const MainPage = () => {
@@ -3946,7 +3963,7 @@ const MainPage = () => {
         });
     }
     ;
-    react_2.useEffect(() => {
+    react_1.useEffect(() => {
         FetchNOW();
     }, []);
     return (react_1.default.createElement("div", { id: 'main-container' },
@@ -4013,34 +4030,15 @@ exports.default = Nav;
 
 "use strict";
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __importStar(__webpack_require__(294));
-const ReactDOM = __importStar(__webpack_require__(935));
+const react_1 = __importDefault(__webpack_require__(294));
+const react_dom_1 = __importDefault(__webpack_require__(935));
 __webpack_require__(279);
 const app_1 = __importDefault(__webpack_require__(632));
-ReactDOM.render(React.createElement(app_1.default, null), document.querySelector('#root'));
+react_dom_1.default.render(react_1.default.createElement(app_1.default, null), document.querySelector('#root'));
 
 
 /***/ })

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import tableBG from '../images/table.webp'
 
-const MainPage = () => { 
+const MainPage: React.FC  = () => { 
 
     //some of these variables I need to keep outside the following function because I recall them consistantly after every fetch. So I declared them all here so I can find them easily.
     let data:any[] = [];
@@ -39,7 +39,7 @@ const MainPage = () => {
                 tableRow.appendChild(rankTD);
 
                 let nameTD = document.createElement('td');
-                nameTD.innerText = result[i].symbol;
+                 nameTD.innerText = result[i].symbol;
                 nameTD.classList.add('symbols')
                 tableRow.classList.add(result[i].id)
                 tableRow.appendChild(nameTD);
