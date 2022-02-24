@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import Overlay from './components/Overlay';
 
 import MainPage from './components/mainpage';
-import Nav from './components/nav';
-import FAQ from './components/faq';
+
+const Nav = React.lazy (() => import('./components/nav'));
 
 const App: React.FC = () => {
 
@@ -16,27 +15,19 @@ const App: React.FC = () => {
     },[])
 
     return(
-    <HashRouter>
+    <>
         
         <Overlay />
 
         <div className='page-container'>
-        <React.Suspense fallback={<div/>}>
-        <Nav/>
-
-        <Switch>
-
-            <Route exact path='/'
-            component = {() => <MainPage counters={counter}/>}/>
-
-            <Route path='/faq'
-            component = {FAQ}/>
-
-        </Switch>
-        </React.Suspense>
+            {/* <MainPage counters={counter}/> */}
+            <React.Suspense fallback={<div/>}>
+                <MainPage counters={counter}/>
+                <Nav />
+            </React.Suspense>
         </div>
         
-    </HashRouter>
+    </>
     );
 };
 export default App;

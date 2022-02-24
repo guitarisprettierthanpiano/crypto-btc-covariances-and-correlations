@@ -1,7 +1,9 @@
-import React, { useEffect, useState }  from 'react';
-import { NavLink } from 'react-router-dom'
+import React, { useEffect }  from 'react';
+
+import FAQ from './faq';
 
 import tableBG from '../images/table.webp'
+
 interface props{
     counters: number
 }
@@ -28,17 +30,21 @@ const MainPage: React.FC<props>  = (props) => {
 
     async function FetchNOW(){
         if(props.counters > 0){
-            console.log('returning')
+            console.log('NOT FETCHING')
 
-            document.getElementById('overlay').style.display='none'
+            // document.getElementById('overlay').style.display='none'
             return
         }
-        document.getElementById('overlay').style.display='grid'
+        // else{
+        //     document.getElementById('overlay').style.display='grid'
+        // }
+
         const goFetch = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false`)
         .then(res => res.json())
         .then(result => { 
             for (let i = 0; i < 50; i++){
-                console.log('ONCE')
+                console.log('BEGINNING FETCH')
+
                 data.push(result[i].id);
                 
                 let tableRow = document.createElement('tr');
@@ -160,36 +166,40 @@ const MainPage: React.FC<props>  = (props) => {
                     document.querySelector(`.${data[i]}`).appendChild(corrTD);
                     
                     setTimeout(function(){
+                        console.log('END OF 5K TIMEOUT OVERLAY SHOWN NOW.')
                         document.getElementById('overlay').style.display='none'
-                    },800)
+                    }, 2000)
                    
                 }
             )
-
+            // document.getElementById('overlay').style.display='none'
+            console.log('END OF TOTAL FETCH')
             };
         });
     };   
 
     useEffect(() => {
-        FetchNOW();
+        setTimeout(function(){
+            FetchNOW()},2000
+        )
+
         console.log(`useeffect claleed ${props.counters}`)
     },[props.counters]);
 
 
     return (
+    <>
+        <FAQ />
     <div id='main-container'>
         <h1>Bitcoin Covariances and Correlations</h1>
         <h4>Calculated off of the last thirty daily closures</h4>
 
-        <NavLink 
-        exact activeClassname='active' to='/'>
-            <button
-            onClick={() => 
-                setTimeout(function(){ location.reload(); }, 10)}
-            title='Reload Page'>
-                ⟳
-            </button>
-        </NavLink>
+        <button
+        onClick={() => 
+            setTimeout(function(){ location.reload(); }, 10)}
+        title='Reload Page'>
+            ⟳
+        </button>
         <table className='coin-table' style={{backgroundImage:`url(${tableBG})`}}>
             <thead>
                 <tr className='tr1'>
@@ -211,18 +221,10 @@ const MainPage: React.FC<props>  = (props) => {
         <div className='span-container'>
             <span>*Price and Market Cap are in US Dollars.</span><br/>
             <span>*'Stable Coins' do not have data calculated.</span><br/>
-            <span>*If you see NaN try&nbsp; 
-                <NavLink
-                exact activeClassname='active' to='/'
-                onClick={() => location.reload()}
-                title='Reload Data'
-                >
-                   refreshing the page. ⟳
-                </NavLink>
-            </span><br/>
             <span>*Assets like SHIB have nonzero prices.</span>
         </div>
     </div>
+    </>
     )
 }
 
