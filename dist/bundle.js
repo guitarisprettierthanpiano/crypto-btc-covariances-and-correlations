@@ -3511,23 +3511,79 @@ if (true) {
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(294));
+const react_router_dom_1 = __webpack_require__(427);
+const Overlay_1 = __importDefault(__webpack_require__(483));
+const mainpage_1 = __importDefault(__webpack_require__(475));
+const nav_1 = __importDefault(__webpack_require__(682));
+const faq_1 = __importDefault(__webpack_require__(976));
+const App = () => {
+    //on initial app load, send prop to api component telling it to fetch.
+    const [counter, setCounter] = react_1.useState(0);
+    react_1.useEffect(() => {
+        setCounter(counter + 1);
+    }, []);
+    return (react_1.default.createElement(react_router_dom_1.HashRouter, null,
+        react_1.default.createElement(Overlay_1.default, null),
+        react_1.default.createElement("div", { className: 'page-container' },
+            react_1.default.createElement(react_1.default.Suspense, { fallback: react_1.default.createElement("div", null) },
+                react_1.default.createElement(nav_1.default, null),
+                react_1.default.createElement(react_router_dom_1.Switch, null,
+                    react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: () => react_1.default.createElement(mainpage_1.default, { counters: counter }) }),
+                    react_1.default.createElement(react_router_dom_1.Route, { path: '/faq', component: faq_1.default }))))));
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ 483:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(294));
-const react_router_dom_1 = __webpack_require__(427);
-const mainpage_1 = __importDefault(__webpack_require__(475));
-const nav_1 = __importDefault(__webpack_require__(682));
-const faq_1 = __importDefault(__webpack_require__(976));
-const App = () => {
-    return (react_1.default.createElement(react_router_dom_1.HashRouter, null,
-        react_1.default.createElement(nav_1.default, null),
-        react_1.default.createElement(react_router_dom_1.Switch, null,
-            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: mainpage_1.default }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: '/faq', component: faq_1.default }))));
+const Overlay = () => {
+    return (react_1.default.createElement("div", { id: "overlay" },
+        react_1.default.createElement("div", { className: "lds-grid" },
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null))));
 };
-exports.default = App;
+exports.default = Overlay;
 
 
 /***/ }),
@@ -3844,7 +3900,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(294));
 const react_router_dom_1 = __webpack_require__(427);
 const table_webp_1 = __importDefault(__webpack_require__(4));
-const MainPage = () => {
+const MainPage = (props) => {
     //some of these variables I need to keep outside the following function because I recall them consistantly after every fetch. So I declared them all here so I can find them easily.
     let data = [];
     let btcVolatility = 0;
@@ -3860,10 +3916,17 @@ const MainPage = () => {
     let covariance = 0;
     let correlation = 0;
     async function FetchNOW() {
+        if (props.counters > 0) {
+            console.log('returning');
+            document.getElementById('overlay').style.display = 'none';
+            return;
+        }
+        document.getElementById('overlay').style.display = 'grid';
         const goFetch = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false`)
             .then(res => res.json())
             .then(result => {
             for (let i = 0; i < 50; i++) {
+                console.log('ONCE');
                 data.push(result[i].id);
                 let tableRow = document.createElement('tr');
                 tableRow.setAttribute('title', `${result[i].name}`);
@@ -3957,6 +4020,9 @@ const MainPage = () => {
                     let corrTD = document.createElement('td');
                     corrTD.innerText = correlation.toFixed(5).toString();
                     document.querySelector(`.${data[i]}`).appendChild(corrTD);
+                    setTimeout(function () {
+                        document.getElementById('overlay').style.display = 'none';
+                    }, 800);
                 });
             }
             ;
@@ -3965,12 +4031,13 @@ const MainPage = () => {
     ;
     react_1.useEffect(() => {
         FetchNOW();
-    }, []);
+        console.log(`useeffect claleed ${props.counters}`);
+    }, [props.counters]);
     return (react_1.default.createElement("div", { id: 'main-container' },
         react_1.default.createElement("h1", null, "Bitcoin Covariances and Correlations"),
         react_1.default.createElement("h4", null, "Calculated off of the last thirty daily closures"),
         react_1.default.createElement(react_router_dom_1.NavLink, { exact: true, activeClassname: 'active', to: '/' },
-            react_1.default.createElement("button", { onClick: () => setTimeout(function () { location.reload(); }, 0), title: 'Reload Page' }, "\u27F3")),
+            react_1.default.createElement("button", { onClick: () => setTimeout(function () { location.reload(); }, 10), title: 'Reload Page' }, "\u27F3")),
         react_1.default.createElement("table", { className: 'coin-table', style: { backgroundImage: `url(${table_webp_1.default})` } },
             react_1.default.createElement("thead", null,
                 react_1.default.createElement("tr", { className: 'tr1' },
@@ -4015,9 +4082,9 @@ const Nav = () => {
     return (react_1.default.createElement("nav", null,
         react_1.default.createElement("ul", null,
             react_1.default.createElement("li", null),
-            react_1.default.createElement(react_router_dom_1.NavLink, { exact: true, activeClassname: 'active', to: '/' },
+            react_1.default.createElement(react_router_dom_1.NavLink, { exact: true, activeClassname: 'active', to: '/', onClick: () => setTimeout(() => location.reload(), 10) },
                 react_1.default.createElement("li", null, "HOME")),
-            react_1.default.createElement(react_router_dom_1.NavLink, { activeclassName: 'active', to: '/faq', onClick: () => setTimeout(() => location.reload(), 10) },
+            react_1.default.createElement(react_router_dom_1.NavLink, { activeclassName: 'active', to: '/faq' },
                 react_1.default.createElement("li", null, "FAQ")))));
 };
 exports.default = Nav;

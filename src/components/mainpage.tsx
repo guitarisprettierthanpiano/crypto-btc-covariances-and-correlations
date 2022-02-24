@@ -1,9 +1,12 @@
-import React, { useEffect }  from 'react';
+import React, { useEffect, useState }  from 'react';
 import { NavLink } from 'react-router-dom'
 
 import tableBG from '../images/table.webp'
+interface props{
+    counters: number
+}
 
-const MainPage: React.FC  = () => { 
+const MainPage: React.FC<props>  = (props) => { 
 
     //some of these variables I need to keep outside the following function because I recall them consistantly after every fetch. So I declared them all here so I can find them easily.
     let data:any[] = [];
@@ -24,10 +27,18 @@ const MainPage: React.FC  = () => {
     let correlation:number = 0;
 
     async function FetchNOW(){
+        if(props.counters > 0){
+            console.log('returning')
+
+            document.getElementById('overlay').style.display='none'
+            return
+        }
+        document.getElementById('overlay').style.display='grid'
         const goFetch = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false`)
         .then(res => res.json())
         .then(result => { 
             for (let i = 0; i < 50; i++){
+                console.log('ONCE')
                 data.push(result[i].id);
                 
                 let tableRow = document.createElement('tr');
@@ -147,6 +158,10 @@ const MainPage: React.FC  = () => {
                     let corrTD = document.createElement('td');
                     corrTD.innerText = correlation.toFixed(5).toString();
                     document.querySelector(`.${data[i]}`).appendChild(corrTD);
+                    
+                    setTimeout(function(){
+                        document.getElementById('overlay').style.display='none'
+                    },800)
                    
                 }
             )
@@ -157,7 +172,8 @@ const MainPage: React.FC  = () => {
 
     useEffect(() => {
         FetchNOW();
-    },[]);
+        console.log(`useeffect claleed ${props.counters}`)
+    },[props.counters]);
 
 
     return (
@@ -169,7 +185,7 @@ const MainPage: React.FC  = () => {
         exact activeClassname='active' to='/'>
             <button
             onClick={() => 
-                setTimeout(function(){ location.reload(); }, 0)}
+                setTimeout(function(){ location.reload(); }, 10)}
             title='Reload Page'>
                 ⟳
             </button>
