@@ -20,7 +20,6 @@ const App: React.FC = () => {
         <Overlay />
 
         <div className='page-container'>
-            {/* <MainPage counters={counter}/> */}
             <React.Suspense fallback={<div/>}>
                 <MainPage counters={counter}/>
                 <Nav />

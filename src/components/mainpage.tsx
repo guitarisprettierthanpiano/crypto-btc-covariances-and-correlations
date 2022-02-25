@@ -1,7 +1,6 @@
 import React, { useEffect }  from 'react';
 
 import FAQ from './faq';
-
 import tableBG from '../images/table.webp'
 
 interface props{
@@ -197,7 +196,7 @@ const MainPage: React.FC<props>  = (props) => {
         <button
         onClick={() => 
             setTimeout(function(){ location.reload(); }, 10)}
-        title='Reload Page'>
+        title='Click if you see NaN below.'>
             ⟳
         </button>
         <table className='coin-table' style={{backgroundImage:`url(${tableBG})`}}>
