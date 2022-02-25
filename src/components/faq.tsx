@@ -15,27 +15,6 @@ const FAQ: React.FC  = () => {
     const varianceproof2 = `$ρ_{X, X}=Corr[X, X]=\\frac{Cov[X, X]}{σ_{X} σ_{X}} = \\frac{Var[X]}{Var[X]} = 1$`
 
     const i1 = `$i +1$`
-
-    /*
-    <MathJax.Context
-            input='tex'
-            async defer script="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js"
-            options={ {
-            messageStyle: 'none',
-            extensions: ['tex2jax.js'],
-            jax: ['input/TeX', 'output/HTML-CSS'],
-            tex2jax: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true,
-            },
-            TeX: {
-                extensions: ['AMSmath.js', 'AMSsymbols.js', 'noErrors.js', 'noUndefined.js']
-            }
-            } }>
-            <MathJax.Html html={ mean } />
-            </MathJax.Context>
-        */
      
     //these are useStates to change the classNames of the li's below. changing the active div will trigger which li is highlighted. it is styled as '.current' in the css file.
     const [meanClass, setMeanClass] = useState<string>('current');
@@ -229,7 +208,7 @@ const FAQ: React.FC  = () => {
                     Corr
                 </li>
             
-                <li className='li-header'>
+                {/* <li className='li-header'>
                     Application
                 </li>
 
@@ -237,7 +216,7 @@ const FAQ: React.FC  = () => {
                 onClick={() => ClickData()}
                 title='Correlation Coeffecient'>
                     Using Data
-                </li>  
+                </li>   */}
             </ul>
         </div>
 
@@ -324,7 +303,7 @@ const FAQ: React.FC  = () => {
                 </ul>
             </div>
 
-            <div className='desc-data'
+            {/* <div className='desc-data'
             style={{'display':`${dataDisplay}`}}>
                 <h2>How To Use This Data?</h2>
                 <p>I am surprised that there is not a simple webpage out there that shows correlations of large cap crypto assets against Bitcoin. There are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? I am presenting one way to view those relationships.</p><br/>
@@ -339,8 +318,8 @@ const FAQ: React.FC  = () => {
             <div className='desc-ex'
             style={{'display':`${exDisplay}`}}>
                 <h2>An Example</h2>
-                <p></p>
-            </div>
+                <p></p> */}
+            {/* </div> */}
         </div>    
     </div>
     );

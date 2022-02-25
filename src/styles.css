@@ -340,6 +340,7 @@ td:hover{
     position: absolute;
     z-index: 3;
     top: 30px;
+    width: 100%;
 
     display: none;
     grid-template-columns: 200px auto;

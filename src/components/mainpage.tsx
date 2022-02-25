@@ -3,11 +3,11 @@ import React, { useEffect }  from 'react';
 import FAQ from './faq';
 import tableBG from '../images/table.webp'
 
-interface props{
+interface Props{
     counters: number
 }
 
-const MainPage: React.FC<props>  = (props) => { 
+const MainPage: React.FC<Props>  = (props) => { 
 
     //some of these variables I need to keep outside the following function because I recall them consistantly after every fetch. So I declared them all here so I can find them easily.
     let data:any[] = [];
