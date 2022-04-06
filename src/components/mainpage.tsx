@@ -1,4 +1,4 @@
-import React, { useEffect }  from 'react';
+import React from 'react';
 
 import FAQ from './faq';
 import tableBG from '../images/table.webp'
@@ -27,9 +27,8 @@ const MainPage: React.FC<Props>  = (props) => {
     let covariance:number = 0;
     let correlation:number = 0;
 
-    async function FetchNOW(){
+    async function FetchNOW(): Promise<void>{
         if(props.counters > 0){
-            console.log('NOT FETCHING')
 
             // document.getElementById('overlay').style.display='none'
             return
@@ -42,7 +41,6 @@ const MainPage: React.FC<Props>  = (props) => {
         .then(res => res.json())
         .then(result => { 
             for (let i = 0; i < 50; i++){
-                console.log('BEGINNING FETCH')
 
                 data.push(result[i].id);
                 
@@ -165,24 +163,19 @@ const MainPage: React.FC<Props>  = (props) => {
                     document.querySelector(`.${data[i]}`).appendChild(corrTD);
                     
                     setTimeout(function(){
-                        console.log('END OF 5K TIMEOUT OVERLAY SHOWN NOW.')
                         document.getElementById('overlay').style.display='none'
                     }, 2000)
                    
                 }
             )
-            // document.getElementById('overlay').style.display='none'
-            console.log('END OF TOTAL FETCH')
             };
         });
     };   
 
-    useEffect(() => {
+    React.useEffect(() => {
         setTimeout(function(){
             FetchNOW()},2000
         )
-
-        console.log(`useeffect claleed ${props.counters}`)
     },[props.counters]);
 
 

@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Overlay from './components/Overlay';
-
 import MainPage from './components/mainpage';
-
-const Nav = React.lazy (() => import('./components/nav'));
+const Nav: React.LazyExoticComponent<React.FC<{}>> = React.lazy (() => import('./components/nav'));
 
 const App: React.FC = () => {
 
     //on initial app load, send prop to api component telling it to fetch.
-    const [counter, setCounter] = useState(0)
-    useEffect(()=>{
+    const [counter, setCounter] = React.useState<number>(0)
+    React.useEffect(()=>{
         setCounter(counter + 1)
     },[])
 

@@ -5,6 +5,8 @@ require('./styles.css')
 import App from './app';
 
 ReactDOM.render(
-    <App />,
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
     document.querySelector('#root')
 )

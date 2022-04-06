@@ -2,7 +2,8 @@ import React from 'react'
 
 const Nav: React.FC  = () => {
 
-    function HomeClicked(){
+    //clicking home will hide the faq overlay.
+    const HomeClicked: () => void = () =>{
         document.getElementById('overlay').style.display='grid'
 
         setTimeout(() => {
@@ -12,7 +13,9 @@ const Nav: React.FC  = () => {
         document.querySelector('table').style.visibility = 'visible'
         document.getElementById('faq-container').style.display='none'
     }
-    function FAQClicked(){
+    
+    //clicking faq will bring forward the faq overlay.
+    const FAQClicked: () => void = () =>{
         document.getElementById('overlay').style.display='grid'
 
         setTimeout(() => {
@@ -24,12 +27,12 @@ const Nav: React.FC  = () => {
     }
 
     return (
-        <nav>
-            <ul>
-                <li onClick={HomeClicked}>Data</li>
-                <li onClick={FAQClicked}>FAQ</li>
-            </ul>
-        </nav>
+    <nav>
+        <ul>
+            <li onClick={HomeClicked}>Data</li>
+            <li onClick={FAQClicked}>FAQ</li>
+        </ul>
+    </nav>
     )
 }
 

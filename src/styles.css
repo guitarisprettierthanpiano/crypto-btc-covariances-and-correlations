@@ -63,6 +63,8 @@ body, html{
 
     background-color:rgba(0, 3, 41, 1);
 }
+
+/*loading page styling*/
 .lds-grid {
     /* margin-top: 2vh; */
     justify-self: center;
@@ -137,9 +139,6 @@ body, html{
   
 
 
-
-
- 
 /* nav */
 nav{
     z-index: 4;

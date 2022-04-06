@@ -576,14 +576,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importStar(__webpack_require__(294));
+const react_1 = __importDefault(__webpack_require__(294));
 const Overlay_1 = __importDefault(__webpack_require__(483));
 const mainpage_1 = __importDefault(__webpack_require__(475));
 const Nav = react_1.default.lazy(() => Promise.resolve().then(() => __importStar(__webpack_require__(682))));
 const App = () => {
     //on initial app load, send prop to api component telling it to fetch.
-    const [counter, setCounter] = react_1.useState(0);
-    react_1.useEffect(() => {
+    const [counter, setCounter] = react_1.default.useState(0);
+    react_1.default.useEffect(() => {
         setCounter(counter + 1);
     }, []);
     return (react_1.default.createElement(react_1.default.Fragment, null,
@@ -629,30 +629,11 @@ exports.default = Overlay;
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importStar(__webpack_require__(294));
+const react_1 = __importDefault(__webpack_require__(294));
 const faqbg1_webp_1 = __importDefault(__webpack_require__(132));
 const FAQ = () => {
     //i'm generating these strings from http://atomurl.net/math/ 
@@ -665,148 +646,88 @@ const FAQ = () => {
     const varianceproof2 = `$ρ_{X, X}=Corr[X, X]=\\frac{Cov[X, X]}{σ_{X} σ_{X}} = \\frac{Var[X]}{Var[X]} = 1$`;
     const i1 = `$i +1$`;
     //these are useStates to change the classNames of the li's below. changing the active div will trigger which li is highlighted. it is styled as '.current' in the css file.
-    const [meanClass, setMeanClass] = react_1.useState('current');
-    const [varClass, setVarClass] = react_1.useState('none');
-    const [volClass, setVolClass] = react_1.useState('none');
-    const [covarClass, setCovarClass] = react_1.useState('none');
-    const [corrClass, setCorrClass] = react_1.useState('none');
-    const [dataClass, setDataClass] = react_1.useState('none');
-    const [exClass, setExClass] = react_1.useState('none');
+    const [meanClass, setMeanClass] = react_1.default.useState('current');
+    const [varClass, setVarClass] = react_1.default.useState('none');
+    const [volClass, setVolClass] = react_1.default.useState('none');
+    const [covarClass, setCovarClass] = react_1.default.useState('none');
+    const [corrClass, setCorrClass] = react_1.default.useState('none');
     //when a nav li is clicked on, it will display that div and hide the others.
-    const [meanDisplay, setMeanDisplay] = react_1.useState('inline');
-    const [varDisplay, setVarDisplay] = react_1.useState('none');
-    const [volDisplay, setVolDisplay] = react_1.useState('none');
-    const [covarDisplay, setCovarDisplay] = react_1.useState('none');
-    const [corrDisplay, setCorrDisplay] = react_1.useState('none');
-    const [dataDisplay, setDataDisplay] = react_1.useState('none');
-    const [exDisplay, setExDisplay] = react_1.useState('none');
+    const [meanDisplay, setMeanDisplay] = react_1.default.useState('inline');
+    const [varDisplay, setVarDisplay] = react_1.default.useState('none');
+    const [volDisplay, setVolDisplay] = react_1.default.useState('none');
+    const [covarDisplay, setCovarDisplay] = react_1.default.useState('none');
+    const [corrDisplay, setCorrDisplay] = react_1.default.useState('none');
     //these are called by the onClick attributes in the sidebar.
-    function ClickMean() {
+    const ClickMean = () => {
         if (meanDisplay === 'none') {
             setMeanClass('current');
             setVarClass('none');
             setVolClass('none');
             setCovarClass('none');
             setCorrClass('none');
-            setDataClass('none');
-            setExClass('none');
             setMeanDisplay('inline');
             setVarDisplay('none');
             setVolDisplay('none');
             setCovarDisplay('none');
             setCorrDisplay('none');
-            setDataDisplay('none');
-            setExDisplay('none');
         }
-    }
-    function ClickVar() {
+    };
+    const ClickVar = () => {
         if (varDisplay === 'none') {
             setMeanClass('none');
             setVarClass('current');
             setVolClass('none');
             setCovarClass('none');
             setCorrClass('none');
-            setDataClass('none');
-            setExClass('none');
             setMeanDisplay('none');
             setVarDisplay('inline');
             setVolDisplay('none');
             setCovarDisplay('none');
             setCorrDisplay('none');
-            setDataDisplay('none');
-            setExDisplay('none');
         }
-    }
-    function ClickVol() {
+    };
+    const ClickVol = () => {
         if (volDisplay === 'none') {
             setMeanClass('none');
             setVarClass('none');
             setVolClass('current');
             setCovarClass('none');
             setCorrClass('none');
-            setDataClass('none');
-            setExClass('none');
             setMeanDisplay('none');
             setVarDisplay('none');
             setVolDisplay('inline');
             setCovarDisplay('none');
             setCorrDisplay('none');
-            setDataDisplay('none');
-            setExDisplay('none');
         }
-    }
-    function ClickCovar() {
+    };
+    const ClickCovar = () => {
         if (covarDisplay === 'none') {
             setMeanClass('none');
             setVarClass('none');
             setVolClass('none');
             setCovarClass('current');
             setCorrClass('none');
-            setDataClass('none');
-            setExClass('none');
             setMeanDisplay('none');
             setVarDisplay('none');
             setVolDisplay('none');
             setCovarDisplay('inline');
             setCorrDisplay('none');
-            setDataDisplay('none');
-            setExDisplay('none');
         }
-    }
-    function ClickCorr() {
+    };
+    const ClickCorr = () => {
         if (corrDisplay === 'none') {
             setMeanClass('none');
             setVarClass('none');
             setVolClass('none');
             setCovarClass('none');
             setCorrClass('current');
-            setDataClass('none');
-            setExClass('none');
             setMeanDisplay('none');
             setVarDisplay('none');
             setVolDisplay('none');
             setCovarDisplay('none');
             setCorrDisplay('inline');
-            setDataDisplay('none');
-            setExDisplay('none');
         }
-    }
-    function ClickData() {
-        if (dataDisplay === 'none') {
-            setMeanClass('none');
-            setVarClass('none');
-            setVolClass('none');
-            setCovarClass('none');
-            setCorrClass('none');
-            setDataClass('current');
-            setExClass('none');
-            setMeanDisplay('none');
-            setVarDisplay('none');
-            setVolDisplay('none');
-            setCovarDisplay('none');
-            setCorrDisplay('none');
-            setDataDisplay('inline');
-            setExDisplay('none');
-        }
-    }
-    function ClickEx() {
-        if (exDisplay === 'none') {
-            setMeanClass('none');
-            setVarClass('none');
-            setVolClass('none');
-            setCovarClass('none');
-            setCorrClass('none');
-            setDataClass('none');
-            setExClass('current');
-            setMeanDisplay('none');
-            setVarDisplay('none');
-            setVolDisplay('none');
-            setCovarDisplay('none');
-            setCorrDisplay('none');
-            setDataDisplay('none');
-            setExDisplay('inline');
-        }
-    }
+    };
     return (react_1.default.createElement("div", { id: 'faq-container', style: { backgroundImage: `url(${faqbg1_webp_1.default})` } },
         react_1.default.createElement("div", { className: 'sticky-sidebar' },
             react_1.default.createElement("ul", null,
@@ -877,30 +798,11 @@ exports.default = FAQ;
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importStar(__webpack_require__(294));
+const react_1 = __importDefault(__webpack_require__(294));
 const faq_1 = __importDefault(__webpack_require__(976));
 const table_webp_1 = __importDefault(__webpack_require__(4));
 const MainPage = (props) => {
@@ -920,7 +822,6 @@ const MainPage = (props) => {
     let correlation = 0;
     async function FetchNOW() {
         if (props.counters > 0) {
-            console.log('NOT FETCHING');
             // document.getElementById('overlay').style.display='none'
             return;
         }
@@ -931,7 +832,6 @@ const MainPage = (props) => {
             .then(res => res.json())
             .then(result => {
             for (let i = 0; i < 50; i++) {
-                console.log('BEGINNING FETCH');
                 data.push(result[i].id);
                 let tableRow = document.createElement('tr');
                 tableRow.setAttribute('title', `${result[i].name}`);
@@ -1026,22 +926,18 @@ const MainPage = (props) => {
                     corrTD.innerText = correlation.toFixed(5).toString();
                     document.querySelector(`.${data[i]}`).appendChild(corrTD);
                     setTimeout(function () {
-                        console.log('END OF 5K TIMEOUT OVERLAY SHOWN NOW.');
                         document.getElementById('overlay').style.display = 'none';
                     }, 2000);
                 });
-                // document.getElementById('overlay').style.display='none'
-                console.log('END OF TOTAL FETCH');
             }
             ;
         });
     }
     ;
-    react_1.useEffect(() => {
+    react_1.default.useEffect(() => {
         setTimeout(function () {
             FetchNOW();
         }, 2000);
-        console.log(`useeffect claleed ${props.counters}`);
     }, [props.counters]);
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(faq_1.default, null),
@@ -1084,22 +980,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(294));
 const Nav = () => {
-    function HomeClicked() {
+    //clicking home will hide the faq overlay.
+    const HomeClicked = () => {
         document.getElementById('overlay').style.display = 'grid';
         setTimeout(() => {
             document.getElementById('overlay').style.display = 'none';
         }, 800);
         document.querySelector('table').style.visibility = 'visible';
         document.getElementById('faq-container').style.display = 'none';
-    }
-    function FAQClicked() {
+    };
+    //clicking faq will bring forward the faq overlay.
+    const FAQClicked = () => {
         document.getElementById('overlay').style.display = 'grid';
         setTimeout(() => {
             document.getElementById('overlay').style.display = 'none';
         }, 800);
         document.getElementById('faq-container').style.display = 'grid';
         document.querySelector('table').style.visibility = 'collapse';
-    }
+    };
     return (react_1.default.createElement("nav", null,
         react_1.default.createElement("ul", null,
             react_1.default.createElement("li", { onClick: HomeClicked }, "Data"),
@@ -1122,7 +1020,8 @@ const react_1 = __importDefault(__webpack_require__(294));
 const react_dom_1 = __importDefault(__webpack_require__(935));
 __webpack_require__(279);
 const app_1 = __importDefault(__webpack_require__(632));
-react_dom_1.default.render(react_1.default.createElement(app_1.default, null), document.querySelector('#root'));
+react_dom_1.default.render(react_1.default.createElement(react_1.default.StrictMode, null,
+    react_1.default.createElement(app_1.default, null)), document.querySelector('#root'));
 
 
 /***/ })

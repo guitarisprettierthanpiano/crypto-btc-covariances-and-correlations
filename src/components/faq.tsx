@@ -1,171 +1,108 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import faqBG from '../images/faqbg1.webp'
 
 const FAQ: React.FC  = () => {
 
-    
     //i'm generating these strings from http://atomurl.net/math/ 
-    const covariance = '$Cov[X,  BTC]=\\sum_{i=1}^{30}\\frac{{(X_i - E[X])}{(BTC_i - E[BTC])}}{30}$';
-    const correlation = '$ρ_{X, BTC}=Corr[X, BTC]=\\frac{Cov[X, BTC]}{{\\sigma_X}{\\sigma_{BTC}}}$';
-    const mean = `$E[X]=Mean[X]=\\frac{100}{30}⋅ \\sum_{i=1}^{30}\\frac{{X_{i+1}-{X_i}}}{X_i}$`;
-    const variance = `$Var[X] = E[(X_{i}-E[X])^{2}]= E[X^{2}] - E[X]^{2}$`
-    const volatility = `$σ_{X} = Vol[X] = \\sqrt{Var[X]}$`
-    const varianceproof = `$Cov[X, X] = E[(X_{i}-E[X])(X_{i}-E[X])] = E[(X_{i}-E[X])^{2}] = Var[X]$`
-    const varianceproof2 = `$ρ_{X, X}=Corr[X, X]=\\frac{Cov[X, X]}{σ_{X} σ_{X}} = \\frac{Var[X]}{Var[X]} = 1$`
+    const covariance: string = '$Cov[X,  BTC]=\\sum_{i=1}^{30}\\frac{{(X_i - E[X])}{(BTC_i - E[BTC])}}{30}$';
+    const correlation: string = '$ρ_{X, BTC}=Corr[X, BTC]=\\frac{Cov[X, BTC]}{{\\sigma_X}{\\sigma_{BTC}}}$';
+    const mean: string = `$E[X]=Mean[X]=\\frac{100}{30}⋅ \\sum_{i=1}^{30}\\frac{{X_{i+1}-{X_i}}}{X_i}$`;
+    const variance: string = `$Var[X] = E[(X_{i}-E[X])^{2}]= E[X^{2}] - E[X]^{2}$`
+    const volatility: string = `$σ_{X} = Vol[X] = \\sqrt{Var[X]}$`
+    const varianceproof: string = `$Cov[X, X] = E[(X_{i}-E[X])(X_{i}-E[X])] = E[(X_{i}-E[X])^{2}] = Var[X]$`
+    const varianceproof2: string = `$ρ_{X, X}=Corr[X, X]=\\frac{Cov[X, X]}{σ_{X} σ_{X}} = \\frac{Var[X]}{Var[X]} = 1$`
 
-    const i1 = `$i +1$`
+    const i1: string = `$i +1$`
      
     //these are useStates to change the classNames of the li's below. changing the active div will trigger which li is highlighted. it is styled as '.current' in the css file.
-    const [meanClass, setMeanClass] = useState<string>('current');
-    const [varClass, setVarClass] = useState<string>('none');
-    const [volClass, setVolClass] = useState<string>('none');
-    const [covarClass, setCovarClass] = useState<string>('none');
-    const [corrClass, setCorrClass] = useState<string>('none');
-    const [dataClass, setDataClass] = useState<string>('none');
-    const [exClass, setExClass] = useState<string>('none');
+    const [meanClass, setMeanClass] = React.useState<string>('current');
+    const [varClass, setVarClass] = React.useState<string>('none');
+    const [volClass, setVolClass] = React.useState<string>('none');
+    const [covarClass, setCovarClass] = React.useState<string>('none');
+    const [corrClass, setCorrClass] = React.useState<string>('none');
 
     //when a nav li is clicked on, it will display that div and hide the others.
-    const [meanDisplay, setMeanDisplay] = useState<string>('inline');
-    const [varDisplay, setVarDisplay] = useState<string>('none');
-    const [volDisplay, setVolDisplay] = useState<string>('none');
-    const [covarDisplay, setCovarDisplay] = useState<string>('none');
-    const [corrDisplay, setCorrDisplay] = useState<string>('none');
-    const [dataDisplay, setDataDisplay] = useState<string>('none');
-    const [exDisplay, setExDisplay] = useState<string>('none');
+    const [meanDisplay, setMeanDisplay] = React.useState<string>('inline');
+    const [varDisplay, setVarDisplay] = React.useState<string>('none');
+    const [volDisplay, setVolDisplay] = React.useState<string>('none');
+    const [covarDisplay, setCovarDisplay] = React.useState<string>('none');
+    const [corrDisplay, setCorrDisplay] = React.useState<string>('none');
 
     //these are called by the onClick attributes in the sidebar.
-    function ClickMean(){
+    const ClickMean: () => void = () =>{
         if (meanDisplay ==='none'){
             setMeanClass('current')
             setVarClass('none')
             setVolClass('none')
             setCovarClass('none')
             setCorrClass('none')
-            setDataClass('none')
-            setExClass('none')
 
             setMeanDisplay('inline')
             setVarDisplay('none')
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('none')
-            setDataDisplay('none')
-            setExDisplay('none')
         }
     }
-    function ClickVar(){
+    const ClickVar: () => void = () =>{
         if (varDisplay ==='none'){
             setMeanClass('none')
             setVarClass('current')
             setVolClass('none')
             setCovarClass('none')
             setCorrClass('none')
-            setDataClass('none')
-            setExClass('none')
 
             setMeanDisplay('none')
             setVarDisplay('inline')
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('none')
-            setDataDisplay('none')
-            setExDisplay('none')
         }
     }
-    function ClickVol(){
+    const ClickVol: () => void = () =>{
         if (volDisplay ==='none'){
             setMeanClass('none')
             setVarClass('none')
             setVolClass('current')
             setCovarClass('none')
             setCorrClass('none')
-            setDataClass('none')
-            setExClass('none')
 
             setMeanDisplay('none')
             setVarDisplay('none')
             setVolDisplay('inline')
             setCovarDisplay('none')
             setCorrDisplay('none')
-            setDataDisplay('none')
-            setExDisplay('none')
         }
     }
-    function ClickCovar(){
+    const ClickCovar: () => void = () =>{
         if (covarDisplay ==='none'){
             setMeanClass('none')
             setVarClass('none')
             setVolClass('none')
             setCovarClass('current')
             setCorrClass('none')
-            setDataClass('none')
-            setExClass('none')
 
             setMeanDisplay('none')
             setVarDisplay('none')
             setVolDisplay('none')
             setCovarDisplay('inline')
             setCorrDisplay('none')
-            setDataDisplay('none')
-            setExDisplay('none')
         }
     }
-    function ClickCorr(){
+    const ClickCorr: () => void = () =>{
         if (corrDisplay ==='none'){
             setMeanClass('none')
             setVarClass('none')
             setVolClass('none')
             setCovarClass('none')
             setCorrClass('current')
-            setDataClass('none')
-            setExClass('none')
 
             setMeanDisplay('none')
             setVarDisplay('none')
             setVolDisplay('none')
             setCovarDisplay('none')
             setCorrDisplay('inline')
-            setDataDisplay('none')
-            setExDisplay('none')
-        }
-    }
-    function ClickData(){
-        if (dataDisplay ==='none'){
-            setMeanClass('none')
-            setVarClass('none')
-            setVolClass('none')
-            setCovarClass('none')
-            setCorrClass('none')
-            setDataClass('current')
-            setExClass('none')
-
-            setMeanDisplay('none')
-            setVarDisplay('none')
-            setVolDisplay('none')
-            setCovarDisplay('none')
-            setCorrDisplay('none')
-            setDataDisplay('inline')
-            setExDisplay('none')
-        }
-    }
-    function ClickEx(){
-        if (exDisplay ==='none'){
-            setMeanClass('none')
-            setVarClass('none')
-            setVolClass('none')
-            setCovarClass('none')
-            setCorrClass('none')
-            setDataClass('none')
-            setExClass('current')
-
-            setMeanDisplay('none')
-            setVarDisplay('none')
-            setVolDisplay('none')
-            setCovarDisplay('none')
-            setCorrDisplay('none')
-            setDataDisplay('none')
-            setExDisplay('inline')
         }
     }
 
@@ -207,16 +144,6 @@ const FAQ: React.FC  = () => {
                 title='Correlation Coeffecient'>
                     Corr
                 </li>
-            
-                {/* <li className='li-header'>
-                    Application
-                </li>
-
-                <li className= {dataClass}
-                onClick={() => ClickData()}
-                title='Correlation Coeffecient'>
-                    Using Data
-                </li>   */}
             </ul>
         </div>
 
