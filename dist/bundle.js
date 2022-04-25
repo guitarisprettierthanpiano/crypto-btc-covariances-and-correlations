@@ -581,14 +581,13 @@ const Overlay_1 = __importDefault(__webpack_require__(483));
 const mainpage_1 = __importDefault(__webpack_require__(475));
 const Nav = react_1.default.lazy(() => Promise.resolve().then(() => __importStar(__webpack_require__(682))));
 const App = () => {
-    //on initial app load, send prop to api component telling it to fetch.
     const [counter, setCounter] = react_1.default.useState(0);
     react_1.default.useEffect(() => {
         setCounter(counter + 1);
     }, []);
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Overlay_1.default, null),
-        react_1.default.createElement("div", { className: 'page-container' },
+        react_1.default.createElement("div", { className: "page-container" },
             react_1.default.createElement(react_1.default.Suspense, { fallback: react_1.default.createElement("div", null) },
                 react_1.default.createElement(mainpage_1.default, { counters: counter }),
                 react_1.default.createElement(Nav, null)))));
@@ -636,7 +635,6 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(294));
 const faqbg1_webp_1 = __importDefault(__webpack_require__(132));
 const FAQ = () => {
-    //i'm generating these strings from http://atomurl.net/math/ 
     const covariance = '$Cov[X,  BTC]=\\sum_{i=1}^{30}\\frac{{(X_i - E[X])}{(BTC_i - E[BTC])}}{30}$';
     const correlation = '$ρ_{X, BTC}=Corr[X, BTC]=\\frac{Cov[X, BTC]}{{\\sigma_X}{\\sigma_{BTC}}}$';
     const mean = `$E[X]=Mean[X]=\\frac{100}{30}⋅ \\sum_{i=1}^{30}\\frac{{X_{i+1}-{X_i}}}{X_i}$`;
@@ -645,19 +643,16 @@ const FAQ = () => {
     const varianceproof = `$Cov[X, X] = E[(X_{i}-E[X])(X_{i}-E[X])] = E[(X_{i}-E[X])^{2}] = Var[X]$`;
     const varianceproof2 = `$ρ_{X, X}=Corr[X, X]=\\frac{Cov[X, X]}{σ_{X} σ_{X}} = \\frac{Var[X]}{Var[X]} = 1$`;
     const i1 = `$i +1$`;
-    //these are useStates to change the classNames of the li's below. changing the active div will trigger which li is highlighted. it is styled as '.current' in the css file.
     const [meanClass, setMeanClass] = react_1.default.useState('current');
     const [varClass, setVarClass] = react_1.default.useState('none');
     const [volClass, setVolClass] = react_1.default.useState('none');
     const [covarClass, setCovarClass] = react_1.default.useState('none');
     const [corrClass, setCorrClass] = react_1.default.useState('none');
-    //when a nav li is clicked on, it will display that div and hide the others.
     const [meanDisplay, setMeanDisplay] = react_1.default.useState('inline');
     const [varDisplay, setVarDisplay] = react_1.default.useState('none');
     const [volDisplay, setVolDisplay] = react_1.default.useState('none');
     const [covarDisplay, setCovarDisplay] = react_1.default.useState('none');
     const [corrDisplay, setCorrDisplay] = react_1.default.useState('none');
-    //these are called by the onClick attributes in the sidebar.
     const ClickMean = () => {
         if (meanDisplay === 'none') {
             setMeanClass('current');
@@ -728,62 +723,62 @@ const FAQ = () => {
             setCorrDisplay('inline');
         }
     };
-    return (react_1.default.createElement("div", { id: 'faq-container', style: { backgroundImage: `url(${faqbg1_webp_1.default})` } },
-        react_1.default.createElement("div", { className: 'sticky-sidebar' },
+    return (react_1.default.createElement("div", { id: "faq-container", style: { backgroundImage: `url(${faqbg1_webp_1.default})` } },
+        react_1.default.createElement("div", { className: "sticky-sidebar" },
             react_1.default.createElement("ul", null,
-                react_1.default.createElement("li", { className: 'li-header' }, "Variables"),
-                react_1.default.createElement("li", { className: meanClass, onClick: () => ClickMean(), title: 'Expected Value' }, "Mean"),
-                react_1.default.createElement("li", { className: varClass, onClick: () => ClickVar(), title: 'Variance' }, "Var"),
-                react_1.default.createElement("li", { className: volClass, onClick: () => ClickVol(), title: 'Volatility' }, "Vol"),
-                react_1.default.createElement("li", { className: covarClass, onClick: () => ClickCovar(), title: 'Covariance' }, "Cov"),
-                react_1.default.createElement("li", { className: corrClass, onClick: () => ClickCorr(), title: 'Correlation Coeffecient' }, "Corr"))),
-        react_1.default.createElement("div", { className: 'faq-h1' },
+                react_1.default.createElement("li", { className: "li-header" }, "Variables"),
+                react_1.default.createElement("li", { className: meanClass, onClick: () => ClickMean(), title: "Expected Value" }, "Mean"),
+                react_1.default.createElement("li", { className: varClass, onClick: () => ClickVar(), title: "Variance" }, "Var"),
+                react_1.default.createElement("li", { className: volClass, onClick: () => ClickVol(), title: "Volatility" }, "Vol"),
+                react_1.default.createElement("li", { className: covarClass, onClick: () => ClickCovar(), title: "Covariance" }, "Cov"),
+                react_1.default.createElement("li", { className: corrClass, onClick: () => ClickCorr(), title: "Correlation Coeffecient" }, "Corr"))),
+        react_1.default.createElement("div", { className: "faq-h1" },
             react_1.default.createElement("h1", null, "Frequently Asked Questions")),
-        react_1.default.createElement("div", { className: 'faq-subcontainer' },
-            react_1.default.createElement("div", { className: 'desc-mean', style: { 'display': `${meanDisplay}` } },
+        react_1.default.createElement("div", { className: "faq-subcontainer" },
+            react_1.default.createElement("div", { className: "desc-mean", style: { display: `${meanDisplay}` } },
                 react_1.default.createElement("h2", null, "What is Mean?"),
                 react_1.default.createElement("p", null,
-                    "This represents the expected percent of gain or loss each day. It is the weighted average of recent returns. The mean it is calculated by summing the realized daily returns and dividing by the number of days. The returns are the percentage changes in the value of the asset per dollar initially invested. I am multiplying by 100 to get a number that looks like 2.00 rather than 0.02. Then dividing by 30 because I am calculating the mean over 30 days. I'm fetching 31 days of data because the formula uses  ",
+                    "This represents the expected percent of gain or loss each day. It is the weighted average of recent returns. The mean it is calculated by summing the realized daily returns and dividing by the number of days. The returns are the percentage changes in the value of the asset per dollar initially invested. I am multiplying by 100 to get a number that looks like 2.00 rather than 0.02. Then dividing by 30 because I am calculating the mean over 30 days. I'm fetching 31 days of data because the formula uses ",
                     i1,
                     "."),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement("div", { className: 'mjs' }, mean),
+                react_1.default.createElement("div", { className: "mjs" }, mean),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("ul", null,
                     react_1.default.createElement("li", null, "A positive number likely indicates an uptrend."),
                     react_1.default.createElement("li", null, "A negative number likely indicates a downtrend."))),
-            react_1.default.createElement("div", { className: 'desc-var', style: { 'display': `${varDisplay}` } },
+            react_1.default.createElement("div", { className: "desc-var", style: { display: `${varDisplay}` } },
                 react_1.default.createElement("h2", null, "What is Variance?"),
                 react_1.default.createElement("p", null, "Variance is the expected squared deviation from the mean. It is a measure of the dispersion of returns. Although not used directly to make observations, it is used within the calculations of volatility, covariance and correlation. The variance and covariance of BTC are equal. Therefore the correlation will be 1, as expected."),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement("div", { className: 'mjs' }, variance),
+                react_1.default.createElement("div", { className: "mjs" }, variance),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement("div", { className: 'mjs' }, varianceproof),
+                react_1.default.createElement("div", { className: "mjs" }, varianceproof),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement("div", { className: 'mjs' }, varianceproof2)),
-            react_1.default.createElement("div", { className: 'desc-vol', style: { 'display': `${volDisplay}` } },
+                react_1.default.createElement("div", { className: "mjs" }, varianceproof2)),
+            react_1.default.createElement("div", { className: "desc-vol", style: { display: `${volDisplay}` } },
                 react_1.default.createElement("h2", null, "What is Volatility?"),
                 react_1.default.createElement("p", null, "Volatility, or standard deviation, is a measure of the dispersion of returns for an asset. It is the backbone of popular volatility market incidators such as bollinger bands and confidence intervals. It is calculated simply via the square root of the variance."),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement("div", { className: 'mjs' }, volatility),
+                react_1.default.createElement("div", { className: "mjs" }, volatility),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("ul", null,
                     react_1.default.createElement("li", null, "High volatility indicates a wide price range while low volatility indicates a narrow price range."),
                     react_1.default.createElement("li", null, "Volatility cannot be negative as it is the result of a square root calculation."))),
-            react_1.default.createElement("div", { className: 'desc-cov', style: { 'display': `${covarDisplay}` } },
+            react_1.default.createElement("div", { className: "desc-cov", style: { display: `${covarDisplay}` } },
                 react_1.default.createElement("h2", null, "What is Covariance?"),
                 react_1.default.createElement("p", null, "Covariance measures the extent or magnitude to which two variables fluctuate or move together. It is not normalized so it could be hard to use the variable as it is."),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement("div", { className: 'mjs' }, covariance),
+                react_1.default.createElement("div", { className: "mjs" }, covariance),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("ul", null,
                     react_1.default.createElement("li", null, "If the covariance is positive, then the two variables tend to move together. If the covariance is negative, then the two variables tend to move in opposite directions."),
                     react_1.default.createElement("li", null, "If the covariance is 0, then there is no linear relationship between the two variables."))),
-            react_1.default.createElement("div", { className: 'desc-cor', style: { 'display': `${corrDisplay}` } },
+            react_1.default.createElement("div", { className: "desc-cor", style: { display: `${corrDisplay}` } },
                 react_1.default.createElement("h2", null, "What is Correlation?"),
                 react_1.default.createElement("p", null, "Correlation, specifically the correlation coeffecient, is a unitless measure of the strength and direction of the linear relationship between two assets. It is dimensionless and normalized between -1 and 1. It is calculated by dividing the covariance of two assets by the product of their standard deviations."),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement("div", { className: 'mjs' }, correlation),
+                react_1.default.createElement("div", { className: "mjs" }, correlation),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("ul", null,
                     react_1.default.createElement("li", null, "A correlation of 1 indicates perfect positive correlation between two assets. A correlation of -1 indicates perfect negative correlation. A correlation of 0 indicates no linear relationship."),
@@ -806,7 +801,6 @@ const react_1 = __importDefault(__webpack_require__(294));
 const faq_1 = __importDefault(__webpack_require__(976));
 const table_webp_1 = __importDefault(__webpack_require__(4));
 const MainPage = (props) => {
-    //some of these variables I need to keep outside the following function because I recall them consistantly after every fetch. So I declared them all here so I can find them easily.
     let data = [];
     let btcVolatility = 0;
     let btcMean = 0;
@@ -822,15 +816,11 @@ const MainPage = (props) => {
     let correlation = 0;
     async function FetchNOW() {
         if (props.counters > 0) {
-            // document.getElementById('overlay').style.display='none'
             return;
         }
-        // else{
-        //     document.getElementById('overlay').style.display='grid'
-        // }
         const goFetch = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false`)
-            .then(res => res.json())
-            .then(result => {
+            .then((res) => res.json())
+            .then((result) => {
             for (let i = 0; i < 50; i++) {
                 data.push(result[i].id);
                 let tableRow = document.createElement('tr');
@@ -845,22 +835,24 @@ const MainPage = (props) => {
                 tableRow.classList.add(result[i].id);
                 tableRow.appendChild(nameTD);
                 let priceTD = document.createElement('td');
-                priceTD.innerText = result[i].current_price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                priceTD.innerText = result[i].current_price
+                    .toFixed(2)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                 tableRow.appendChild(priceTD);
                 let mcapTD = document.createElement('td');
                 mcapTD.innerText = result[i].market_cap.toLocaleString();
                 tableRow.appendChild(mcapTD);
                 document.querySelector('tbody').appendChild(tableRow);
                 fetch(`https://api.coingecko.com/api/v3/coins/${result[i].id}/market_chart?vs_currency=usd&days=31&interval=daily`)
-                    .then(res => res.json())
-                    .then(resulto => {
+                    .then((res) => res.json())
+                    .then((resulto) => {
                     if (result[i].id === 'compound-usd-coin' ||
                         result[i].id === 'usd-coin' ||
                         result[i].id === 'binance-usd' ||
                         result[i].id === 'terrausd' ||
                         result[i].id === 'dai' ||
                         result[i].id === 'tether') {
-                        //fill in with blank cells with 
                         for (let z = 0; z < 5; z++) {
                             let blankEle = document.createElement('td');
                             blankEle.innerText = '';
@@ -874,28 +866,25 @@ const MainPage = (props) => {
                     }
                     altReturnsArray = [];
                     for (let b = 0; b < 30; b++) {
-                        let returns = 100 * ((altPriceArray[b + 1] - altPriceArray[b])
-                            /
-                                (altPriceArray[b]));
+                        let returns = 100 *
+                            ((altPriceArray[b + 1] - altPriceArray[b]) /
+                                altPriceArray[b]);
                         altReturnsArray.push(returns);
                     }
-                    ;
-                    //36146 - 56507 / 56507 = -.36
                     mean = 0;
                     for (let d = 0; d < 30; d++) {
-                        mean += (altReturnsArray[d] / 30);
+                        mean += altReturnsArray[d] / 30;
                     }
                     meanOfTheSquare = 0;
                     for (let c = 0; c < 30; c++) {
-                        meanOfTheSquare += Math.pow((altReturnsArray[c]), 2) / 30;
+                        meanOfTheSquare += Math.pow(altReturnsArray[c], 2) / 30;
                     }
-                    ;
                     variance = 0;
                     volatility = 0;
                     variance = meanOfTheSquare - Math.pow(mean, 2);
                     volatility = Math.sqrt(variance);
                     let meanTD = document.createElement('td');
-                    meanTD.innerText = (mean).toFixed(2).toString() + '%';
+                    meanTD.innerText = mean.toFixed(2).toString() + '%';
                     document.querySelector(`.${data[i]}`).appendChild(meanTD);
                     let varTD = document.createElement('td');
                     varTD.innerText = variance.toFixed(2).toString();
@@ -914,9 +903,10 @@ const MainPage = (props) => {
                     covariance = 0;
                     correlation = 0;
                     for (let k = 0; k < 30; k++) {
-                        covariance += (((altReturnsArray[k] - mean)
-                            * (btcReturnsArray[k] - btcMean))
-                            / 30);
+                        covariance +=
+                            ((altReturnsArray[k] - mean) *
+                                (btcReturnsArray[k] - btcMean)) /
+                                30;
                     }
                     correlation = covariance / (btcVolatility * volatility);
                     let covarTD = document.createElement('td');
@@ -930,10 +920,8 @@ const MainPage = (props) => {
                     }, 2000);
                 });
             }
-            ;
         });
     }
-    ;
     react_1.default.useEffect(() => {
         setTimeout(function () {
             FetchNOW();
@@ -941,24 +929,26 @@ const MainPage = (props) => {
     }, [props.counters]);
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(faq_1.default, null),
-        react_1.default.createElement("div", { id: 'main-container' },
-            react_1.default.createElement("h1", null, "Bitcoin Covariances and Correlations"),
+        react_1.default.createElement("div", { id: "main-container" },
+            react_1.default.createElement("h1", null, "Bitcoin Correlations"),
             react_1.default.createElement("h4", null, "Calculated off of the last thirty daily closures"),
-            react_1.default.createElement("button", { onClick: () => setTimeout(function () { location.reload(); }, 10), title: 'Click if you see NaN below.' }, "\u27F3"),
-            react_1.default.createElement("table", { className: 'coin-table', style: { backgroundImage: `url(${table_webp_1.default})` } },
+            react_1.default.createElement("button", { onClick: () => setTimeout(function () {
+                    location.reload();
+                }, 10), title: "Click if you see NaN below." }, "\u27F3"),
+            react_1.default.createElement("table", { className: "coin-table", style: { backgroundImage: `url(${table_webp_1.default})` } },
                 react_1.default.createElement("thead", null,
-                    react_1.default.createElement("tr", { className: 'tr1' },
-                        react_1.default.createElement("th", { className: 'rank', title: "Market Cap Rank" }, "#"),
-                        react_1.default.createElement("th", { className: 'name', title: "Ticker" }, "Name"),
-                        react_1.default.createElement("th", { className: 'price', title: 'USD Price' }, "Price"),
-                        react_1.default.createElement("th", { className: 'market-cap', title: 'Market Capitalization' }, "Market Cap"),
-                        react_1.default.createElement("th", { className: 'return', title: 'Expected Value' }, "Mean"),
-                        react_1.default.createElement("th", { className: 'var', title: 'Variance' }, "Var"),
-                        react_1.default.createElement("th", { className: 'sig', title: 'Volatility' }, "Vol"),
-                        react_1.default.createElement("th", { className: 'covar', title: 'Covariance' }, "Cov"),
-                        react_1.default.createElement("th", { className: 'cor', title: 'Correlation Coefffecient' }, "Corr"))),
+                    react_1.default.createElement("tr", { className: "tr1" },
+                        react_1.default.createElement("th", { className: "rank", title: "Market Cap Rank" }, "#"),
+                        react_1.default.createElement("th", { className: "name", title: "Ticker" }, "Name"),
+                        react_1.default.createElement("th", { className: "price", title: "USD Price" }, "Price"),
+                        react_1.default.createElement("th", { className: "market-cap", title: "Market Capitalization" }, "Market Cap"),
+                        react_1.default.createElement("th", { className: "return", title: "Expected Value" }, "Mean"),
+                        react_1.default.createElement("th", { className: "var", title: "Variance" }, "Var"),
+                        react_1.default.createElement("th", { className: "sig", title: "Volatility" }, "Vol"),
+                        react_1.default.createElement("th", { className: "covar", title: "Covariance" }, "Cov"),
+                        react_1.default.createElement("th", { className: "cor", title: "Correlation Coefffecient" }, "Corr"))),
                 react_1.default.createElement("tbody", null)),
-            react_1.default.createElement("div", { className: 'span-container' },
+            react_1.default.createElement("div", { className: "span-container" },
                 react_1.default.createElement("span", null, "*Price and Market Cap are in US Dollars."),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null, "*'Stable Coins' do not have data calculated."),
@@ -980,7 +970,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(294));
 const Nav = () => {
-    //clicking home will hide the faq overlay.
     const HomeClicked = () => {
         document.getElementById('overlay').style.display = 'grid';
         setTimeout(() => {
@@ -989,7 +978,6 @@ const Nav = () => {
         document.querySelector('table').style.visibility = 'visible';
         document.getElementById('faq-container').style.display = 'none';
     };
-    //clicking faq will bring forward the faq overlay.
     const FAQClicked = () => {
         document.getElementById('overlay').style.display = 'grid';
         setTimeout(() => {
