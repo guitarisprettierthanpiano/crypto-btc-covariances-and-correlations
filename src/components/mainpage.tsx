@@ -165,6 +165,7 @@ const MainPage: React.FC<Props> = (props) => {
 
               let corrTD = document.createElement('td');
               corrTD.innerText = correlation.toFixed(5).toString();
+              corrTD.classList.add('corr-coeff')
               document.querySelector(`.${data[i]}`).appendChild(corrTD);
 
               setTimeout(function () {

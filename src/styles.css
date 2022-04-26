@@ -360,6 +360,9 @@ td:hover::after {
 td:hover {
   background-color: rgb(20, 20, 20, 0);
 }
+.corr-coeff {
+  font-weight: 600;
+}
 
 /* faq */
 #faq-container {

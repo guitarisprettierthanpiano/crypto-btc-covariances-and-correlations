@@ -914,6 +914,7 @@ const MainPage = (props) => {
                     document.querySelector(`.${data[i]}`).appendChild(covarTD);
                     let corrTD = document.createElement('td');
                     corrTD.innerText = correlation.toFixed(5).toString();
+                    corrTD.classList.add('corr-coeff');
                     document.querySelector(`.${data[i]}`).appendChild(corrTD);
                     setTimeout(function () {
                         document.getElementById('overlay').style.display = 'none';
