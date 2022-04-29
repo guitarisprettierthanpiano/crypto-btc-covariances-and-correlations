@@ -853,7 +853,7 @@ const MainPage = (props) => {
                         result[i].id === 'terrausd' ||
                         result[i].id === 'dai' ||
                         result[i].id === 'tether' ||
-                        result[i].id === 'magic internet money' ||
+                        result[i].id === 'magic-internet-money' ||
                         result[i].id === 'frax') {
                         for (let z = 0; z < 5; z++) {
                             let blankEle = document.createElement('td');

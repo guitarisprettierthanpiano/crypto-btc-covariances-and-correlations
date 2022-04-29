@@ -84,7 +84,7 @@ const MainPage: React.FC<Props> = (props) => {
                 result[i].id === 'terrausd' ||
                 result[i].id === 'dai' ||
                 result[i].id === 'tether' ||
-                result[i].id === 'magic internet money' ||
+                result[i].id === 'magic-internet-money' ||
                 result[i].id === 'frax'
               ) {
                 //fill in with blank cells with
