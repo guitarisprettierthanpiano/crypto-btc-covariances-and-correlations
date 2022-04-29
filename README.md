@@ -7,9 +7,6 @@ First it fetches the top 50 market cap coins from Coingeko.
 Second it fetches their prices over the last 30 days and calculates the data you see in the table.
 It is a simple idea but quite powerful indeed. Enjoy!
 
-Tools used: useEffect, fetch, async and await, HashRouter, Switch, Router, NavLink
 
-Dependencies: react-mathjax3
-
-my table bg images are from:
+my table bg images are from this figma community link. then i converted them to webp.:
 https://www.figma.com/community/file/1066067487616114998

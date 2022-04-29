@@ -9,14 +9,15 @@ body {
 
   transition: all 0.05s ease-in-out;
 
-  font-family: 'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode';
+  /* font-family: 'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode'; */
+
+    font-family: 'Lato', sans-serif;
 
   color: rgb(188, 188, 228);
 }
 p,
 span,
-button,
 input,
 textarea,
 label,
@@ -214,27 +215,25 @@ nav ul li:nth-of-type(1) {
 
 button {
   background-color: rgba(255, 166, 0, 0);
-  width: 30px;
-  height: 30px;
+
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
+  line-height: 1;
 
+  margin-bottom: 4px;
   border: none;
-
   cursor: pointer;
-  align-self: center;
-}
 
-/*this is from https://codepen.io/teerapuch/pen/vLJXeR */
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  text-justify: center;
+}
 button:hover {
   animation-name: spin;
-  animation-duration: 1000ms;
+  animation-duration: 0.6s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  /* transform: rotate(3deg); */
-  /* transform: rotate(0.3rad);/ */
-  /* transform: rotate(3grad); */
-  /* transform: rotate(.03turn);  */
 }
 @keyframes spin {
   from {
@@ -362,6 +361,7 @@ td:hover {
 }
 .corr-coeff {
   font-weight: 600;
+  /* background-color: #000114 !important; */
 }
 
 /* faq */
@@ -561,7 +561,6 @@ td:hover {
 @media screen and (max-width: 1023px) {
   p,
   span,
-  button,
   input,
   textarea,
   label,
