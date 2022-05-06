@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Overlay from './components/Overlay';
 import MainPage from './components/mainpage';
 const Nav: React.LazyExoticComponent<React.FC<{}>> = React.lazy(
   () => import('./components/nav')

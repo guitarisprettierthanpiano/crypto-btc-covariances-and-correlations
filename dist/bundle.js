@@ -919,7 +919,7 @@ const MainPage = (props) => {
                     corrTD.classList.add('corr-coeff');
                     document.querySelector(`.${data[i]}`).appendChild(corrTD);
                     setTimeout(() => {
-                    }, 3000);
+                    }, 2000);
                 });
             }
         });
@@ -938,7 +938,7 @@ const MainPage = (props) => {
             react_1.default.createElement("h4", null, "Calculated off of the last thirty daily closures"),
             react_1.default.createElement("button", { onClick: () => setTimeout(() => {
                     location.reload();
-                }, 10), title: "Click if you see NaN below." }, "\u27F3"),
+                }, 10), title: "Click if you see NaN below." }),
             react_1.default.createElement("table", { className: "coin-table", style: { backgroundImage: `url(${table_webp_1.default})` } },
                 react_1.default.createElement("thead", null,
                     react_1.default.createElement("tr", { className: "tr1" },
@@ -973,27 +973,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(294));
+const Overlay_1 = __importDefault(__webpack_require__(483));
 const Nav = () => {
+    const [overlaying, setOverlaying] = react_1.default.useState(false);
     const HomeClicked = () => {
-        document.getElementById('overlay').style.display = 'grid';
-        setTimeout(() => {
-            document.getElementById('overlay').style.display = 'none';
-        }, 800);
+        setOverlaying(true);
         document.querySelector('table').style.visibility = 'visible';
         document.getElementById('faq-container').style.display = 'none';
+        setTimeout(() => {
+            setOverlaying(false);
+        }, 800);
     };
     const FAQClicked = () => {
-        document.getElementById('overlay').style.display = 'grid';
-        setTimeout(() => {
-            document.getElementById('overlay').style.display = 'none';
-        }, 800);
+        setOverlaying(true);
         document.getElementById('faq-container').style.display = 'grid';
         document.querySelector('table').style.visibility = 'collapse';
+        setTimeout(() => {
+            setOverlaying(false);
+        }, 800);
     };
-    return (react_1.default.createElement("nav", null,
-        react_1.default.createElement("ul", null,
-            react_1.default.createElement("li", { onClick: HomeClicked }, "Data"),
-            react_1.default.createElement("li", { onClick: FAQClicked }, "FAQ"))));
+    return (react_1.default.createElement(react_1.default.Fragment, null, overlaying === true ? (react_1.default.createElement(Overlay_1.default, null)) : (react_1.default.createElement(react_1.default.Fragment, null,
+        ' ',
+        react_1.default.createElement("nav", null,
+            react_1.default.createElement("ul", null,
+                react_1.default.createElement("li", { onClick: HomeClicked }, "Data"),
+                react_1.default.createElement("li", { onClick: FAQClicked }, "FAQ")))))));
 };
 exports.default = Nav;
 
