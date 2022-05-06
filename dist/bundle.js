@@ -936,9 +936,7 @@ const MainPage = (props) => {
         react_1.default.createElement("div", { id: "main-container" },
             react_1.default.createElement("h1", null, "Bitcoin Correlations"),
             react_1.default.createElement("h4", null, "Calculated off of the last thirty daily closures"),
-            react_1.default.createElement("button", { onClick: () => setTimeout(() => {
-                    location.reload();
-                }, 10), title: "Click if you see NaN below." }),
+            react_1.default.createElement("button", { title: "Click if you see NaN below." }, "0"),
             react_1.default.createElement("table", { className: "coin-table", style: { backgroundImage: `url(${table_webp_1.default})` } },
                 react_1.default.createElement("thead", null,
                     react_1.default.createElement("tr", { className: "tr1" },

@@ -202,14 +202,15 @@ const MainPage: React.FC<Props> = (props) => {
         <h4>Calculated off of the last thirty daily closures</h4>
 
         <button
-          onClick={() =>
-            setTimeout(() => {
-              location.reload();
-            }, 10)
-          }
+          // onClick={() =>
+          //   setTimeout(() => {
+          //     location.reload();
+          //   }, 10)
+          // }
           title="Click if you see NaN below."
+          // style={{color:'rgb(0,0,0,0)'}}
         >
-           
+           0
         </button>
         <table
           className="coin-table"

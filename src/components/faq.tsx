@@ -270,23 +270,6 @@ const FAQ: React.FC = () => {
           </ul>
         </div>
 
-        {/* <div className='desc-data'
-            style={{'display':`${dataDisplay}`}}>
-                <h2>How To Use This Data?</h2>
-                <p>I am surprised that there is not a simple webpage out there that shows correlations of large cap crypto assets against Bitcoin. There are strong relationships amongst these coins with Bitcoin, but how quantitatively strong? I am presenting one way to view those relationships.</p><br/>
-
-                <p>
-                Although one might find the variances and covariances useful, I am more interested means, volatilities and correlations. They are calculated on the way to the correlations so I figured I would present them for anyone interested.</p><br/>
-                
-                <p id='hideonsmall'>
-                Assets with smaller market caps often overreact to trending market moves. If I thought Bitcoin was going to make a move but wanted to take on additional risk without using leverage, I might look at something with higher volatility with high correlation coeffecient to diversify into.</p>
-            </div>
-
-            <div className='desc-ex'
-            style={{'display':`${exDisplay}`}}>
-                <h2>An Example</h2>
-                <p></p> */}
-        {/* </div> */}
       </div>
     </div>
   );
