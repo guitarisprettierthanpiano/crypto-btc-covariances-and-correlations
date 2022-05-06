@@ -577,7 +577,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(294));
-const Overlay_1 = __importDefault(__webpack_require__(483));
 const mainpage_1 = __importDefault(__webpack_require__(475));
 const Nav = react_1.default.lazy(() => Promise.resolve().then(() => __importStar(__webpack_require__(682))));
 const App = () => {
@@ -586,7 +585,6 @@ const App = () => {
         setCounter(counter + 1);
     }, []);
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(Overlay_1.default, null),
         react_1.default.createElement("div", { className: "page-container" },
             react_1.default.createElement(react_1.default.Suspense, { fallback: react_1.default.createElement("div", null) },
                 react_1.default.createElement(mainpage_1.default, { counters: counter }),
@@ -800,7 +798,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(294));
 const faq_1 = __importDefault(__webpack_require__(976));
 const table_webp_1 = __importDefault(__webpack_require__(4));
+const Overlay_1 = __importDefault(__webpack_require__(483));
 const MainPage = (props) => {
+    const [fetching, setFetching] = react_1.default.useState(true);
     let data = [];
     let btcVolatility = 0;
     let btcMean = 0;
@@ -814,13 +814,13 @@ const MainPage = (props) => {
     let volatility = 0;
     let covariance = 0;
     let correlation = 0;
-    async function FetchNOW() {
+    const FetchNOW = async () => {
         if (props.counters > 0) {
             return;
         }
         const goFetch = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false`)
             .then((res) => res.json())
-            .then((result) => {
+            .then(async (result) => {
             for (let i = 0; i < 50; i++) {
                 data.push(result[i].id);
                 let tableRow = document.createElement('tr');
@@ -844,7 +844,7 @@ const MainPage = (props) => {
                 mcapTD.innerText = result[i].market_cap.toLocaleString();
                 tableRow.appendChild(mcapTD);
                 document.querySelector('tbody').appendChild(tableRow);
-                fetch(`https://api.coingecko.com/api/v3/coins/${result[i].id}/market_chart?vs_currency=usd&days=31&interval=daily`)
+                const goFetcher = await fetch(`https://api.coingecko.com/api/v3/coins/${result[i].id}/market_chart?vs_currency=usd&days=31&interval=daily`)
                     .then((res) => res.json())
                     .then((resulto) => {
                     if (result[i].id === 'compound-usd-coin' ||
@@ -918,24 +918,25 @@ const MainPage = (props) => {
                     corrTD.innerText = correlation.toFixed(5).toString();
                     corrTD.classList.add('corr-coeff');
                     document.querySelector(`.${data[i]}`).appendChild(corrTD);
-                    setTimeout(function () {
-                        document.getElementById('overlay').style.display = 'none';
-                    }, 2000);
+                    setTimeout(() => {
+                    }, 3000);
                 });
             }
         });
-    }
+        setFetching(false);
+    };
     react_1.default.useEffect(() => {
-        setTimeout(function () {
+        setTimeout(() => {
             FetchNOW();
         }, 2000);
     }, [props.counters]);
     return (react_1.default.createElement(react_1.default.Fragment, null,
+        fetching === true ? react_1.default.createElement(Overlay_1.default, null) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement(faq_1.default, null),
         react_1.default.createElement("div", { id: "main-container" },
             react_1.default.createElement("h1", null, "Bitcoin Correlations"),
             react_1.default.createElement("h4", null, "Calculated off of the last thirty daily closures"),
-            react_1.default.createElement("button", { onClick: () => setTimeout(function () {
+            react_1.default.createElement("button", { onClick: () => setTimeout(() => {
                     location.reload();
                 }, 10), title: "Click if you see NaN below." }, "\u27F3"),
             react_1.default.createElement("table", { className: "coin-table", style: { backgroundImage: `url(${table_webp_1.default})` } },

@@ -229,7 +229,7 @@ button {
   text-align: center;
   text-justify: center;
 }
-button:hover {
+/* button:hover {
   animation-name: spin;
   animation-duration: 0.4s;
   animation-iteration-count: infinite;
@@ -242,7 +242,7 @@ button:hover {
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 table {
     min-width: 65%;
@@ -325,7 +325,7 @@ td {
   cursor: crosshair;
   color: rgb(246, 244, 255);
 
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 table {
   overflow: hidden;
